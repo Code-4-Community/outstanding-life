@@ -9,16 +9,16 @@ A project to create a virtual community for LGBT seniors in the Massachusetts ar
 - [x] next-connect + middleware
 - [x] Chakra UI
 - [x] React Query
-- [] Testing
-  - [] Jest/Ava
-  - [] React Testing Library
-  - [] Cypress
-  - [] API Mocks
-- [] Next Auth
-- [] Documentation
-  - [] Swagger
-  - [] Pretty & Complete README
-- [] Environment Variables
+- [ ] Testing
+  - [ ] Jest/Ava
+  - [ ] React Testing Library
+  - [ ] Cypress
+  - [ ] API Mocks
+- [ ] Next Auth
+- [ ] Documentation
+  - [ ] Swagger
+  - [ ] Pretty & Complete README
+- [ ] Environment Variables
 
 
 ## 🛠️ Getting Started
@@ -29,7 +29,6 @@ Clone this repo and enter the root directory
 
 ```bash
 git clone https://github.com/Code-4-Community/vsc.git
-
 cd vsc
 ```
 
