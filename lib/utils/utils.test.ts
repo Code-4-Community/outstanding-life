@@ -1,5 +1,5 @@
-test("test", () => {
-    expect(1+2).toBe(3);
-})
+test('test', () => {
+  expect(1 + 2).toBe(3);
+});
 
-export {}
+export {};

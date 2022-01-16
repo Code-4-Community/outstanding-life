@@ -15,9 +15,7 @@ const queryClient = new QueryClient({
 
 const TestWrapper = ({ children }: { children?: React.ReactNode }) => (
   <QueryClientProvider client={queryClient}>
-    <ChakraProvider theme={theme}>
-      {children}
-    </ChakraProvider>
+    <ChakraProvider theme={theme}>{children}</ChakraProvider>
   </QueryClientProvider>
 );
 

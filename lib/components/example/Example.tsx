@@ -1,15 +1,9 @@
 import React from 'react';
 
-interface testProps {
-    
-}
+interface testProps {}
 
 const ExampleC: React.FC<testProps> = () => {
-    return (
-        <div>
-            Hello world
-        </div>
-    );
+  return <div>Hello world</div>;
 };
 
 export default ExampleC;

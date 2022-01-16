@@ -6,8 +6,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "check": "prettier --check {pages,lib}/**/*.{js,ts,tsx}",
     "format": "prettier --write {pages,lib}/**/*.{js,ts,tsx}",
-    "test": "npx jest"
+    "test": "npx jest",
+    "prepush:fix": "npm run format && npm run lint",
+    "prepush": "npm run check && npm run lint"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.7.3",

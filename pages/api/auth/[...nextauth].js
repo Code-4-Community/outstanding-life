@@ -1,6 +1,6 @@
-import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
-import CognitoProvider from "next-auth/providers/cognito";
+import NextAuth from 'next-auth';
+import GithubProvider from 'next-auth/providers/github';
+import CognitoProvider from 'next-auth/providers/cognito';
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -16,4 +16,4 @@ export default NextAuth({
     }),
     // ...add more providers here
   ],
-})
+});
