@@ -9,16 +9,18 @@ A project to create a virtual community for LGBT seniors in the Massachusetts ar
 - [x] next-connect + middleware
 - [x] Chakra UI
 - [x] React Query
-- [ ] Testing
-  - [ ] Jest/Ava
+- [x] Environment Variables
+- [x] Next Auth
+- [x] Testing
+  - [x] Jest/Ava
   - [x] React Testing Library
   - [x] Cypress
-  - [ ] API Mocks
-- [x] Next Auth
+  - [x] API Mocks
 - [ ] Documentation
   - [ ] Swagger
   - [ ] Pretty & Complete README
-- [ ] Environment Variables
+- [ ] Sentry
+- [ ] Pull request template
 
 
 ## 🛠️ Getting Started
