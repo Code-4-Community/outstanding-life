@@ -6,15 +6,18 @@ import {
   QueryClientProvider,
 } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { SessionProvider } from "next-auth/react"
 
 const queryClient = new QueryClient();
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <ChakraProvider>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-        <ReactQueryDevtools />
+        <SessionProvider session={session}>
+          <Component {...pageProps} />
+          <ReactQueryDevtools />
+        </SessionProvider>
       </QueryClientProvider>
     </ChakraProvider>
   );

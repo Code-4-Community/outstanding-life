@@ -1,15 +1,19 @@
-import NextAuth from 'next-auth'
-import AppleProvider from 'next-auth/providers/apple'
-import FacebookProvider from 'next-auth/providers/facebook'
-import GoogleProvider from 'next-auth/providers/google'
-import EmailProvider from 'next-auth/providers/email'
+import NextAuth from "next-auth"
+import GithubProvider from "next-auth/providers/github"
+import CognitoProvider from "next-auth/providers/cognito";
 
 export default NextAuth({
+  // Configure one or more authentication providers
   providers: [
-    // Passwordless / email sign in
-    EmailProvider({
-      server: process.env.MAIL_SERVER,
-      from: 'NextAuth.js <no-reply@example.com>'
+    GithubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
     }),
-  ]
+    CognitoProvider({
+      clientId: process.env.COGNITO_CLIENT_ID,
+      clientSecret: process.env.COGNITO_CLIENT_SECRET,
+      issuer: process.env.COGNITO_ISSUER,
+    }),
+    // ...add more providers here
+  ],
 })

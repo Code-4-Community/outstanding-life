@@ -11,10 +11,10 @@ A project to create a virtual community for LGBT seniors in the Massachusetts ar
 - [x] React Query
 - [ ] Testing
   - [ ] Jest/Ava
-  - [ ] React Testing Library
+  - [x] React Testing Library
   - [x] Cypress
   - [ ] API Mocks
-- [ ] Next Auth
+- [x] Next Auth
 - [ ] Documentation
   - [ ] Swagger
   - [ ] Pretty & Complete README
