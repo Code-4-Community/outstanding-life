@@ -38,7 +38,7 @@ jobs:
       POSTGRES_HOST: localhost
       POSTGRES_PORT: 5432
       JWT_SECRET: test_secret_for_CI
-      DATABASE_URL: localhost:5432
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/vsc?schema=public
 
     steps:
       - uses: actions/checkout@v2
