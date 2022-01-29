@@ -1,6 +1,5 @@
-import hello from '../api/hello';
+import hello from '../../pages/api/hello';
 import httpMocks from 'node-mocks-http';
-import exp from 'constants';
 
 test('it says hello', () => {
   const request = httpMocks.createRequest({
