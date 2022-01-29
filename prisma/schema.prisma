@@ -11,6 +11,17 @@ datasource db {
 }
 
 model Category {
-  id    Int    @id @default(autoincrement())
-  name  String
+  id   Int    @id @default(autoincrement())
+  name String
+}
+
+model Profile {
+  id             Int            @id @default(autoincrement())
+  email          String         @unique
+  privilegeLevel PrivilegeLevel @default(PROFILE)
+}
+
+enum PrivilegeLevel {
+  PROFILE
+  ADMIN
 }
