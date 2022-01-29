@@ -7,5 +7,5 @@ type Data = {
 };
 
 export default makeRoute().get((req, res) => {
-  res.json({ name: "Hello world" });
-})
+  res.json({ name: 'Hello world' });
+});
