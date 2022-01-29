@@ -1,19 +1,18 @@
-import hello from "../api/hello"
-import httpMocks from "node-mocks-http";
-import exp from "constants";
+import hello from '../api/hello';
+import httpMocks from 'node-mocks-http';
+import exp from 'constants';
 
-test("it says hello", () => {
+test('it says hello', () => {
+  const request = httpMocks.createRequest({
+    method: 'GET',
+    url: '/api/hello',
+  });
 
-    const request  = httpMocks.createRequest({
-        method: 'GET',
-        url: '/api/hello',
-    });
+  const response = httpMocks.createResponse();
 
-    const response = httpMocks.createResponse();
+  hello(request, response);
 
-    hello(request, response);
-
-    const data = response._getJSONData(); // short-hand for JSON.parse( response._getData() );
-    expect(response.statusCode).toBe(200);
-    expect(data.name).toEqual("Hello world")
+  const data = response._getJSONData(); // short-hand for JSON.parse( response._getData() );
+  expect(response.statusCode).toBe(200);
+  expect(data.name).toEqual('Hello world');
 });
