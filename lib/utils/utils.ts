@@ -11,7 +11,7 @@ export default function makeRoute() {
         res.status(400).end(err.message);
       } else {
         res.status(500).end('Something broke!');
-      }     
+      }
     },
     onNoMatch: (req, res, next) => {
       res.status(404).end('Page is not found');
