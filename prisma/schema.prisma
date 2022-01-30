@@ -18,7 +18,7 @@ model Category {
 model News {
   id    Int    @id @default(autoincrement())
   title  String
-  description  String
+  content  String
   createdAt  DateTime   @default(now())
 }
 

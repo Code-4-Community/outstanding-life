@@ -1,24 +1,30 @@
 import { getNewsHandler, postNewsHandler} from '../../pages/api/news';
-import httpMocks from 'node-mocks-http';
+import httpMocks, { Body } from 'node-mocks-http';
 import prisma from '../../prisma/prisma';
-import { News, Prisma } from '@prisma/client';
+import { News } from '@prisma/client';
+import { NewsWrite } from '../../lib/api/createNewsRequest.dto';
+import { BadRequestError } from '../../lib/utils/errors/badRequestError';
 
-const createNews0 = {
+const createNews0:NewsWrite = {
   title: 'First news',
-  description: ':)'
+  content: ':)'
 };
+
+const createNewsBad:unknown = {
+  title: 'i\'m missing content field!'
+}
 
 const news0:News = {
   id: 0,
   title: 'First news',
-  description: ':)',
+  content: ':)',
   createdAt: new Date('1997-08-17')
 };
 
-const news1:News = {
+const news1 = {
   id: 1, 
   title: 'Second news',
-  description: ':))',
+  content: ':))',
   createdAt: new Date('2001-01-15')
 };
 
@@ -41,6 +47,20 @@ describe('news endpoint', () => {
   
     expect(response.statusCode).toBe(201);
     expect(await prisma.news.findMany({})).toEqual([expect.objectContaining(createNews0)]);
+
+  });
+
+  it('should fail to post an inadequate news', async () => {
+    const request = httpMocks.createRequest({
+      method: 'POST',
+      url: '/api/news',
+      body: createNewsBad as Body
+    });
+  
+    const response = httpMocks.createResponse();
+  
+    expect(postNewsHandler(request, response)).rejects.toThrow(
+      new BadRequestError('News must include title + content'));
 
   });
 
