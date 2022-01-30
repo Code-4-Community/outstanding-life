@@ -1,7 +1,7 @@
-import news from '../../pages/api/news';
+import { getNewsHandler, postNewsHandler} from '../../pages/api/news';
 import httpMocks from 'node-mocks-http';
 import prisma from '../../prisma/prisma';
-import { News } from '@prisma/client';
+import { News, Prisma } from '@prisma/client';
 
 const createNews0 = {
   title: 'First news',
@@ -37,10 +37,10 @@ describe('news endpoint', () => {
   
     const response = httpMocks.createResponse();
   
-    await news.run(request, response);
+    await postNewsHandler(request, response);
   
     expect(response.statusCode).toBe(201);
-    expect(await prisma.news.findMany()).toEqual([expect.objectContaining(createNews0)]);
+    expect(await prisma.news.findMany({})).toEqual([expect.objectContaining(createNews0)]);
 
   });
 
@@ -54,7 +54,7 @@ describe('news endpoint', () => {
   
     const response = httpMocks.createResponse();
   
-    await news.run(request, response);
+    await getNewsHandler(request, response);
   
     const data = response._getJSONData(); // short-hand for JSON.parse( response._getData() );
     expect(response.statusCode).toBe(200);
@@ -62,7 +62,14 @@ describe('news endpoint', () => {
       news0, news1
     ]);
   });
+
+  it('should be true', async () => {
+    await prisma.news.findMany({})
+    expect(true).toBe(true)
+  })
 }); 
+
+
 
 
 
