@@ -6,13 +6,13 @@ import { NewsWrite, newsWriteSchema } from '../../lib/api/createNewsRequest.dto'
 import { BadRequestError } from '../../lib/utils/errors/badRequestError';
 
 export const getNewsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
-  res.json({ news: await prisma.news.findMany() });
+  res.status(200).json({ news: await prisma.news.findMany() });
 };
 
 export const postNewsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const validatedNews = validateCreateNewsRequest(req.body);
   await prisma.news.create({ data: validatedNews });
-  res.status(201);
+  res.status(201).send('Success!');
 };
 
 export default makeRoute().get(getNewsHandler).post(postNewsHandler);
