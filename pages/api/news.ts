@@ -17,9 +17,9 @@ export const postNewsHandler = async (req: NextApiRequest, res: NextApiResponse)
 
 export default makeRoute().get(getNewsHandler).post(postNewsHandler);
 
-const validateCreateNewsRequest = (maybeNews:unknown) => {
+const validateCreateNewsRequest = (maybeNews: unknown) => {
   try {
-    return newsWriteSchema.parse(maybeNews);  
+    return newsWriteSchema.parse(maybeNews);
   } catch (e) {
     throw new BadRequestError('News must include title + content');
   }
