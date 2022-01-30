@@ -4,24 +4,21 @@ import makeRoute from '../../lib/utils/utils';
 import prisma from '../../prisma/prisma';
 
 export const getNewsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
-  res.json({ news: await prisma.news.findMany() })
+  res.json({ news: await prisma.news.findMany() });
 };
 
 export const postNewsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const validatedNews = validateCreateNewsRequest(req.body);
-  await prisma.news.create({ data: validatedNews })
+  await prisma.news.create({ data: validatedNews });
   res.status(201);
 };
 
-// TODO: handle validation errors of 400.
 export default makeRoute().get(getNewsHandler).post(postNewsHandler);
 
-
-const validateCreateNewsRequest = (maybeNews:any) => {
+const validateCreateNewsRequest = (maybeNews: any) => {
   if (!maybeNews || !maybeNews.title || !maybeNews.description) {
     throw new Error('Not a well-formed news');
-  }
-  else {
+  } else {
     return maybeNews;
   }
-}
+};

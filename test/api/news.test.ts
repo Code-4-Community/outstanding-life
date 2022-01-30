@@ -9,20 +9,20 @@ const createNews0 = {
 };
 
 const news0:News = {
-  id: 0, 
+  id: 0,
   title: 'First news',
-  description: ':)'
+  description: ':)',
+  createdAt: new Date('1997-08-17')
 };
 
 const news1:News = {
   id: 1, 
   title: 'Second news',
-  description: ':))'
+  description: ':))',
+  createdAt: new Date('2001-01-15')
 };
 
 describe('news endpoint', () => {
-
-  jest.setTimeout(10000);
 
   beforeEach(async () => {
     await prisma.news.deleteMany({})
@@ -59,7 +59,7 @@ describe('news endpoint', () => {
     const data = response._getJSONData(); // short-hand for JSON.parse( response._getData() );
     expect(response.statusCode).toBe(200);
     expect(data.news).toEqual([
-      news0, news1
+      { ...news0, createdAt: expect.anything() }, { ...news1, createdAt: expect.anything() }
     ]);
   });
 
