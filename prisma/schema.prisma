@@ -11,6 +11,7 @@ datasource db {
 }
 
 model Category {
+<<<<<<< HEAD
   id    Int    @id @default(autoincrement())
   name  String
 }
@@ -20,3 +21,19 @@ model News {
   title  String
   description  String
 }
+=======
+  id   Int    @id @default(autoincrement())
+  name String
+}
+
+model Profile {
+  id             Int            @id @default(autoincrement())
+  email          String         @unique
+  privilegeLevel PrivilegeLevel @default(PROFILE)
+}
+
+enum PrivilegeLevel {
+  PROFILE
+  ADMIN
+}
+>>>>>>> 05ef3f1c1964e3d1cdc5753faf3a7f583af81fcf
