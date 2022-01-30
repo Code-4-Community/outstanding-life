@@ -11,7 +11,6 @@ datasource db {
 }
 
 model Category {
-<<<<<<< HEAD
   id    Int    @id @default(autoincrement())
   name  String
 }
@@ -20,10 +19,7 @@ model News {
   id    Int    @id @default(autoincrement())
   title  String
   description  String
-}
-=======
-  id   Int    @id @default(autoincrement())
-  name String
+  createdAt  DateTime   @default(now())
 }
 
 model Profile {
@@ -36,4 +32,3 @@ enum PrivilegeLevel {
   PROFILE
   ADMIN
 }
->>>>>>> 05ef3f1c1964e3d1cdc5753faf3a7f583af81fcf
