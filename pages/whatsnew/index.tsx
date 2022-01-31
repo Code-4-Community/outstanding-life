@@ -6,7 +6,7 @@ const WhatsNew: NextPage = () => {
   return (
     <>
       <NavBar navLinks={navLinks} />
-      This is the What's New page
+      This is the Whats New page
     </>
   );
 };
