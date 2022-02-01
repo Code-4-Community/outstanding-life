@@ -1,16 +1,16 @@
 const navLinks = [
   {
-    label: "Contact",
-    path: "/contact"
+    label: 'Contact',
+    path: '/contact',
   },
   {
-    label: "Login",
-    path: "/login"
+    label: 'Login',
+    path: '/login',
   },
   {
     label: "What's New",
-    path: "/whatsnew"
-  }
+    path: '/whatsnew',
+  },
 ];
 
 export default navLinks;
