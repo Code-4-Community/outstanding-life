@@ -1,6 +1,6 @@
 import NavLink from './NavLink';
 
-const NavBar = (props) => (
+const NavBar = (props: any) => (
   <div className="NavBar">
     {props.navLinks.map((button) => (
       <NavLink key={button.path} path={button.path} label={button.label} />
