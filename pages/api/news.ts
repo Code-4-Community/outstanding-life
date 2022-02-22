@@ -11,7 +11,7 @@ import { getNewsHandler, postNewsHandler } from '../../lib/api/newsLogic';
  *       200:
  *         description: Successful news retrieval
  *   post:
- *     description: Creates valid news 
+ *     description: Creates valid news
  *     responses:
  *       201:
  *         description: Successful news creation
