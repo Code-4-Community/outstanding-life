@@ -35,12 +35,12 @@ import { getNewsHandler, postNewsHandler } from '../../lib/api/newsLogic';
  *         required: true
  *         description: The title of the news headline.
  *         schema:
- *              type : string 
+ *              type : string
  *       - name: content
  *         required: true
  *         description: The content of the news headline.
  *         schema:
- *              type : string 
+ *              type : string
  *     responses:
  *       201:
  *         description: OK
