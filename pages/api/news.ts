@@ -6,14 +6,43 @@ import { getNewsHandler, postNewsHandler } from '../../lib/api/newsLogic';
  * @swagger
  * /api/news:
  *   get:
- *     description: Returns the news
+ *     description: Returns the news headline
  *     responses:
  *       200:
- *         description: Successful news retrieval
+ *         description: OK
+ *         content:
+ *           application/json:
+ *              schema:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                       format: int64
+ *                       example: 4
+ *                     title:
+ *                       type: string
+ *                       example: Fun Event
+ *                     content:
+ *                       type: string
+ *                       example: An event is happening in the common area!
+ *                     createdAt:
+ *                       type: dateTime
+ *                       example: Jan-08-2022
  *   post:
- *     description: Creates valid news
+ *     description: Creates valid news headline
+ *     parameters:
+ *       - name: title
+ *         required: true
+ *         description: The title of the news headline.
+ *         schema:
+ *              type : string 
+ *       - name: content
+ *         required: true
+ *         description: The content of the news headline.
+ *         schema:
+ *              type : string 
  *     responses:
  *       201:
- *         description: Successful news creation
+ *         description: OK
  */
 export default makeRoute().get(getNewsHandler).post(postNewsHandler);
