@@ -1,12 +1,6 @@
-import { Button } from '@chakra-ui/react';
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
-import { useSession, signIn, signOut } from 'next-auth/react';
-
-const Home: NextPage = () => {
+const Home: React.FC = () => {
   const { data: session } = useSession();
 
   console.log(process.env.COGNITO_CLIENT_ID);
