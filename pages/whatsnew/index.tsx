@@ -1,8 +1,7 @@
-import type { NextPage } from 'next';
 import NavBar from '../../lib/components/navbar';
 import navLinks from '../../lib/components/navbar/links';
 
-const WhatsNew: NextPage = () => {
+const WhatsNew: React.FC = () => {
   return (
     <>
       <NavBar navLinks={navLinks} />

@@ -1,4 +1,9 @@
-const navLinks = [
+export type NavLinkProps = {
+  path: string;
+  label: string;
+};
+
+const navLinks: NavLinkProps[] = [
   {
     label: 'Contact',
     path: '/contact',

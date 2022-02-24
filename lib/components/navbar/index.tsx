@@ -1,8 +1,13 @@
+import { NavLinkProps } from './links';
 import NavLink from './NavLink';
 
-const NavBar = (props: any) => (
-  <div className="NavBar">
-    {props.navLinks.map((button: any) => (
+type NavBarProps = {
+  navLinks: NavLinkProps[];
+};
+
+const NavBar: React.FC<NavBarProps> = ({ navLinks }) => (
+  <div>
+    {navLinks.map((button: any) => (
       <NavLink key={button.path} path={button.path} label={button.label} />
     ))}
   </div>
