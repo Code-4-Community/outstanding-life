@@ -2,6 +2,7 @@
 
 The mission of the outstandinglife.org is to improve the quality of life of LGBTQ older adults in Massachusetts. Through this project, C4C aims to help LBFE find new creative ways to connect older adults: engaging hearts, transforming lives and breaking down boundaries. 
 
+(To be updated when website is deployed)
 Website: [Outstanding Life](https://outstandinglife.org/)
 
 ## 👷 Todo
@@ -109,6 +110,18 @@ Work in Progress, will finish when we solidify our project structure.
 
 * - /pages uses File Based Routing to determine where to mount pages and API endpoints. i.e. /pages/pages/home.tsx would render home.tsx at http://baseurl.com/home
 ```
+
+## Troubleshooting
+
+Various commands that may help in the development process:
+
+| Command | Description |
+| --- | --- |
+| npx prisma migrate dev | Allows you to run changes/db migrations in the Prisma schema |
+| npm prepush:fix | Helps when CI tests are failing |
+
+
 ## Learn More
 [The C4C Website](https://www.c4cneu.com/)
+
 [The LBFE Website](https://lbfeboston.org/)
