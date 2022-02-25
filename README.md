@@ -41,6 +41,7 @@ Install dependencies
 
 ```bash
 npm install
+npm install prisma --save-dev
 ```
 
 Start the development server. (warning: not *not* use `npm start` that starts up the server in production mode)
@@ -52,6 +53,8 @@ npm run dev
 The web app should be running on `localhost:3000`
 
 ## 🧪 Tests
+
+Our tests run on the [Jest](https://jestjs.io/) framework. 
 
 ```bash
 # Unit tests
@@ -65,9 +68,23 @@ npm run test:e2e      # runs all E2E tests in headless mode
 npm run test:cy       # opens the Cypress app to run E2E tests visually
 ```
 
-## Project Structure
+## 📂 Project Structure
 
-Work in Progress, will finish when we solidify our project structure.
+There are four main folders in this project:
+- pages
+  - Covers all of the pages in the website. 
+  - Each page has their own folder with an ```index.tsx``` file containing the source code for that page. 
+  - An ```_app.tsx``` file is also included which has the overall page structure as well as an ```index.tsx``` file for the initial landing page.
+- prisma
+  -   There is an ```schema.prisma``` file which outlines the schema of our database in one place. 
+  -   The migrations folder contains any updates to the schema that are made overtime.
+  -   The ```prisma.ts``` file connects Prisma to the application.
+- styles
+  -  Contains our global CSS files. Fonts, margins, colors, etc. are defined here.
+- test
+  - Unit tests
+  - E2E tests
+  - Integration tests
 
 ```bash
 ├── README.md    # You're already here!
@@ -96,6 +113,10 @@ Work in Progress, will finish when we solidify our project structure.
 │   ├── migrations
 │   │   ├── 20211223003440_test
 │   │   │   └── migration.sql
+│   │   ├── 20220129153613_added_news_entity
+│   │   │   └── migration.sql
+│   │   ├── 20211223003440_test
+│   │   │   └── migration.sql
 │   │   └── migration_lock.toml
 │   ├── prisma.ts
 │   └── schema.prisma
@@ -111,7 +132,7 @@ Work in Progress, will finish when we solidify our project structure.
 * - /pages uses File Based Routing to determine where to mount pages and API endpoints. i.e. /pages/pages/home.tsx would render home.tsx at http://baseurl.com/home
 ```
 
-## Troubleshooting
+## 🔧 Troubleshooting
 
 Various commands that may help in the development process:
 
@@ -121,7 +142,7 @@ Various commands that may help in the development process:
 | ```npm prepush:fix``` | Helps when CI tests are failing |
 
 
-## Learn More
-[The C4C Website](https://www.c4cneu.com/)
+## 🔎 Learn More
+- [The C4C Website](https://www.c4cneu.com/)
 
-[The LBFE Website](https://lbfeboston.org/)
+- [The LBFE Website](https://lbfeboston.org/)
