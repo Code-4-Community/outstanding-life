@@ -117,8 +117,8 @@ Various commands that may help in the development process:
 
 | Command | Description |
 | --- | --- |
-| npx prisma migrate dev | Allows you to run changes/db migrations in the Prisma schema |
-| npm prepush:fix | Helps when CI tests are failing |
+| ```npx prisma migrate dev``` | Allows you to run changes/db migrations in the Prisma schema |
+| ```npm prepush:fix``` | Helps when CI tests are failing |
 
 
 ## Learn More
