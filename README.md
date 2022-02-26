@@ -2,7 +2,6 @@
 
 The mission of the outstandinglife.org is to improve the quality of life of LGBTQ older adults in Massachusetts. Through this project, C4C aims to help LBFE find new creative ways to connect older adults: engaging hearts, transforming lives and breaking down boundaries. 
 
-(To be updated when website is deployed)
 Website: [Outstanding Life](https://outstandinglife.org/)
 
 ## 👷 Todo
@@ -111,13 +110,6 @@ There are four main folders in this project:
 │   └── index.tsx
 ├── prisma       # Prisma DB Schemas, Prisma Client, Migrations, etc.
 │   ├── migrations
-│   │   ├── 20211223003440_test
-│   │   │   └── migration.sql
-│   │   ├── 20220129153613_added_news_entity
-│   │   │   └── migration.sql
-│   │   ├── 20211223003440_test
-│   │   │   └── migration.sql
-│   │   └── migration_lock.toml
 │   ├── prisma.ts
 │   └── schema.prisma
 ├── public
