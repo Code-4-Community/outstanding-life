@@ -11,13 +11,12 @@ import {
   Textarea,
 } from '@chakra-ui/react';
 
-interface contactFormProps {}
 
 interface NameFormProps {
   firstNameInput: string;
   lastNameInput: string;
-  setFirstInput: any;
-  setLastInput: any;
+  setFirstInput: React.Dispatch<React.SetStateAction<string>>;
+  setLastInput: React.Dispatch<React.SetStateAction<string>>;
   isFirstNameMissing: boolean;
   isLastNameMissing: boolean;
 }
@@ -59,15 +58,15 @@ const NameForm: React.FC<NameFormProps> = ({
   );
 };
 
-const ContactForm: React.FC<contactFormProps> = () => {
-  const [emailInput, setEmailInput] = useState('');
-  const [firstNameInput, setFirstInput] = useState('');
-  const [lastNameInput, setLastInput] = useState('');
-  const [messageInput, setMessage] = useState('');
-  const [isFirstNameMissing, setFirstNameMissing] = useState(false);
-  const [isLastNameMissing, setLastNameMissing] = useState(false);
-  const [isEmailMissing, setEmailMissing] = useState(false);
-  const [isMessageMissing, setMessageMissing] = useState(false);
+const ContactForm: React.FC = () => {
+  const [email, setEmail] = useState<string>('');
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
+  const [isFirstNameMissing, setFirstNameMissing] = useState<boolean>(false);
+  const [isLastNameMissing, setLastNameMissing] = useState<boolean>(false);
+  const [isEmailMissing, setEmailMissing] = useState<boolean>(false);
+  const [isMessageMissing, setMessageMissing] = useState<boolean>(false);
 
   return (
     <Center bg="white">
@@ -75,10 +74,10 @@ const ContactForm: React.FC<contactFormProps> = () => {
         <FormControl
           isInvalid={isFirstNameMissing || isLastNameMissing || isEmailMissing || isMessageMissing}>
           <NameForm
-            firstNameInput={firstNameInput}
-            setFirstInput={setFirstInput}
-            lastNameInput={lastNameInput}
-            setLastInput={setLastInput}
+            firstNameInput={firstName}
+            setFirstInput={setFirstName}
+            lastNameInput={lastName}
+            setLastInput={setLastName}
             isFirstNameMissing={isFirstNameMissing}
             isLastNameMissing={isLastNameMissing}
           />
@@ -89,8 +88,8 @@ const ContactForm: React.FC<contactFormProps> = () => {
           <Input
             id="email"
             type="email"
-            value={emailInput}
-            onChange={(e) => setEmailInput(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             isInvalid={isEmailMissing}
             isRequired
           />
@@ -103,7 +102,7 @@ const ContactForm: React.FC<contactFormProps> = () => {
           <Textarea
             id="message"
             type="text"
-            value={messageInput}
+            value={message}
             onChange={(e) => setMessage(e.target.value)}
             isInvalid={isMessageMissing}
             isRequired
@@ -113,19 +112,12 @@ const ContactForm: React.FC<contactFormProps> = () => {
             mt={2}
             colorScheme="blue"
             onClick={() => {
-              setEmailMissing(emailInput.length === 0);
-              setFirstNameMissing(firstNameInput.length === 0);
-              setLastNameMissing(lastNameInput.length === 0);
-              setMessageMissing(messageInput.length === 0);
-
-              if (emailInput && firstNameInput && lastNameInput && messageInput) {
-                // fetch(`www.example.com`)
-                //   .then((response) => {
-                //     return response.json();
-                //   })
-                //   .then((data) => {
-                //     //do something
-                //   });
+              setEmailMissing(email.length === 0);
+              setFirstNameMissing(firstName.length === 0);
+              setLastNameMissing(lastName.length === 0);
+              setMessageMissing(message.length === 0);
+              if (email && firstName && lastName && message) {
+              
               }
             }}>
             Submit
