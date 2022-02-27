@@ -22,13 +22,6 @@ model News {
   createdAt DateTime @default(now())
 }
 
-model VscProfile {
-  userId         String         @id
-  privilegeLevel PrivilegeLevel @default(PROFILE)
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
 enum PrivilegeLevel {
   PROFILE
   ADMIN
@@ -72,12 +65,12 @@ model Session {
 }
 
 model User {
-  id            String       @id @default(cuid())
-  name          String?
-  email         String?      @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  VSCProfile    VscProfile[]
+  id             String         @id @default(cuid())
+  name           String?
+  email          String?        @unique
+  emailVerified  DateTime?
+  image          String?
+  accounts       Account[]
+  sessions       Session[]
+  privilegeLevel PrivilegeLevel @default(PROFILE)
 }
