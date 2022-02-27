@@ -22,7 +22,7 @@ model News {
   createdAt DateTime @default(now())
 }
 
-model VSCProfile {
+model VscProfile {
   userId         String         @id
   privilegeLevel PrivilegeLevel @default(PROFILE)
 
@@ -32,6 +32,14 @@ model VSCProfile {
 enum PrivilegeLevel {
   PROFILE
   ADMIN
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
 model Account {
@@ -71,13 +79,5 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  VSCProfile    VSCProfile[]
-}
-
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
-  @@unique([identifier, token])
+  VSCProfile    VscProfile[]
 }
