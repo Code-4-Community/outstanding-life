@@ -23,7 +23,7 @@ model News {
 }
 
 enum PrivilegeLevel {
-  PROFILE
+  BASIC
   ADMIN
 }
 
@@ -72,5 +72,5 @@ model User {
   image          String?
   accounts       Account[]
   sessions       Session[]
-  privilegeLevel PrivilegeLevel @default(PROFILE)
+  privilegeLevel PrivilegeLevel @default(BASIC)
 }

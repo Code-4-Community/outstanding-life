@@ -17,4 +17,9 @@ export default NextAuth({
     }),
     // ...add more providers here
   ],
+  callbacks: {
+    async session({ session, _token, user }) {
+      return { ...session, user: { ...session.user, privilegeLevel: user.privilegeLevel} }
+    }
+  }
 });

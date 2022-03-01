@@ -6,6 +6,7 @@ const Home: React.FC = () => {
   if (session) {
     return (
       <>
+        <pre><code>{JSON.stringify(session, null, 2)}</code></pre>
         Signed in as {session?.user?.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
       </>
