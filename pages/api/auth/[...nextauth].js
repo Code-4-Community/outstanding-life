@@ -19,7 +19,7 @@ export default NextAuth({
   ],
   callbacks: {
     async session({ session, _token, user }) {
-      return { ...session, user: { ...session.user, privilegeLevel: user.privilegeLevel} }
-    }
-  }
+      return { ...session, user: { ...session.user, privilegeLevel: user.privilegeLevel } };
+    },
+  },
 });
