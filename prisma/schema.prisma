@@ -11,8 +11,15 @@ datasource db {
 }
 
 model Category {
-  id   Int    @id @default(autoincrement())
-  name String
+  id    Int    @id @default(autoincrement())
+  name  String
+}
+
+model News {
+  id    Int    @id @default(autoincrement())
+  title  String
+  content  String
+  createdAt  DateTime   @default(now())
 }
 
 model Profile {
