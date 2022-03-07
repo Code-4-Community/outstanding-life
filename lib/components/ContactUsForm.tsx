@@ -11,7 +11,6 @@ import {
   Textarea,
 } from '@chakra-ui/react';
 
-
 interface NameFormProps {
   firstNameInput: string;
   lastNameInput: string;
@@ -117,7 +116,6 @@ const ContactForm: React.FC = () => {
               setLastNameMissing(lastName.length === 0);
               setMessageMissing(message.length === 0);
               if (email && firstName && lastName && message) {
-              
               }
             }}>
             Submit
