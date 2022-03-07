@@ -69,17 +69,20 @@ npm run test:cy       # opens the Cypress app to run E2E tests visually
 
 ## 📂 Project Structure
 
-There are four main folders in this project:
+There are 5 main folders in this project:
 - pages
   - Covers all of the pages in the website. 
   - Each page has their own folder with an ```index.tsx``` file containing the source code for that page. 
   - An ```_app.tsx``` file is also included which has the overall page structure as well as an ```index.tsx``` file for the initial landing page.
 - prisma
-  -   There is an ```schema.prisma``` file which outlines the schema of our database in one place. 
-  -   The migrations folder contains any updates to the schema that are made overtime.
-  -   The ```prisma.ts``` file connects Prisma to the application.
+  - There is an ```schema.prisma``` file which outlines the schema of our database in one place. 
+  - The migrations folder contains any updates to the schema that are made overtime.
+  - The ```prisma.ts``` file connects Prisma to the application.
+- lib
+  - Frontend components 
+  - Helpers/DTOs for the API routes
 - styles
-  -  Contains our global CSS files. Fonts, margins, colors, etc. are defined here.
+  - Contains our global CSS files. Fonts, margins, colors, etc. are defined here.
 - test
   - Unit tests
   - E2E tests
@@ -130,9 +133,9 @@ Various commands that may help in the development process:
 
 | Command | Description |
 | --- | --- |
+| ```npx prisma studio``` | Runs Prisma studio |
 | ```npx prisma migrate dev``` | Allows you to run changes/db migrations in the Prisma schema |
 | ```npm prepush:fix``` | Helps when CI tests are failing |
-
 
 ## 🔎 Learn More
 - [The C4C Website](https://www.c4cneu.com/)
