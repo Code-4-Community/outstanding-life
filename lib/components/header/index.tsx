@@ -1,4 +1,4 @@
-import { Heading, Divider, extendTheme } from '@chakra-ui/react'
+import { Heading, Box, extendTheme } from '@chakra-ui/react';
 
 // const theme = extendTheme({
 //     components: {
@@ -13,34 +13,31 @@ import { Heading, Divider, extendTheme } from '@chakra-ui/react'
 //     }
 // })
 const theme = extendTheme({
-    components: {
-      Divider: {
-        defaultProps: { 
-            size: "lg",
-            colorScheme: "red"
-        },
-        sizes: {
-          lg: { borderWidth: "4px" }
-        },
-        colors: {
-            red: "#cd0a69"
-        }
+  components: {
+    Divider: {
+      defaultProps: {
+        size: 'lg',
+        colorScheme: 'red',
+      },
+      sizes: {
+        lg: { borderWidth: '4px' },
+      },
+      colors: {
+        red: '#cd0a69',
       },
     },
-  })
+  },
+});
 
 interface HeaderProps {
-    header: String;
-};
+  header: String;
+}
 
-const Header : React.FC<HeaderProps> = ({header} : HeaderProps)  => (
-    <div>
-        <Heading>
-            { header }
-        </Heading>
-        <Divider theme={ theme }/>
+const Header: React.FC<HeaderProps> = ({ header }: HeaderProps) => (
+  <Box mb={'4px'}>
+    <Heading>{header}</Heading>
+    <Box h={'4px'} bg="#cd0a69" />
+  </Box>
+);
 
-    </div>
-  );
-  
-  export default Header;
+export default Header;
