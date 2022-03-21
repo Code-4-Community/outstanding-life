@@ -24,7 +24,6 @@ Website: [Outstanding Life](https://outstandinglife.org/)
 - [ ] Sentry
 - [ ] Pull request template
 
-
 ## 🛠️ Getting Started
 
 Install Node version 17.3.0 (npm 8.3.0)
@@ -43,7 +42,7 @@ npm install
 npm install prisma --save-dev
 ```
 
-Start the development server. (warning: not *not* use `npm start` that starts up the server in production mode)
+Start the development server. (warning: not _not_ use `npm start` that starts up the server in production mode)
 
 ```bash
 npm run dev
@@ -92,7 +91,7 @@ There are 5 main folders in this project:
 ├── README.md    # You're already here!
 ├── global.d.ts  # Global types
 ├── lib          # lib contains all reusable code modules
-│   └── utils    
+│   └── utils
 │       └── utils.ts
 ├── next-env.d.ts
 ├── next.config.js
