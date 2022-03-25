@@ -31,10 +31,11 @@ const theme = extendTheme({
 
 interface HeaderProps {
   header: String;
+  style?: React.CSSProperties;
 }
 
-const Header: React.FC<HeaderProps> = ({ header }: HeaderProps) => (
-  <Box mb={'4px'}>
+const Header: React.FC<HeaderProps> = ({ header, style }: HeaderProps) => (
+  <Box style={style}>
     <Heading>{header}</Heading>
     <Box h={'4px'} bg="#cd0a69" />
   </Box>

@@ -8,7 +8,7 @@ interface HeaderAndTextProps {
 
 const HeaderAndText: React.FC<HeaderAndTextProps> = ({ header, text }: HeaderAndTextProps) => (
   <div>
-    <Header header={header} />
+    <Header style={{ marginBottom: '15px' }} header={header} />
     <Text>{text}</Text>
   </div>
 );
