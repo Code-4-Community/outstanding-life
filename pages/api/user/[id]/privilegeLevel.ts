@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import makeRoute from '../../../../../lib/utils/utils';
-import { updatePrivilegeLevelHandler } from '../../../../../lib/api/privilegeLevelLogic';
+import makeRoute from '../../../../lib/utils/utils';
+import { makeUpdatePrivilegeLevelHandler } from '../../../../lib/api/privilegeLevelLogic';
+import prisma from '../../../../prisma/prisma';
 
 /**
  * TODO: update swagger
@@ -46,4 +47,4 @@ import { updatePrivilegeLevelHandler } from '../../../../../lib/api/privilegeLev
  *       201:
  *         description: OK
  */
-export default makeRoute().put(updatePrivilegeLevelHandler);
+export default makeRoute().put(makeUpdatePrivilegeLevelHandler({ prisma }));
