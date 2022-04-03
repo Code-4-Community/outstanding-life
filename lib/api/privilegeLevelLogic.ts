@@ -1,11 +1,13 @@
 import { PrismaClient, PrivilegeLevel } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { Session } from 'next-auth';
 import { getSession } from 'next-auth/react';
-
-// CONSTANTS
-const LowestAuthorizedPrivilegeLevel = PrivilegeLevel.ADMIN;
-const PrivilegeLevelOrdering: PrivilegeLevel[] = [PrivilegeLevel.BASIC, PrivilegeLevel.ADMIN];
+import privilegeLevel from '../../pages/api/user/[id]/privilegeLevel';
+import { LOWEST_AUTHORIZED_PRIVILEGE_LEVEL } from '../constants';
+import { BadRequestError } from '../utils/errors/badRequestError';
+import {
+  getPrivilegeLevelFromSession,
+  privilegeLevelCompareTo,
+} from '../utils/privilegeLevelUtils';
 
 //TYPES
 export type Context = {
@@ -21,9 +23,6 @@ type RequestParameters = {
 export const makeUpdatePrivilegeLevelHandler =
   (ctx: Context) => async (req: NextApiRequest, res: NextApiResponse) => {
     const { targetId, targetPrivilegeLevel } = getParameters(req);
-    // 1.) authenticate caller and whether they can update target
-
-    // abstract getSession into context
     const mySession = await getSession({ req });
     const myPrivilegeLevel = getPrivilegeLevelFromSession(mySession);
 
@@ -35,13 +34,10 @@ export const makeUpdatePrivilegeLevelHandler =
     // 2.) check if targetID's PL != targetId's PL
     const targetUser = await ctx.prisma.user.findUnique({ where: { id: targetId } });
     if (targetUser === null) {
-      //write error message saying target user can't be found  (403/404)
-      res.status(404).send('The user you requested cannot be found. Please try again.');
+      throw new BadRequestError('The user you requested cannot be found. Please try again.');
     } else if (targetUser.privilegeLevel === targetPrivilegeLevel) {
-      //write error message saying target PL is already that
-      res.status(400).send('The user you requested is already of that privilege level.');
+      throw new BadRequestError('The user you requested is already of that privilege level.');
     } else {
-      //3.) change targetId's PL to target PL
       await ctx.prisma.user.update({
         where: {
           id: targetId,
@@ -50,7 +46,7 @@ export const makeUpdatePrivilegeLevelHandler =
           privilegeLevel: targetPrivilegeLevel as PrivilegeLevel,
         },
       });
-      res.status(200).end();
+      res.status(200).json({ message: `The user has been updated to ${privilegeLevel}` });
     }
   };
 
@@ -64,38 +60,12 @@ const getParameters = (req: NextApiRequest): RequestParameters => {
   return { targetId, targetPrivilegeLevel };
 };
 
-function getPrivilegeLevelFromSession(session: Session | null): PrivilegeLevel | undefined {
-  if (session === null) {
-    return undefined;
-  }
-  const maybePrivilegeLevel = session?.user?.privilegeLevel;
-  return maybePrivilegeLevel ? maybePrivilegeLevel : undefined;
-}
-
-const getIndexOfPrivilegeLevel = (privilegeLevel: PrivilegeLevel) => {
-  return PrivilegeLevelOrdering.indexOf(privilegeLevel);
-};
-
-/* returns a positive number if privilegeLevel1 is higher than privilegeLevel2
-- 0 if privilegeLevel1 is equal to privilegeLevel2
-*/
-const privilegeLevelCompareTo = (
-  privilegeLevel1: PrivilegeLevel,
-  privilegeLevel2: PrivilegeLevel,
-) => {
-  return (
-    PrivilegeLevelOrdering.indexOf(privilegeLevel1) -
-    PrivilegeLevelOrdering.indexOf(privilegeLevel2)
-  );
-};
-
-
 const isCallerAuthorized = (
   myPrivilegeLevel: PrivilegeLevel,
   targetPrivilegeLevel: string,
 ): boolean => {
   const isAuthorized =
-    privilegeLevelCompareTo(myPrivilegeLevel, LowestAuthorizedPrivilegeLevel) >= 0;
+    privilegeLevelCompareTo(myPrivilegeLevel, LOWEST_AUTHORIZED_PRIVILEGE_LEVEL) >= 0;
   const isValidTargetPrivilegeLevel = Object.values(PrivilegeLevel).includes(
     targetPrivilegeLevel as PrivilegeLevel,
   );
@@ -103,4 +73,4 @@ const isCallerAuthorized = (
     privilegeLevelCompareTo(myPrivilegeLevel, targetPrivilegeLevel as PrivilegeLevel) >= 0;
   //if not a valid session or session.user.privilegeLevel is not authorized
   return isAuthorized && isValidTargetPrivilegeLevel && canUpdateTarget;
-};``
+};
