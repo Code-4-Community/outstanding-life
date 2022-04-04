@@ -42,13 +42,20 @@ async function handleSubmit(
   setAlert: Dispatch<SetStateAction<boolean>>,
   setAlertMessage: Dispatch<SetStateAction<string>>,
 ) {
-  try {
-    await axios.put(`${BASE_URL}/api/user/${targetEmail}/privilegeLevel`, {
-      privilegeLevel: targetPrivilegeLevel,
-    });
+    try {
+    if (targetEmail && targetPrivilegeLevel) {
+        await axios.put(`${BASE_URL}/api/user/${targetEmail}/privilegeLevel`, {
+        privilegeLevel: targetPrivilegeLevel,
+        });
+        setAlert(true);
+        setAlertMessage(`Successfully changed user privilege level to ${targetPrivilegeLevel}`)
+    } else {
+        setAlert(true);
+        setAlertMessage("Please enter an email and privilege level.");
+    }  
   } catch (err: any) {
     setAlert(true);
-    setAlertMessage(err);
+    setAlertMessage(err.response.data);
   }
 }
 
@@ -62,9 +69,8 @@ const UpdatePrivilegeForm: React.FC = () => {
     <Container maxWidth="lg">
       <Stack>
         {showAlert && (
-          <Alert status="error">
+          <Alert>
             <AlertIcon />
-            <AlertTitle mr={2}>{`Something went wrong :(`}</AlertTitle>
             <AlertDescription>{alertMessage}</AlertDescription>
             <CloseButton
               position="absolute"
@@ -94,8 +100,6 @@ const UpdatePrivilegeForm: React.FC = () => {
         </Select>
         <Button
           onClick={() =>
-            targetEmail &&
-            targetPrivilegeLevel &&
             handleSubmit(targetEmail, targetPrivilegeLevel, setAlert, setAlertMessage)
           }>
           Update Privilege Level

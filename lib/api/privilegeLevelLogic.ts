@@ -1,7 +1,7 @@
 import { PrismaClient, PrivilegeLevel } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
-import privilegeLevel from '../../pages/api/user/[id]/privilegeLevel';
+import privilegeLevel from '../../pages/api/user/[email]/privilegeLevel';
 import { LOWEST_AUTHORIZED_PRIVILEGE_LEVEL } from '../constants';
 import { BadRequestError } from '../utils/errors/badRequestError';
 import {
@@ -27,7 +27,8 @@ export const makeUpdatePrivilegeLevelHandler =
     const myPrivilegeLevel = getPrivilegeLevelFromSession(mySession);
 
     if (!targetEmail || !targetPrivilegeLevel) {
-      res.status(401).send('Received invalid parameters for id and privilege level.');
+      console.log(`targetEmail: ${targetEmail}, targetPrivLevel: ${targetPrivilegeLevel}`);
+      res.status(400).send('Received invalid parameters for id and privilege level.');
       return;
     }
 
@@ -56,13 +57,13 @@ export const makeUpdatePrivilegeLevelHandler =
   };
 
 const getParameters = (req: NextApiRequest): RequestParameters => {
-  const id = req.query.id || '';
-  const privilegeLevel = req.body || '';
-  const targetId: string = typeof id === 'string' ? id : id[0];
+  const email = req.query.email || '';
+  const privilegeLevel = req.body.privilegeLevel || '';
+  const targetEmail: string = typeof email === 'string' ? email : email[0];
   const targetPrivilegeLevel: string =
     typeof privilegeLevel === 'string' ? privilegeLevel : privilegeLevel[0];
 
-  return { targetEmail: targetId, targetPrivilegeLevel };
+  return { targetEmail, targetPrivilegeLevel };
 };
 
 const isCallerAuthorized = (
