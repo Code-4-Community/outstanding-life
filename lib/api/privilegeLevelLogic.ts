@@ -15,16 +15,21 @@ export type Context = {
 };
 
 type RequestParameters = {
-  targetId: string;
+  targetEmail: string;
   targetPrivilegeLevel: string;
 };
 
 //DEFINTITIONS
 export const makeUpdatePrivilegeLevelHandler =
   (ctx: Context) => async (req: NextApiRequest, res: NextApiResponse) => {
-    const { targetId, targetPrivilegeLevel } = getParameters(req);
+    const { targetEmail, targetPrivilegeLevel } = getParameters(req);
     const mySession = await getSession({ req });
     const myPrivilegeLevel = getPrivilegeLevelFromSession(mySession);
+
+    if (!targetEmail || !targetPrivilegeLevel) {
+      res.status(401).send('Received invalid parameters for id and privilege level.');
+      return;
+    }
 
     if (!myPrivilegeLevel || !isCallerAuthorized(myPrivilegeLevel, targetPrivilegeLevel)) {
       res.status(401).send('User is not authorized for this operation');
@@ -32,7 +37,7 @@ export const makeUpdatePrivilegeLevelHandler =
     }
 
     // 2.) check if targetID's PL != targetId's PL
-    const targetUser = await ctx.prisma.user.findUnique({ where: { id: targetId } });
+    const targetUser = await ctx.prisma.user.findUnique({ where: { email: targetEmail } });
     if (targetUser === null) {
       throw new BadRequestError('The user you requested cannot be found. Please try again.');
     } else if (targetUser.privilegeLevel === targetPrivilegeLevel) {
@@ -40,7 +45,7 @@ export const makeUpdatePrivilegeLevelHandler =
     } else {
       await ctx.prisma.user.update({
         where: {
-          id: targetId,
+          email: targetEmail,
         },
         data: {
           privilegeLevel: targetPrivilegeLevel as PrivilegeLevel,
@@ -51,13 +56,13 @@ export const makeUpdatePrivilegeLevelHandler =
   };
 
 const getParameters = (req: NextApiRequest): RequestParameters => {
-  const { id } = req.query;
-  const { privilegeLevel } = req.body;
+  const id = req.query.id || '';
+  const privilegeLevel = req.body || '';
   const targetId: string = typeof id === 'string' ? id : id[0];
   const targetPrivilegeLevel: string =
     typeof privilegeLevel === 'string' ? privilegeLevel : privilegeLevel[0];
 
-  return { targetId, targetPrivilegeLevel };
+  return { targetEmail: targetId, targetPrivilegeLevel };
 };
 
 const isCallerAuthorized = (
