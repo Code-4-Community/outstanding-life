@@ -14,9 +14,8 @@ export const getIndexOfPrivilegeLevel = (privilegeLevel: PrivilegeLevel) => {
   return PRIVILEGE_LEVEL_ORDERING.indexOf(privilegeLevel);
 };
 
-/* returns a positive number if privilegeLevel1 is higher than privilegeLevel2
-- 0 if privilegeLevel1 is equal to privilegeLevel2
-*/
+/* returns a positive number if privilegeLevel1 is higher than privilegeLevel2, 0 if privilegeLevel1 is equal to privilegeLevel2, and a negative number if privilegeLevel1 is lower than privilegeLevel2
+ */
 export const privilegeLevelCompareTo = (
   privilegeLevel1: PrivilegeLevel,
   privilegeLevel2: PrivilegeLevel,

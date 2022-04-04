@@ -77,6 +77,5 @@ const isCallerAuthorized = (
   );
   const canUpdateTarget =
     privilegeLevelCompareTo(myPrivilegeLevel, targetPrivilegeLevel as PrivilegeLevel) >= 0;
-  //if not a valid session or session.user.privilegeLevel is not authorized
   return isAuthorized && isValidTargetPrivilegeLevel && canUpdateTarget;
 };

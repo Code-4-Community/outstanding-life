@@ -42,17 +42,17 @@ async function handleSubmit(
   setAlert: Dispatch<SetStateAction<boolean>>,
   setAlertMessage: Dispatch<SetStateAction<string>>,
 ) {
-    try {
+  try {
     if (targetEmail && targetPrivilegeLevel) {
-        await axios.put(`${BASE_URL}/api/user/${targetEmail}/privilegeLevel`, {
+      await axios.put(`${BASE_URL}/api/user/${targetEmail}/privilegeLevel`, {
         privilegeLevel: targetPrivilegeLevel,
-        });
-        setAlert(true);
-        setAlertMessage(`Successfully changed user privilege level to ${targetPrivilegeLevel}`)
+      });
+      setAlert(true);
+      setAlertMessage(`Successfully changed user privilege level to ${targetPrivilegeLevel}`);
     } else {
-        setAlert(true);
-        setAlertMessage("Please enter an email and privilege level.");
-    }  
+      setAlert(true);
+      setAlertMessage('Please enter an email and privilege level.');
+    }
   } catch (err: any) {
     setAlert(true);
     setAlertMessage(err.response.data);
