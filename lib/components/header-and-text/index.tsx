@@ -3,13 +3,13 @@ import { Text, Box } from '@chakra-ui/react';
 
 interface HeaderAndTextProps {
   header: String;
-  text: String;
+  children: React.ReactNode;
 }
 
-const HeaderAndText: React.FC<HeaderAndTextProps> = ({ header, text }: HeaderAndTextProps) => (
+const HeaderAndText: React.FC<HeaderAndTextProps> = ({ header, children }: HeaderAndTextProps) => (
   <div>
     <Header style={{ marginBottom: '15px' }} header={header} />
-    <Text>{text}</Text>
+    {children}
   </div>
 );
 
