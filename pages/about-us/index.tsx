@@ -21,6 +21,7 @@ Older LGBTQ adults have been at an increased risk for deteriorating health. Many
 const AboutUs: React.FC = () => {
   return (
     <Container maxW={'container.md'} mb="100px">
+      
       <NavBar navLinks={navLinks} />
       <Grid gap={'300px'}>
         <HeaderAndText header="Our Mission and Purpose" text={missionText} />
