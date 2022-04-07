@@ -73,6 +73,7 @@ There are 5 main folders in this project:
   - Covers all of the pages in the website. 
   - Each page has their own folder with an ```index.tsx``` file containing the source code for that page. 
   - An ```_app.tsx``` file is also included which has the overall page structure as well as an ```index.tsx``` file for the initial landing page.
+  - Contains ```dev_reference.md``` with useful tips on how to build our web components.
 - prisma
   - There is an ```schema.prisma``` file which outlines the schema of our database in one place. 
   - The migrations folder contains any updates to the schema that are made overtime.
@@ -82,49 +83,11 @@ There are 5 main folders in this project:
   - Helpers/DTOs for the API routes
 - styles
   - Contains our global CSS files. Fonts, margins, colors, etc. are defined here.
+  - A ```theme.js``` file contains our custom brand color scheme to use in our Chakra components.
 - test
   - Unit tests
   - E2E tests
   - Integration tests
-
-```bash
-├── README.md    # You're already here!
-├── global.d.ts  # Global types
-├── lib          # lib contains all reusable code modules
-│   └── utils
-│       └── utils.ts
-├── next-env.d.ts
-├── next.config.js
-├── package-lock.json
-├── package.json
-├── pages        # Expose pages and endpoints*
-│   ├── _app.tsx
-│   ├── api      # API endpoints 
-│   │   ├── auth 
-│   │   │   └── [....nextauth].js
-│   │   └── news.ts
-│   ├── contact  
-│   │   └── index.tsx  
-│   ├── login  
-│   │   └── index.tsx 
-│   ├── whatsnew 
-│   │   └── index.tsx  
-│   └── index.tsx
-├── prisma       # Prisma DB Schemas, Prisma Client, Migrations, etc.
-│   ├── migrations
-│   ├── prisma.ts
-│   └── schema.prisma
-├── public
-│   ├── favicon.ico
-│   └── vercel.svg
-├── styles
-│   ├── Home.module.css
-│   └── globals.css
-└── tsconfig.json
-
-
-* - /pages uses File Based Routing to determine where to mount pages and API endpoints. i.e. /pages/pages/home.tsx would render home.tsx at http://baseurl.com/home
-```
 
 ## 🔧 Troubleshooting
 
@@ -134,7 +97,7 @@ Various commands that may help in the development process:
 | --- | --- |
 | ```npx prisma studio``` | Runs Prisma studio |
 | ```npx prisma migrate dev``` | Allows you to run changes/db migrations in the Prisma schema |
-| ```npm prepush:fix``` | Helps when CI tests are failing |
+| ```npm run prepush:fix``` | Helps when CI tests are failing |
 
 ## 🔎 Learn More
 - [The C4C Website](https://www.c4cneu.com/)
