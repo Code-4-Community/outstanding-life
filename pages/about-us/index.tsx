@@ -34,7 +34,7 @@ const AboutUs: React.FC = (props) => {
       <NavBar navLinks={navLinks} />
       <Grid gap={'150px'}>
         <LearnMore imgSrc={learnMoreImage} text={learnMoreText} />
-        <Container maxW={'container.md'} mb="100px">
+        <Container maxW={'container.lg'} mb="100px">
           <Grid gap={'300px'}>
             <HeaderAndText id={'mission-statement'} header="Our Mission and Purpose">
               <Grid gap={'15px'}>
