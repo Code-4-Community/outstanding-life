@@ -40,33 +40,35 @@ const AboutUs: React.FC = (props) => {
   return (
     <>
       <NavBar navLinks={navLinks} />
-      <LearnMore imgSrc={learnMoreImage} text={learnMoreText} />
-      <Container maxW={'container.md'} mb="100px">
-        <Grid gap={'300px'}>
-          <HeaderAndText header="Our Mission and Purpose">
-            <Grid gap={'15px'}>
-              <Text>{missionTextParagraphOne}</Text>
-              <Text>{missionTextParagraphTwo}</Text>
-            </Grid>
-          </HeaderAndText>
-          <HeaderAndText header="The Need">
-            <Grid gap={'15px'}>
-              <Text>{needTextParagraphOne}</Text>
-              <UnorderedList>
-                {needTextBullets.map((bullet) => (
-                  // TODO: change the key to something more meaningful than the entire text!!!
-                  <ListItem key={bullet}>{bullet}</ListItem>
-                ))}
-              </UnorderedList>
-              <Text>{needTextParagraphTwo}</Text>
-            </Grid>
-          </HeaderAndText>
-          <div>
-            <Header style={{ marginBottom: '50px' }} header="Steering Committee" />
-            <CommitteeGroupProfile />
-          </div>
-        </Grid>
-      </Container>
+      <Grid gap={'150px'}>
+        <LearnMore imgSrc={learnMoreImage} text={learnMoreText} />
+        <Container maxW={'container.md'} mb="100px">
+          <Grid gap={'300px'}>
+            <HeaderAndText id={'mission-statement'} header="Our Mission and Purpose">
+              <Grid gap={'15px'}>
+                <Text>{missionTextParagraphOne}</Text>
+                <Text>{missionTextParagraphTwo}</Text>
+              </Grid>
+            </HeaderAndText>
+            <HeaderAndText header="The Need">
+              <Grid gap={'15px'}>
+                <Text>{needTextParagraphOne}</Text>
+                <UnorderedList>
+                  {needTextBullets.map((bullet) => (
+                    // TODO: change the key to something more meaningful than the entire text!!!
+                    <ListItem key={bullet}>{bullet}</ListItem>
+                  ))}
+                </UnorderedList>
+                <Text>{needTextParagraphTwo}</Text>
+              </Grid>
+            </HeaderAndText>
+            <div>
+              <Header style={{ marginBottom: '50px' }} header="Steering Committee" />
+              <CommitteeGroupProfile />
+            </div>
+          </Grid>
+        </Container>
+      </Grid>
     </>
   );
 };
