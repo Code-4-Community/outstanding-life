@@ -19,12 +19,6 @@ Despite increased physical longevity, social isolation and loneliness are leadin
 social activities that create a sense of community and belonging
 `;
 
-const needTextBullets = [
-  `social activities that create a sense of community and belonging`,
-  `targeted support groups and services`,
-  `hardware (computers, tablets), internet access, and technical assistance to isolated, low-income LGBTQ elders so that they can access virtual support groups and other services during the COVID-19 pandemic`,
-];
-
 const needTextParagraphTwo = `
 Older LGBTQ adults have been at an increased risk for deteriorating health. Many do not have children or family members who, traditionally, are the companions and caretakers of older adults.
 `;
@@ -34,8 +28,6 @@ const learnMoreImage =
 
 const learnMoreText = 'We are never ever getting back together, said Taylor Swift.';
 
-// TODO: fix fonts and header sizes
-// FIX divs and learn more image responsiveness
 const AboutUs: React.FC = (props) => {
   return (
     <>
@@ -54,10 +46,15 @@ const AboutUs: React.FC = (props) => {
               <Grid gap={'15px'}>
                 <Text>{needTextParagraphOne}</Text>
                 <UnorderedList>
-                  {needTextBullets.map((bullet) => (
-                    // TODO: change the key to something more meaningful than the entire text!!!
-                    <ListItem key={bullet}>{bullet}</ListItem>
-                  ))}
+                  <ListItem>
+                    social activities that create a sense of community and belonging
+                  </ListItem>
+                  <ListItem>targeted support groups and services</ListItem>
+                  <ListItem>
+                    hardware (computers, tablets), internet access, and technical assistance to
+                    isolated, low-income LGBTQ elders so that they can access virtual support groups
+                    and other services during the COVID-19 pandemic
+                  </ListItem>
                 </UnorderedList>
                 <Text>{needTextParagraphTwo}</Text>
               </Grid>

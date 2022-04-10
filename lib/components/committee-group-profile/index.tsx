@@ -10,28 +10,29 @@ const testData = [
     imgSrc: './images/test2.svg',
   },
   {
-    name: 'Ryan Jung',
-    description: 'This is Ryan Jung',
+    name: 'Jamie Lin',
+    description: 'Jamie Lin is hot and spicy. She loves boba and singing.',
     imgSrc: './images/test2.svg',
   },
   {
-    name: 'Ryan Jung',
-    description: 'This is Ryan Jung',
+    name: 'Floris Dobber',
+    description: 'Floris Dobber is the coolest man on Earth.',
     imgSrc: './images/test2.svg',
   },
   {
-    name: 'Ryan Jung',
-    description: 'This is Ryan Jung',
+    name: 'Somya Prabhakar',
+    description: 'Somya is the queen of asking great questions that bring people together.',
     imgSrc: './images/test2.svg',
   },
   {
-    name: 'Ryan Jung',
-    description: 'This is Ryan Jung',
+    name: 'Varun Thakkar',
+    description: 'Varun not only has great hair, but he has a great personality. ',
     imgSrc: './images/test2.svg',
   },
   {
-    name: 'Ryan Jung',
-    description: 'This is Ryan Jung',
+    name: 'Jessica Su',
+    description:
+      'Jessica Su is one of the best dancers on Earth. She is also a fashion icon and enjoys good food.',
     imgSrc: './images/test2.svg',
   },
 ];
