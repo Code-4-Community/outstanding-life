@@ -1,14 +1,15 @@
 import { Button, Container, Input, Select, Stack } from '@chakra-ui/react';
 import { PrivilegeLevel } from '@prisma/client';
-import axios from 'axios';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { Dispatch, SetStateAction, useState } from 'react';
-import { BASE_URL } from '../../lib/constants';
 import {
   getPrivilegeLevelFromSession,
   privilegeLevelCompareTo,
 } from '../../lib/utils/privilegeLevelUtils';
-import { Alert, AlertIcon, AlertTitle, AlertDescription, CloseButton } from '@chakra-ui/react';
+import { Alert, AlertIcon, AlertDescription, CloseButton } from '@chakra-ui/react';
+import NavBar from '../../lib/components/navbar';
+import navLinks from '../../lib/components/navbar/links';
+import { updatePrivilegeLevel } from '../../lib/apiClient';
 
 const Settings: React.FC = () => {
   const { data: session } = useSession();
@@ -18,6 +19,7 @@ const Settings: React.FC = () => {
   if (session) {
     return (
       <>
+        <NavBar navLinks={navLinks}/>
         Signed in as {session?.user?.email} <br />
         {userPrivilegeLevel &&
           privilegeLevelCompareTo(userPrivilegeLevel, PrivilegeLevel.ADMIN) >= 0 && (
@@ -44,9 +46,7 @@ async function handleSubmit(
 ) {
   try {
     if (targetEmail && targetPrivilegeLevel) {
-      await axios.put(`${BASE_URL}/api/user/${targetEmail}/privilegeLevel`, {
-        privilegeLevel: targetPrivilegeLevel,
-      });
+      await updatePrivilegeLevel(targetEmail, targetPrivilegeLevel)
       setAlert(true);
       setAlertMessage(`Successfully changed user privilege level to ${targetPrivilegeLevel}`);
     } else {
@@ -57,6 +57,12 @@ async function handleSubmit(
     setAlert(true);
     setAlertMessage(err.response.data);
   }
+}
+
+function createPrivilegeLevelDropdown() {
+  return Object.values(PrivilegeLevel).map((value) => {
+      return <option value={value}>{value}</option>
+  })
 }
 
 const UpdatePrivilegeForm: React.FC = () => {
@@ -95,8 +101,7 @@ const UpdatePrivilegeForm: React.FC = () => {
           placeholder="Select Privilege Level"
           size="lg"
           onChange={(event) => setTargetPrivilegeLevel(event.target.value)}>
-          <option value="BASIC">BASIC</option>
-          <option value="ADMIN">ADMIN</option>
+          {createPrivilegeLevelDropdown()}
         </Select>
         <Button
           onClick={() =>

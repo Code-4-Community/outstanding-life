@@ -1,5 +1,4 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
-import axios from 'axios'
 
 const Home: React.FC = () => {
   const { data: session } = useSession();
