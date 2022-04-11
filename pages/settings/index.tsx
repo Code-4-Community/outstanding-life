@@ -19,7 +19,7 @@ const Settings: React.FC = () => {
   if (session) {
     return (
       <>
-        <NavBar navLinks={navLinks}/>
+        <NavBar navLinks={navLinks} />
         Signed in as {session?.user?.email} <br />
         {userPrivilegeLevel &&
           privilegeLevelCompareTo(userPrivilegeLevel, PrivilegeLevel.ADMIN) >= 0 && (
@@ -46,7 +46,7 @@ async function handleSubmit(
 ) {
   try {
     if (targetEmail && targetPrivilegeLevel) {
-      await updatePrivilegeLevel(targetEmail, targetPrivilegeLevel)
+      await updatePrivilegeLevel(targetEmail, targetPrivilegeLevel);
       setAlert(true);
       setAlertMessage(`Successfully changed user privilege level to ${targetPrivilegeLevel}`);
     } else {
@@ -61,8 +61,8 @@ async function handleSubmit(
 
 function createPrivilegeLevelDropdown() {
   return Object.values(PrivilegeLevel).map((value) => {
-      return <option value={value}>{value}</option>
-  })
+    return <option value={value}>{value}</option>;
+  });
 }
 
 const UpdatePrivilegeForm: React.FC = () => {
