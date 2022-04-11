@@ -20,7 +20,12 @@ const LearnMore: React.FC<LearnMoreProps> = ({ imgSrc, text }) => {
       <Grid gap={'1rem'} justifyItems="center" className="about-us-caption-button">
         <Heading as="h1">{text}</Heading>
         <Link href="#mission-statement">
-          <Button backgroundColor={'white'} color="#CD0A69" variant="solid" width={'125px'}>
+          <Button
+            data-testid="learn-more-button"
+            backgroundColor={'white'}
+            color="#CD0A69"
+            variant="solid"
+            width={'125px'}>
             LEARN MORE
           </Button>
         </Link>
