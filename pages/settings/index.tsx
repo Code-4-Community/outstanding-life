@@ -61,7 +61,11 @@ async function handleSubmit(
 
 function createPrivilegeLevelDropdown() {
   return Object.values(PrivilegeLevel).map((value) => {
-    return <option value={value}>{value}</option>;
+    return (
+      <div key={value}>
+        <option value={value}>{value}</option>
+      </div>
+    );
   });
 }
 
