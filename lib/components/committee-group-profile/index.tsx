@@ -1,4 +1,4 @@
-import { Grid } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import React from 'react';
 import CommitteeProfile from '../committee-profile';
 
@@ -39,11 +39,11 @@ const testData = [
 
 const CommitteeGroupProfile: React.FC = () => {
   return (
-    <Grid templateColumns="repeat(3, 1fr)" columnGap="20px" rowGap="30px">
+    <Flex flexWrap="wrap" justifyContent="center">
       {testData.map((test, index) => (
-        <CommitteeProfile key={index} {...test} />
+        <CommitteeProfile key={index} style={{ maxWidth: '300px' }} {...test} />
       ))}
-    </Grid>
+    </Flex>
   );
 };
 

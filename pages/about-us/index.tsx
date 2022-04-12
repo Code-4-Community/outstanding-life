@@ -1,26 +1,23 @@
-import NavBar from '../../lib/components/navbar';
-import navLinks from '../../lib/components/navbar/links';
 import Header from '../../lib/components/header';
-import { Container, Grid, Text, UnorderedList, ListItem } from '@chakra-ui/react';
+import { Container, Text, UnorderedList, ListItem, Flex } from '@chakra-ui/react';
 import CommitteeGroupProfile from '../../lib/components/committee-group-profile';
-import LearnMore from '../../lib/components/learn-more';
+import Hero from '../../lib/components/hero';
 
-const AboutUs: React.FC = (props) => {
+const AboutUs: React.FC = () => {
   return (
     <>
-      <NavBar navLinks={navLinks} />
-      <Grid gap={'150px'}>
-        <LearnMore
+      <Flex gap={'150px'} flexDir={'column'}>
+        <Hero
           imgSrc={
             'https://www.looper.com/img/gallery/things-only-adults-notice-in-shrek/intro-1573597941.jpg'
           }
           text={'We are never ever getting back together, said Taylor Swift.'}
         />
         <Container maxW={'container.lg'} mb="100px">
-          <Grid gap={'300px'}>
+          <Flex gap={'300px'} flexDir="column">
             <div data-cy="mission-statement-section" id={'mission-statement'}>
               <Header style={{ marginBottom: '15px' }} header="Our Mission and Purpose" />
-              <Grid gap={'15px'}>
+              <Flex flexDir="column" gap={'15px'}>
                 <Text>
                   The mission of the Outstandinglife.org is to improve the quality of life of LGBTQ
                   older adults in Massachusetts. We seek new creative ways to connect older adults:
@@ -38,23 +35,23 @@ const AboutUs: React.FC = (props) => {
                   want to treat each person with dignity and respect and help people achieve their
                   best life.
                 </Text>
-              </Grid>
+              </Flex>
             </div>
             <div data-cy="need-section">
               <Header style={{ marginBottom: '15px' }} header="The Need" />
-              <Grid gap={'15px'}>
+              <Flex flexDir="column" gap={'15px'}>
                 <Text>
                   Despite increased physical longevity, social isolation and loneliness are leading
                   causes of increased risk for emotional, cognitive, and physical health among older
                   adults. According to psychologist Louise Hawkley, PhD, a senior research scientist
                   at the research organization NORC at the University of Chicago, loneliness can
-                  wreak havoc on an individual’s physical, mental and cognitive health.1 Hawkley
+                  wreak havoc on an individual’s physical, mental and cognitive health. Hawkley
                   points to evidence linking perceived social isolation with adverse health
                   consequences including depression, poor sleep quality, impaired executive
                   function, accelerated cognitive decline, poor cardiovascular function and impaired
                   immunity at every stage of life. In Sean Cahill, PhD’s report for the Fenway
                   Institute’s “LGBT Aging 2025: Strategies for Achieving a Healthy and Thriving LGBT
-                  Older Adult Community in Massachusetts2, he identifies key themes from numerous
+                  Older Adult Community in Massachusetts, he identifies key themes from numerous
                   listening sessions across Massachusetts that include social isolation and lack of
                   connection, the need for:
                 </Text>
@@ -74,15 +71,15 @@ const AboutUs: React.FC = (props) => {
                   do not have children or family members who, traditionally, are the companions and
                   caretakers of older adults.
                 </Text>
-              </Grid>
+              </Flex>
             </div>
             <div data-cy="committee-group-profile-section">
               <Header style={{ marginBottom: '50px' }} header="Steering Committee" />
               <CommitteeGroupProfile />
             </div>
-          </Grid>
+          </Flex>
         </Container>
-      </Grid>
+      </Flex>
     </>
   );
 };

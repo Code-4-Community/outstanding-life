@@ -1,21 +1,4 @@
-import { Heading, Box, extendTheme } from '@chakra-ui/react';
-
-const theme = extendTheme({
-  components: {
-    Divider: {
-      defaultProps: {
-        size: 'lg',
-        colorScheme: 'red',
-      },
-      sizes: {
-        lg: { borderWidth: '4px' },
-      },
-      colors: {
-        red: '#cd0a69',
-      },
-    },
-  },
-});
+import { Heading, Box } from '@chakra-ui/react';
 
 interface HeaderProps {
   header: String;

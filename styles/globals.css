@@ -1,5 +1,4 @@
 :root {
-  --about-us-caption-width: 600px;
   font-size: 18px;
 }
 
@@ -19,21 +18,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-h1 {
-  font-size: 100px;
-}
-
-.about-us-caption-button {
-  position: absolute;
-  bottom: 1rem;
-  left: calc(50% - var(--about-us-caption-width) / 2);
-  color: white;
-  text-align: center;
-  width: var(--about-us-caption-width);
-}
-
-.about-us-image-container {
-  position: relative;
 }
