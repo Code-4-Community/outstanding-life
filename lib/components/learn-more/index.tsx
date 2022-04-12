@@ -9,7 +9,7 @@ interface LearnMoreProps {
 
 const LearnMore: React.FC<LearnMoreProps> = ({ imgSrc, text }) => {
   return (
-    <div className="about-us-image-container">
+    <div data-cy="learn-more-section" className="about-us-image-container">
       <Image
         width={'100%'}
         height={'calc(100vh - 100px)'}
@@ -21,7 +21,7 @@ const LearnMore: React.FC<LearnMoreProps> = ({ imgSrc, text }) => {
         <Heading as="h1">{text}</Heading>
         <Link href="#mission-statement">
           <Button
-            data-testid="learn-more-button"
+            data-cy="learn-more-button"
             backgroundColor={'white'}
             color="#CD0A69"
             variant="solid"

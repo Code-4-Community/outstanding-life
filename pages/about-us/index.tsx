@@ -1,30 +1,25 @@
 import NavBar from '../../lib/components/navbar';
 import navLinks from '../../lib/components/navbar/links';
 import Header from '../../lib/components/header';
-import HeaderAndText from '../../lib/components/header-and-text';
-import { Container, Heading, Grid, Text, UnorderedList, ListItem } from '@chakra-ui/react';
+import { Container, Grid, Text, UnorderedList, ListItem } from '@chakra-ui/react';
 import CommitteeGroupProfile from '../../lib/components/committee-group-profile';
 import LearnMore from '../../lib/components/learn-more';
-
-const learnMoreImage =
-  'https://www.looper.com/img/gallery/things-only-adults-notice-in-shrek/intro-1573597941.jpg';
 
 const AboutUs: React.FC = (props) => {
   return (
     <>
-      <NavBar data-testid="nav-bar" navLinks={navLinks} />
+      <NavBar navLinks={navLinks} />
       <Grid gap={'150px'}>
         <LearnMore
-          data-testid="learn-more-section"
-          imgSrc={learnMoreImage}
+          imgSrc={
+            'https://www.looper.com/img/gallery/things-only-adults-notice-in-shrek/intro-1573597941.jpg'
+          }
           text={'We are never ever getting back together, said Taylor Swift.'}
         />
         <Container maxW={'container.lg'} mb="100px">
           <Grid gap={'300px'}>
-            <HeaderAndText
-              data-testid="mission-statement-section"
-              id={'mission-statement'}
-              header="Our Mission and Purpose">
+            <div data-cy="mission-statement-section" id={'mission-statement'}>
+              <Header style={{ marginBottom: '15px' }} header="Our Mission and Purpose" />
               <Grid gap={'15px'}>
                 <Text>
                   The mission of the Outstandinglife.org is to improve the quality of life of LGBTQ
@@ -44,8 +39,9 @@ const AboutUs: React.FC = (props) => {
                   best life.
                 </Text>
               </Grid>
-            </HeaderAndText>
-            <HeaderAndText data-testid="need-section" header="The Need">
+            </div>
+            <div data-cy="need-section">
+              <Header style={{ marginBottom: '15px' }} header="The Need" />
               <Grid gap={'15px'}>
                 <Text>
                   Despite increased physical longevity, social isolation and loneliness are leading
@@ -79,10 +75,10 @@ const AboutUs: React.FC = (props) => {
                   caretakers of older adults.
                 </Text>
               </Grid>
-            </HeaderAndText>
-            <div>
+            </div>
+            <div data-cy="committee-group-profile-section">
               <Header style={{ marginBottom: '50px' }} header="Steering Committee" />
-              <CommitteeGroupProfile data-testid="commitee-group-profile-section" />
+              <CommitteeGroupProfile />
             </div>
           </Grid>
         </Container>

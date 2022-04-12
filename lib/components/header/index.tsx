@@ -1,17 +1,5 @@
 import { Heading, Box, extendTheme } from '@chakra-ui/react';
 
-// const theme = extendTheme({
-//     components: {
-//         Divider: {
-//             variants: {
-//                 'header-divider': {
-//                     colorScheme: '#00a3c4',
-//                     borderWidth: '4px'
-//                 }
-//             }
-//         }
-//     }
-// })
 const theme = extendTheme({
   components: {
     Divider: {
