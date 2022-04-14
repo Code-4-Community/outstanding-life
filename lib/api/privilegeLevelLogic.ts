@@ -1,23 +1,14 @@
-import { PrismaClient, PrivilegeLevel } from '@prisma/client';
+import { PrivilegeLevel } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
 import privilegeLevel from '../../pages/api/user/[email]/privilegeLevel';
-import { LOWEST_AUTHORIZED_PRIVILEGE_LEVEL } from '../constants';
 import { BadRequestError } from '../utils/errors/badRequestError';
 import {
   getPrivilegeLevelFromSession,
+  isAuthorizedToUpdatePrivilegeLevels,
   privilegeLevelCompareTo,
 } from '../utils/privilegeLevelUtils';
-
-//TYPES
-export type Context = {
-  prisma: PrismaClient;
-};
-
-type RequestParameters = {
-  targetEmail: string;
-  targetPrivilegeLevel: string;
-};
+import { Context, RequestParameters } from './privilegeLevelTypes';
 
 //DEFINTITIONS
 export const makeUpdatePrivilegeLevelHandler =
@@ -27,7 +18,7 @@ export const makeUpdatePrivilegeLevelHandler =
     const myPrivilegeLevel = getPrivilegeLevelFromSession(mySession);
 
     if (!targetEmail || !targetPrivilegeLevel) {
-      console.log(`targetEmail: ${targetEmail}, targetPrivLevel: ${targetPrivilegeLevel}`);
+      console.log(`targetEmail:${targetEmail} targetPrivilegeLevel: ${targetPrivilegeLevel}`);
       res.status(400).send('Received invalid parameters for id and privilege level.');
       return;
     }
@@ -59,6 +50,7 @@ export const makeUpdatePrivilegeLevelHandler =
 const getParameters = (req: NextApiRequest): RequestParameters => {
   const email = req.query.email || '';
   const privilegeLevel = req.body.privilegeLevel || '';
+  console.log(`privilegeLevel in server ${req.body.privilegeLevel}`);
   const targetEmail: string = typeof email === 'string' ? email : email[0];
   const targetPrivilegeLevel: string =
     typeof privilegeLevel === 'string' ? privilegeLevel : privilegeLevel[0];
@@ -67,15 +59,17 @@ const getParameters = (req: NextApiRequest): RequestParameters => {
 };
 
 const isCallerAuthorized = (
-  myPrivilegeLevel: PrivilegeLevel,
+  sessionPrivilegeLevel: PrivilegeLevel,
   targetPrivilegeLevel: string,
 ): boolean => {
-  const isAuthorized =
-    privilegeLevelCompareTo(myPrivilegeLevel, LOWEST_AUTHORIZED_PRIVILEGE_LEVEL) >= 0;
+  const isAuthorized = isAuthorizedToUpdatePrivilegeLevels(sessionPrivilegeLevel);
   const isValidTargetPrivilegeLevel = Object.values(PrivilegeLevel).includes(
     targetPrivilegeLevel as PrivilegeLevel,
   );
   const canUpdateTarget =
-    privilegeLevelCompareTo(myPrivilegeLevel, targetPrivilegeLevel as PrivilegeLevel) >= 0;
+    privilegeLevelCompareTo(sessionPrivilegeLevel, targetPrivilegeLevel as PrivilegeLevel) >= 0;
+  //TODO validation that
+  const callerHasHigherPrivilegeLevel =
+    privilegeLevelCompareTo(sessionPrivilegeLevel, targetPrivilegeLevel as PrivilegeLevel) >= 0;
   return isAuthorized && isValidTargetPrivilegeLevel && canUpdateTarget;
 };

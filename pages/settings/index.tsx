@@ -1,4 +1,4 @@
-import { Button, Container, Input, Select, Stack } from '@chakra-ui/react';
+import { Box, Button, Container, Flex, Input, Select, Spacer, Stack } from '@chakra-ui/react';
 import { PrivilegeLevel } from '@prisma/client';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { Dispatch, SetStateAction, useState } from 'react';
@@ -9,7 +9,7 @@ import {
 import { Alert, AlertIcon, AlertDescription, CloseButton } from '@chakra-ui/react';
 import NavBar from '../../lib/components/navbar';
 import navLinks from '../../lib/components/navbar/links';
-import { updatePrivilegeLevel } from '../../lib/apiClient';
+import apiClient from '../../lib/apiClient';
 
 const Settings: React.FC = () => {
   const { data: session } = useSession();
@@ -46,7 +46,8 @@ async function handleSubmit(
 ) {
   try {
     if (targetEmail && targetPrivilegeLevel) {
-      await updatePrivilegeLevel(targetEmail, targetPrivilegeLevel);
+      console.log(`before apiClient is called targetPrivilegeLevel ${targetPrivilegeLevel}`)
+      await apiClient.updatePrivilegeLevel(targetEmail, targetPrivilegeLevel);
       setAlert(true);
       setAlertMessage(`Successfully changed user privilege level to ${targetPrivilegeLevel}`);
     } else {
@@ -62,9 +63,9 @@ async function handleSubmit(
 function createPrivilegeLevelDropdown() {
   return Object.values(PrivilegeLevel).map((value) => {
     return (
-      <div key={value}>
-        <option value={value}>{value}</option>
-      </div>
+      <option key={value} value={value}>
+        {value}
+      </option>
     );
   });
 }
@@ -79,19 +80,17 @@ const UpdatePrivilegeForm: React.FC = () => {
     <Container maxWidth="lg">
       <Stack>
         {showAlert && (
-          <Alert>
-            <AlertIcon />
-            <AlertDescription>{alertMessage}</AlertDescription>
-            <CloseButton
-              position="absolute"
-              right="8px"
-              top="8px"
-              onClick={() => {
-                setAlert(false);
-                setAlertMessage('');
-              }}
-            />
-          </Alert>
+          <Alert display='flex' justifyContent='space-between' colorScheme="lightPink" variant="top-accent">
+              <AlertIcon />
+              <AlertDescription>{alertMessage}</AlertDescription>
+              <CloseButton 
+                onClick={() => {
+                  setAlert(false);
+                  setAlertMessage('');
+                }}
+              />
+            </Alert>
+            
         )}
         {`Update a User's Privilege Level`}
         <Input
@@ -108,6 +107,8 @@ const UpdatePrivilegeForm: React.FC = () => {
           {createPrivilegeLevelDropdown()}
         </Select>
         <Button
+          colorScheme="darkPink"
+          variant="solid"
           onClick={() =>
             handleSubmit(targetEmail, targetPrivilegeLevel, setAlert, setAlertMessage)
           }>

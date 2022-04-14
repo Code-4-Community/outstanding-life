@@ -1,6 +1,7 @@
 import { PrivilegeLevel } from '@prisma/client';
 import { Session } from 'next-auth';
-import { PRIVILEGE_LEVEL_ORDERING } from '../constants';
+const LOWEST_AUTHORIZED_PRIVILEGE_LEVEL = PrivilegeLevel.ADMIN;
+const PRIVILEGE_LEVEL_ORDERING: PrivilegeLevel[] = [PrivilegeLevel.BASIC, PrivilegeLevel.ADMIN];
 
 export function getPrivilegeLevelFromSession(session: Session | null): PrivilegeLevel | undefined {
   if (session === null) {
@@ -24,4 +25,10 @@ export const privilegeLevelCompareTo = (
     PRIVILEGE_LEVEL_ORDERING.indexOf(privilegeLevel1) -
     PRIVILEGE_LEVEL_ORDERING.indexOf(privilegeLevel2)
   );
+};
+
+/* returns whether a given privilegeLevel is above or equal to the lowest authorized privilege level required in order to see the UI to be able to update a user's privilege level
+ */
+export const isAuthorizedToUpdatePrivilegeLevels = (sessionPrivilegeLevel: PrivilegeLevel) => {
+  return privilegeLevelCompareTo(sessionPrivilegeLevel, LOWEST_AUTHORIZED_PRIVILEGE_LEVEL) >= 0;
 };
