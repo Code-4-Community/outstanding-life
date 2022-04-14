@@ -12,11 +12,11 @@ const Hero: React.FC<HeroProps> = ({ imgSrc, text }) => {
     <div data-cy="learn-more-section" style={{ position: 'relative' }}>
       <Image width="100%" height="100vh" objectFit="cover" alt="Learn More Image" src={imgSrc} />
       <Flex
-        gap="1rem"
+        gap="16px"
         flexDir="column"
         alignItems="center"
         position="absolute"
-        bottom="1rem"
+        bottom="16px"
         left="calc(50% - 300px)"
         color="white"
         textAlign="center"
