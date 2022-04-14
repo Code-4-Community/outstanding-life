@@ -1,27 +1,35 @@
-import { Container, Text, Flex, Button } from '@chakra-ui/react';
+import { Box, Center, Container, Flex, Text } from '@chakra-ui/react';
+import '@fontsource/poppins/700.css'
 
 const Donate: React.FC = () => {
   return (
     <>
       <Flex gap={'150px'} flexDir={'column'}>
         <Container maxW={'container.lg'} mb="100px">
-          <Flex gap={'300px'} flexDir="column">
+          <Flex gap={'30px'} flexDir="column">
             <div data-cy="donate-top-message" id={'donate-top-message'}>
               <Flex flexDir="column" gap={'15px'}>
-                <Text fontSize='5xl'>
-                  Any amount helps us reach our goal!
-                </Text>
+                <Center>
+                  <Text fontSize='5xl'>
+                    Any amount helps us reach our goal!
+                  </Text>
+                </Center>
               </Flex>
             </div>
             <div data-cy="donate-button">
-            <Button colorScheme='lightPink' variant='solid' borderRadius='4'>
-                DONATE
-            </Button>
+              <Center>
+                <Box as='button' bg='#C00074' color='#FFFFFF' borderRadius='20' 
+                  width='316px' height='110px' fontSize='48px' fontWeight='bold' >
+                    DONATE
+                </Box>
+              </Center>
             </div>
             <div data-cy="donate-bottom-message">
-              <Text fontSize='3xl'>
-                All donations go to the Multicultural Aids Coalition
-              </Text> 
+              <Center>
+                <Text fontSize='3xl'>
+                  All donations go to the Multicultural Aids Coalition
+                </Text> 
+              </Center>
             </div>
           </Flex>
         </Container>
