@@ -1,3 +1,4 @@
+import { User } from '@prisma/client';
 import axios, { AxiosInstance } from 'axios';
 import { BASE_URL } from './constants';
 
@@ -8,19 +9,17 @@ export class ApiClient {
     this.axiosInstance = axios.create({ baseURL });
   }
 
-  private async get(path: string): Promise<unknown> {
-    return this.axiosInstance.get(path).then((response) => response.data);
-  }
-
   private async put(path: string, body: unknown): Promise<unknown> {
     return this.axiosInstance.put(path, body).then((response) => response.data);
   }
 
-  public async updatePrivilegeLevel(targetEmail: string, targetPrivilegeLevel: string) {
-    return this.put(`/api/user/${targetEmail}/privilegeLevel`, {
+  public async updatePrivilegeLevel(
+    targetEmail: string,
+    targetPrivilegeLevel: string,
+  ): Promise<void> {
+    await this.put(`/api/user/${targetEmail}/privilegeLevel`, {
       privilegeLevel: targetPrivilegeLevel,
     });
   }
 }
-
 export default new ApiClient();

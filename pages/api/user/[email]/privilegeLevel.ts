@@ -6,9 +6,9 @@ import prisma from '../../../../prisma/prisma';
 /**
  * TODO: update swagger
  * @swagger
- * /api/news:
- *   get:
- *     description: Returns the news headline
+ * /api/user/:email/privilegeLevel:
+ *   put:
+ *     description: Updates a user
  *     responses:
  *       200:
  *         description: OK

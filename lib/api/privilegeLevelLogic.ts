@@ -8,9 +8,9 @@ import {
   isAuthorizedToUpdatePrivilegeLevels,
   privilegeLevelCompareTo,
 } from '../utils/privilegeLevelUtils';
-import { Context, RequestParameters } from './privilegeLevelTypes';
+import { LOWEST_AUTHORIZED_PRIVILEGE_LEVEL } from '../utils/privilegeLevelUtils';
+import { Context, RequestParameters } from './updatePrivilegeLevel.dto';
 
-//DEFINTITIONS
 export const makeUpdatePrivilegeLevelHandler =
   (ctx: Context) => async (req: NextApiRequest, res: NextApiResponse) => {
     const { targetEmail, targetPrivilegeLevel } = getParameters(req);
@@ -24,14 +24,31 @@ export const makeUpdatePrivilegeLevelHandler =
     }
 
     if (!myPrivilegeLevel || !isCallerAuthorized(myPrivilegeLevel, targetPrivilegeLevel)) {
-      res.status(401).send('User is not authorized for this operation');
+      res
+        .status(401)
+        .send(
+          `You must have a ${LOWEST_AUTHORIZED_PRIVILEGE_LEVEL} privilegeLevel for this operation`,
+        );
       return;
     }
 
-    // 2.) check if targetID's PL != targetId's PL
     const targetUser = await ctx.prisma.user.findUnique({ where: { email: targetEmail } });
     if (targetUser === null) {
       throw new BadRequestError('The user you requested cannot be found. Please try again.');
+    } else if (
+      privilegeLevelCompareTo(myPrivilegeLevel, targetPrivilegeLevel as PrivilegeLevel) < 0
+    ) {
+      /* The caller can only update the target user to the target privilege level if the caller's privilege level 
+      is the target privilege level or higher*/
+      throw new BadRequestError(
+        `Error: you must be at least ${targetPrivilegeLevel} to be able to update another user's privilege level to ${targetPrivilegeLevel}.`,
+      );
+    } else if (privilegeLevelCompareTo(myPrivilegeLevel, targetUser.privilegeLevel) <= 0) {
+      /*
+      The caller can only update the target user if it has a higher privilege level than the target user.*/
+      throw new BadRequestError(
+        `Error: Your privilege level is lower or equal to the user: ${targetEmail}'s privilege level. You are not authorized for this operation.`,
+      );
     } else if (targetUser.privilegeLevel === targetPrivilegeLevel) {
       throw new BadRequestError('The user you requested is already of that privilege level.');
     } else {
@@ -58,6 +75,9 @@ const getParameters = (req: NextApiRequest): RequestParameters => {
   return { targetEmail, targetPrivilegeLevel };
 };
 
+/*
+Returns whether the caller is at least the lowest required privilege level in order to be able update a user's privilege level (documented by LOWEST_AUTHORIZED_PRIVILEGE_LEVEL)
+*/
 const isCallerAuthorized = (
   sessionPrivilegeLevel: PrivilegeLevel,
   targetPrivilegeLevel: string,
@@ -66,10 +86,5 @@ const isCallerAuthorized = (
   const isValidTargetPrivilegeLevel = Object.values(PrivilegeLevel).includes(
     targetPrivilegeLevel as PrivilegeLevel,
   );
-  const canUpdateTarget =
-    privilegeLevelCompareTo(sessionPrivilegeLevel, targetPrivilegeLevel as PrivilegeLevel) >= 0;
-  //TODO validation that
-  const callerHasHigherPrivilegeLevel =
-    privilegeLevelCompareTo(sessionPrivilegeLevel, targetPrivilegeLevel as PrivilegeLevel) >= 0;
-  return isAuthorized && isValidTargetPrivilegeLevel && canUpdateTarget;
+  return isAuthorized && isValidTargetPrivilegeLevel;
 };

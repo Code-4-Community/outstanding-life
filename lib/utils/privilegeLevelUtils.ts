@@ -1,7 +1,8 @@
 import { PrivilegeLevel } from '@prisma/client';
 import { Session } from 'next-auth';
-const LOWEST_AUTHORIZED_PRIVILEGE_LEVEL = PrivilegeLevel.ADMIN;
-const PRIVILEGE_LEVEL_ORDERING: PrivilegeLevel[] = [PrivilegeLevel.BASIC, PrivilegeLevel.ADMIN];
+
+export const LOWEST_AUTHORIZED_PRIVILEGE_LEVEL = PrivilegeLevel.ADMIN;
+export const PRIVILEGE_LEVEL_ORDERING: PrivilegeLevel[] = [PrivilegeLevel.BASIC, PrivilegeLevel.ADMIN];
 
 export function getPrivilegeLevelFromSession(session: Session | null): PrivilegeLevel | undefined {
   if (session === null) {

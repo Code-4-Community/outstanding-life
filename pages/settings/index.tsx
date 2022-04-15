@@ -1,4 +1,4 @@
-import { Box, Button, Container, Flex, Input, Select, Spacer, Stack } from '@chakra-ui/react';
+import { Button, Container, Input, Select, Stack } from '@chakra-ui/react';
 import { PrivilegeLevel } from '@prisma/client';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { Dispatch, SetStateAction, useState } from 'react';
@@ -46,7 +46,6 @@ async function handleSubmit(
 ) {
   try {
     if (targetEmail && targetPrivilegeLevel) {
-      console.log(`before apiClient is called targetPrivilegeLevel ${targetPrivilegeLevel}`)
       await apiClient.updatePrivilegeLevel(targetEmail, targetPrivilegeLevel);
       setAlert(true);
       setAlertMessage(`Successfully changed user privilege level to ${targetPrivilegeLevel}`);
@@ -80,17 +79,20 @@ const UpdatePrivilegeForm: React.FC = () => {
     <Container maxWidth="lg">
       <Stack>
         {showAlert && (
-          <Alert display='flex' justifyContent='space-between' colorScheme="lightPink" variant="top-accent">
-              <AlertIcon />
-              <AlertDescription>{alertMessage}</AlertDescription>
-              <CloseButton 
-                onClick={() => {
-                  setAlert(false);
-                  setAlertMessage('');
-                }}
-              />
-            </Alert>
-            
+          <Alert
+            display="flex"
+            justifyContent="space-between"
+            colorScheme="lightPink"
+            variant="top-accent">
+            <AlertIcon />
+            <AlertDescription>{alertMessage}</AlertDescription>
+            <CloseButton
+              onClick={() => {
+                setAlert(false);
+                setAlertMessage('');
+              }}
+            />
+          </Alert>
         )}
         {`Update a User's Privilege Level`}
         <Input
