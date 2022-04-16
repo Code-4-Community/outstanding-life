@@ -4,47 +4,31 @@ import { makeUpdatePrivilegeLevelHandler } from '../../../../lib/api/privilegeLe
 import prisma from '../../../../prisma/prisma';
 
 /**
- * TODO: update swagger
+ *
  * @swagger
- * /api/user/:email/privilegeLevel:
+ * /api/user/{email}/privilegeLevel:
  *   put:
- *     description: Updates a user
+ *     description: Updates a user given its email and privilegeLevel
+ *     parameters:
+ *       - name: email
+ *         in: path
+ *         description: the user to update
+ *         schema:
+ *           type : string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               privilegeLevel:
+ *                 type: string
  *     responses:
  *       200:
- *         description: OK
- *         content:
- *           application/json:
- *              schema:
- *                   type: object
- *                   properties:
- *                     id:
- *                       type: integer
- *                       format: int64
- *                       example: 4
- *                     title:
- *                       type: string
- *                       example: Fun Event
- *                     content:
- *                       type: string
- *                       example: An event is happening in the common area!
- *                     createdAt:
- *                       type: dateTime
- *                       example: Jan-08-2022
- *   post:
- *     description: Creates valid news headline
- *     parameters:
- *       - name: title
- *         required: true
- *         description: The title of the news headline.
- *         schema:
- *              type : string
- *       - name: content
- *         required: true
- *         description: The content of the news headline.
- *         schema:
- *              type : string
- *     responses:
- *       201:
- *         description: OK
+ *         description: The user has been updated to privilegeLevel
+ *       400:
+ *         description: Received invalid parameters for id and privilege level
+ *
  */
 export default makeRoute().put(makeUpdatePrivilegeLevelHandler({ prisma }));

@@ -18,7 +18,6 @@ export const makeUpdatePrivilegeLevelHandler =
     const myPrivilegeLevel = getPrivilegeLevelFromSession(mySession);
 
     if (!targetEmail || !targetPrivilegeLevel) {
-      console.log(`targetEmail:${targetEmail} targetPrivilegeLevel: ${targetPrivilegeLevel}`);
       res.status(400).send('Received invalid parameters for id and privilege level.');
       return;
     }
