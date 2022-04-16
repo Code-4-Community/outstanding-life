@@ -9,7 +9,8 @@ import {
   privilegeLevelCompareTo,
 } from '../utils/privilegeLevelUtils';
 import { LOWEST_AUTHORIZED_PRIVILEGE_LEVEL } from '../utils/privilegeLevelUtils';
-import { Context, RequestParameters } from './updatePrivilegeLevel.dto';
+import { RequestParameters } from '../types/api/updatePrivilegeLevel.dto';
+import { Context } from '../types/types';
 
 export const makeUpdatePrivilegeLevelHandler =
   (ctx: Context) => async (req: NextApiRequest, res: NextApiResponse) => {
