@@ -73,7 +73,7 @@ const UpdatePrivilegeForm: React.FC = () => {
   const [targetEmail, setTargetEmail] = useState<string>('');
   const [targetPrivilegeLevel, setTargetPrivilegeLevel] = useState<string>('');
   const [showAlert, setAlert] = useState<boolean>(false);
-  const [alertMessage, setAlertMessage] = useState('');
+  const [alertMessage, setAlertMessage] = useState<string>('');
 
   return (
     <Container maxWidth="lg">

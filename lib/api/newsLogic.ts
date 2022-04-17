@@ -1,5 +1,5 @@
 import prisma from '../../prisma/prisma';
-import { newsWriteSchema } from '../types/api/createNewsRequest.dto';
+import { newsWriteSchema } from '../types/dtos/createNewsRequest.dto';
 import { BadRequestError } from '../../lib/utils/errors/badRequestError';
 import type { NextApiRequest, NextApiResponse } from 'next';
 

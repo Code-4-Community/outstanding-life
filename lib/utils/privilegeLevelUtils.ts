@@ -15,7 +15,7 @@ export function getPrivilegeLevelFromSession(session: Session | null): Privilege
   return maybePrivilegeLevel ? maybePrivilegeLevel : undefined;
 }
 
-export const getIndexOfPrivilegeLevel = (privilegeLevel: PrivilegeLevel) => {
+export const getIndexOfPrivilegeLevel = (privilegeLevel: PrivilegeLevel): number => {
   return PRIVILEGE_LEVEL_ORDERING.indexOf(privilegeLevel);
 };
 
@@ -24,7 +24,7 @@ export const getIndexOfPrivilegeLevel = (privilegeLevel: PrivilegeLevel) => {
 export const privilegeLevelCompareTo = (
   privilegeLevel1: PrivilegeLevel,
   privilegeLevel2: PrivilegeLevel,
-) => {
+): number => {
   return (
     PRIVILEGE_LEVEL_ORDERING.indexOf(privilegeLevel1) -
     PRIVILEGE_LEVEL_ORDERING.indexOf(privilegeLevel2)
@@ -33,6 +33,8 @@ export const privilegeLevelCompareTo = (
 
 /* returns whether a given privilegeLevel is above or equal to the lowest authorized privilege level required in order to see the UI to be able to update a user's privilege level
  */
-export const isAuthorizedToUpdatePrivilegeLevels = (sessionPrivilegeLevel: PrivilegeLevel) => {
+export const isAuthorizedToUpdatePrivilegeLevels = (
+  sessionPrivilegeLevel: PrivilegeLevel,
+): boolean => {
   return privilegeLevelCompareTo(sessionPrivilegeLevel, LOWEST_AUTHORIZED_PRIVILEGE_LEVEL) >= 0;
 };

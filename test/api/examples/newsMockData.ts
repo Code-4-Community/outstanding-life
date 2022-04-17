@@ -1,5 +1,5 @@
-import { NewsWrite } from "../../../lib/types/api/createNewsRequest.dto";
 import { News } from "@prisma/client";
+import { NewsWrite } from "../../../lib/types/dtos/createNewsRequest.dto";
 
 export const createNews0: NewsWrite = {
   title: 'First news',

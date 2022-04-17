@@ -17,7 +17,8 @@ export class ApiClient {
     targetEmail: string,
     targetPrivilegeLevel: string,
   ): Promise<void> {
-    await this.put(`/api/user/${targetEmail}/privilegeLevel`, {
+    await this.put(`/api/user/privilege-level`, {
+      email: targetEmail,
       privilegeLevel: targetPrivilegeLevel,
     });
   }
