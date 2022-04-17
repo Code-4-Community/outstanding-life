@@ -6,4 +6,3 @@ export const updatePrivilegeLevelSchema = z.object({
 });
 
 export type UpdatePrivilegeRequestBody = z.infer<typeof updatePrivilegeLevelSchema>;
- 
