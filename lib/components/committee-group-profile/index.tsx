@@ -39,7 +39,7 @@ const testData = [
 
 const CommitteeGroupProfile: React.FC = () => {
   return (
-    <Flex flexWrap="wrap" justifyContent="center">
+    <Flex flexWrap="wrap" rowGap={'50px'} justifyContent="center">
       {testData.map((test, index) => (
         <CommitteeProfile key={index} style={{ maxWidth: '300px' }} {...test} />
       ))}
