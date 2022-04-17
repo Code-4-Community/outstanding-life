@@ -55,7 +55,7 @@ const AboutUs: React.FC = () => {
                   listening sessions across Massachusetts that include social isolation and lack of
                   connection, the need for:
                 </Text>
-                <UnorderedList>
+                <UnorderedList margin={'0 30px'}>
                   <ListItem>
                     social activities that create a sense of community and belonging
                   </ListItem>
