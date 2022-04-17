@@ -17,10 +17,10 @@ const Hero: React.FC<HeroProps> = ({ imgSrc, text }) => {
         alignItems="center"
         position="absolute"
         bottom="16px"
-        left="calc(50% - 300px)"
+        left="calc(50% - min(100%, 600px)/2)"
         color="var(--white)"
         textAlign="center"
-        width="600px">
+        width="min(100%, 600px)">
         <Heading as="h1">{text}</Heading>
         <Link href="#mission-statement">
           <Button
