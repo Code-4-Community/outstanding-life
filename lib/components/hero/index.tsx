@@ -18,15 +18,15 @@ const Hero: React.FC<HeroProps> = ({ imgSrc, text }) => {
         position="absolute"
         bottom="16px"
         left="calc(50% - min(100%, 600px)/2)"
-        color="var(--white)"
+        color="#ffffff"
         textAlign="center"
         width="min(100%, 600px)">
         <Heading as="h1">{text}</Heading>
         <Link href="#mission-statement">
           <Button
             data-cy="learn-more-button"
-            backgroundColor="var(--white)"
-            color="#CD0A69"
+            backgroundColor="#ffffff"
+            color="var(--purple)"
             variant="solid"
             rounded="8px"
             width="175px">
