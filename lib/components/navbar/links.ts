@@ -5,6 +5,10 @@ export type NavLinkProps = {
 
 const navLinks: NavLinkProps[] = [
   {
+    label: "Donate",
+    path: '/donate',
+  },
+  {
     label: 'Contact',
     path: '/contact',
   },

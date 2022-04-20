@@ -12,6 +12,9 @@ const Theme = extendTheme({
   fonts: {
     body: 'Poppins, sans-serif'
   },
+  textStyles: {
+    body: { fontWeight: 400 }
+  },
 })
 
 export default Theme;
