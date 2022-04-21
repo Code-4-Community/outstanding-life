@@ -1,5 +1,5 @@
 import { Box, Center, Container, Flex, Link, Text } from '@chakra-ui/react';
-import NextLink from "next/link"
+import NextLink from 'next/link';
 
 const Donate: React.FC = () => {
   return (
@@ -27,7 +27,7 @@ const Donate: React.FC = () => {
             <div data-cy="donate-button">
               <Flex flexDir="column" gap={'15px'}>
                 <Center>
-                  <NextLink href="/" > 
+                  <NextLink href="/">
                     <Link
                       as="button"
                       bg="#C00074"
