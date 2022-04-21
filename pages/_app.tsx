@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { SessionProvider } from 'next-auth/react';
 import Theme from '../styles/theme';
+import '@fontsource/poppins/500.css';
 
 const queryClient = new QueryClient();
 

@@ -1,5 +1,4 @@
 import { extendTheme } from "@chakra-ui/react"
-import "@fontsource/poppins";
 
 const Theme = extendTheme({
   fonts: {
