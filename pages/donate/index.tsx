@@ -9,7 +9,7 @@ const Donate: React.FC = () => {
             <div data-cy="donate-top-message" id={'donate-top-message'}>
               <Flex flexDir="column" gap={'15px'}>
                 <Center>
-                  <Box fontSize="5xl">Any amount helps us reach our goal!</Box>
+                  <Text fontSize="5xl">Any amount helps us reach our goal!</Text>
                 </Center>
               </Flex>
             </div>
@@ -24,9 +24,10 @@ const Donate: React.FC = () => {
               </Flex>
             </div>
             <div data-cy="donate-button">
-              <Center>
-                <Link href="/">
-                  <Box
+              <Flex flexDir="column" gap={'15px'}>
+                <Center>
+                  <Link
+                    href="/"
                     as="button"
                     bg="#C00074"
                     color="#FFFFFF"
@@ -36,14 +37,16 @@ const Donate: React.FC = () => {
                     fontSize="48px"
                     fontWeight="bolder">
                     DONATE
-                  </Box>
-                </Link>
-              </Center>
+                  </Link>
+                </Center>
+              </Flex>
             </div>
             <div data-cy="donate-bottom-message">
-              <Center>
-                <Text fontSize="3xl">All donations go to the Multicultural Aids Coalition</Text>
-              </Center>
+              <Flex flexDir="column" gap={'15px'}>
+                <Center>
+                  <Text fontSize="3xl">All donations go to the Multicultural Aids Coalition</Text>
+                </Center>
+              </Flex>
             </div>
           </Flex>
         </Container>
