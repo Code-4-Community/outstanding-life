@@ -1,5 +1,4 @@
-import { Box, Center, Container, Flex, Text } from '@chakra-ui/react';
-import '@fontsource/poppins/700.css'
+import { Box, Center, Container, Flex, Link, Text } from '@chakra-ui/react';
 
 const Donate: React.FC = () => {
   return (
@@ -10,9 +9,9 @@ const Donate: React.FC = () => {
             <div data-cy="donate-top-message" id={'donate-top-message'}>
               <Flex flexDir="column" gap={'15px'}>
                 <Center>
-                  <Text fontSize='5xl' fontWeight='thin'>
+                  <Box fontSize='5xl'>
                     Any amount helps us reach our goal!
-                  </Text>
+                  </Box>
                 </Center>
               </Flex>
             </div>
@@ -27,10 +26,12 @@ const Donate: React.FC = () => {
             </div>           
             <div data-cy="donate-button">
               <Center>
-                <Box as='button' bg='#C00074' color='#FFFFFF' borderRadius='20' 
-                  width='316px' height='110px' fontSize='48px' fontWeight='bold'>
-                    DONATE
-                </Box>
+                <Link href='/'> 
+                  <Box as='button' bg='#C00074' color='#FFFFFF' borderRadius='20' 
+                    width='316px' height='110px' fontSize='48px' fontWeight='bolder'>
+                      DONATE
+                  </Box>
+                </Link>
               </Center>
             </div>
             <div data-cy="donate-bottom-message">
