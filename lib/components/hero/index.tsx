@@ -10,13 +10,13 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ imgSrc, text }) => {
   return (
     <div data-cy="learn-more-section" style={{ position: 'relative' }}>
-      <Image width="100%" height="100vh" objectFit="cover" alt="Learn More Image" src={imgSrc} />
+      <Image width="100%" height="70vh" objectFit="cover" alt="Learn More Image" src={imgSrc} />
       <Flex
         gap="16px"
         flexDir="column"
         alignItems="center"
         position="absolute"
-        bottom="16px"
+        bottom="64px"
         left="calc(50% - min(100%, 600px)/2)"
         color="#ffffff"
         textAlign="center"
@@ -29,7 +29,8 @@ const Hero: React.FC<HeroProps> = ({ imgSrc, text }) => {
             color="var(--purple)"
             variant="solid"
             rounded="8px"
-            width="175px">
+            fontSize="24px"
+            padding="30px">
             LEARN MORE
           </Button>
         </Link>

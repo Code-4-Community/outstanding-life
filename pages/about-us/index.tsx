@@ -6,17 +6,18 @@ import Hero from '../../lib/components/hero';
 const AboutUs: React.FC = () => {
   return (
     <>
-      <Flex gap={'150px'} flexDir={'column'}>
+      <Flex gap={'120px'} flexDir={'column'}>
         <Hero
-          imgSrc={
-            'https://www.looper.com/img/gallery/things-only-adults-notice-in-shrek/intro-1573597941.jpg'
-          }
+          imgSrc={'https://media.giphy.com/media/kVbWMnGg4xTJ6/giphy.gif'}
           text={'We are never ever getting back together, said Taylor Swift.'}
         />
-        <Container maxW={'container.lg'} mb="100px">
-          <Flex gap={'300px'} flexDir="column">
+        <Container maxW={'container.lg'} mb="100px" fontSize="24px">
+          <Flex gap={'120px'} flexDir="column">
             <div data-cy="mission-statement-section" id={'mission-statement'}>
-              <Header style={{ marginBottom: '15px' }} header="Our Mission and Purpose" />
+              <Header
+                style={{ marginTop: '30px', marginBottom: '30px' }}
+                header="Our Mission and Purpose"
+              />
               <Flex flexDir="column" gap={'15px'}>
                 <Text>
                   The mission of the Outstandinglife.org is to improve the quality of life of LGBTQ
@@ -38,7 +39,7 @@ const AboutUs: React.FC = () => {
               </Flex>
             </div>
             <div data-cy="need-section">
-              <Header style={{ marginBottom: '15px' }} header="The Need" />
+              <Header style={{ marginBottom: '30px' }} header="The Need" />
               <Flex flexDir="column" gap={'15px'}>
                 <Text>
                   Despite increased physical longevity, social isolation and loneliness are leading
