@@ -77,20 +77,21 @@ const isCallerAuthorized = (
   return isAuthorized && isValidTargetPrivilegeLevel;
 };
 
-function assertUserIsNotAlreadyTargetPrivilegeLevel(
+const assertUserIsNotAlreadyTargetPrivilegeLevel = (
   targetUser: User,
   targetPrivilegeLevel: string,
-) {
+): boolean => {
   if (targetUser.privilegeLevel === targetPrivilegeLevel) {
     throw new BadRequestError('The user you requested is already of that privilege level.');
   }
-}
+  return true;
+};
 
-function assertUserIsMorePrivilegedThanTargetUser(
+const assertUserIsMorePrivilegedThanTargetUser = (
   myPrivilegeLevel: PrivilegeLevel,
   targetUserPrivilegeLevel: PrivilegeLevel,
   targetEmail: string,
-) {
+): boolean => {
   if (privilegeLevelCompareTo(myPrivilegeLevel, targetUserPrivilegeLevel) <= 0) {
     /*
     The caller can only update the target user if it has a higher privilege level than the target user.*/
@@ -98,12 +99,13 @@ function assertUserIsMorePrivilegedThanTargetUser(
       `Error: Your privilege level is lower or equal to the user: ${targetEmail}'s privilege level. You are not authorized for this operation.`,
     );
   }
-}
+  return true;
+};
 
-function assertPrivilegeLevelisAtLeastTarget(
+const assertPrivilegeLevelisAtLeastTarget = (
   myPrivilegeLevel: string,
   targetPrivilegeLevel: string,
-) {
+): boolean => {
   if (
     privilegeLevelCompareTo(
       myPrivilegeLevel as PrivilegeLevel,
@@ -116,7 +118,8 @@ function assertPrivilegeLevelisAtLeastTarget(
       `Error: you must be at least ${targetPrivilegeLevel} to be able to update another user's privilege level to ${targetPrivilegeLevel}.`,
     );
   }
-}
+  return true;
+};
 
 function assertUserExists(targetUser: User | null): User {
   if (targetUser === null) {
