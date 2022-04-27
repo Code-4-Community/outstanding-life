@@ -5,7 +5,6 @@ module.exports = {
 
 /** To use SVG of logo */
 module.exports = {
-  experimental: { images: { layoutRaw: true } },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

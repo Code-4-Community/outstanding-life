@@ -74,7 +74,7 @@ const AboutUs: React.FC = () => {
                 </Text>
               </Flex>
             </div>
-            <div data-cy="committee-group-profile-section">
+            <div data-cy="leadership-team-section">
               <Header style={{ marginBottom: '50px' }} header="Leadership Team" />
               <CommitteeGroupProfile />
             </div>

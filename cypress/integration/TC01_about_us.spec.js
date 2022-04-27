@@ -12,6 +12,6 @@ describe('About Us Flow', () => {
         cy.get('[data-cy=learn-more-button]').should('be.visible').click();
         cy.get('[data-cy=mission-statement-section]').should('be.visible');
         cy.get('[data-cy=need-section]').scrollIntoView().should('be.visible');
-        cy.get('[data-cy=committee-group-profile-section]').scrollIntoView().should('be.visible');
+        cy.get('[data-cy=leadership-team-section]').scrollIntoView().should('be.visible');
     })
 })

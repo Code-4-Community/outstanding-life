@@ -12,7 +12,7 @@ import {
 interface LeadershipTeamProfileProps {
   name: string;
   description: string;
-  imgSrc: StaticImageData;
+  imgSrc: string;
   style?: React.CSSProperties;
 }
 
@@ -31,12 +31,12 @@ const LeadershipTeamProfile: React.FC<LeadershipTeamProfileProps> = ({
 }) => {
   return (
     <Flex flexDirection="column" alignItems="center" gap={'15px'} m="10px 10px" style={style}>
-      <Image style={imageStyle} layout="raw" src={imgSrc} alt="leadership team image" />
+      <Image style={imageStyle} layout="fixed" width='210px' height='210px' src={imgSrc} alt="leadership team image" />
       <Flex flexDirection="column" alignItems="center">
         <Accordion allowToggle={true}>
           <AccordionItem borderStyle="none">
             <AccordionButton width="300px" justifyContent="center">
-              <Text textAlign="center" fontWeight="bold">
+              <Text textAlign="center" fontWeight="bold" fontSize="lg">
                 {name}
               </Text>
               <AccordionIcon />

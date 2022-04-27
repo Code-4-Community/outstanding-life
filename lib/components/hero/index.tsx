@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ imgSrc, text }) => {
         textAlign="center"
         width="min(100%, 600px)">
         <Heading as="h1">{text}</Heading>
-        <Link href="#mission-statement">
+        <Link href="#mission-statement" passHref>
           <Button
             data-cy="learn-more-button"
             backgroundColor="#ffffff"
