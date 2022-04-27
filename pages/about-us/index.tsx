@@ -1,6 +1,6 @@
 import Header from '../../lib/components/header';
 import { Container, Text, UnorderedList, ListItem, Flex } from '@chakra-ui/react';
-import CommitteeGroupProfile from '../../lib/components/committee-group-profile';
+import CommitteeGroupProfile from '../../lib/components/leadership-team';
 import Hero from '../../lib/components/hero';
 
 const AboutUs: React.FC = () => {
@@ -75,7 +75,7 @@ const AboutUs: React.FC = () => {
               </Flex>
             </div>
             <div data-cy="committee-group-profile-section">
-              <Header style={{ marginBottom: '50px' }} header="Steering Committee" />
+              <Header style={{ marginBottom: '50px' }} header="Leadership Team" />
               <CommitteeGroupProfile />
             </div>
           </Flex>

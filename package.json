@@ -21,7 +21,7 @@
     "axios": "^0.26.1",
     "cors": "^2.8.5",
     "framer-motion": "^4.1.17",
-    "next": "12.0.7",
+    "next": "12.1.1",
     "next-auth": "^4.0.6",
     "next-connect": "^0.11.0",
     "next-swagger-doc": "^0.2.0",

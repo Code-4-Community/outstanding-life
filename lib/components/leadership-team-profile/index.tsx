@@ -1,0 +1,56 @@
+import { Flex, Text } from '@chakra-ui/react';
+import Image, { StaticImageData } from 'next/image';
+import React from 'react';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from '@chakra-ui/react';
+
+interface LeadershipTeamProfileProps {
+  name: string;
+  description: string;
+  imgSrc: StaticImageData;
+  style?: React.CSSProperties;
+}
+
+const imageStyle = {
+  display: 'block',
+  borderRadius: '50%',
+  height: '210px',
+  width: '210px',
+};
+
+const LeadershipTeamProfile: React.FC<LeadershipTeamProfileProps> = ({
+  style,
+  name,
+  description,
+  imgSrc,
+}) => {
+  return (
+    <Flex flexDirection="column" alignItems="center" gap={'15px'} m="10px 10px" style={style}>
+      <Image style={imageStyle} layout="raw" src={imgSrc} alt="leadership team image" />
+      <Flex flexDirection="column" alignItems="center">
+        <Accordion allowToggle={true}>
+          <AccordionItem borderStyle="none">
+            <AccordionButton width="300px" justifyContent="center">
+              <Text textAlign="center" fontWeight="bold">
+                {name}
+              </Text>
+              <AccordionIcon />
+            </AccordionButton>
+            <AccordionPanel pb={4}>
+              <Text fontSize="md" textAlign="center" lineHeight={5} padding="0 10px">
+                {description}
+              </Text>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+      </Flex>
+    </Flex>
+  );
+};
+
+export default LeadershipTeamProfile;
