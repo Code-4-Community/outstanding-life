@@ -31,7 +31,14 @@ const LeadershipTeamProfile: React.FC<LeadershipTeamProfileProps> = ({
 }) => {
   return (
     <Flex flexDirection="column" alignItems="center" gap={'15px'} m="10px 10px" style={style}>
-      <Image style={imageStyle} layout="fixed" width='210px' height='210px' src={imgSrc} alt="leadership team image" />
+      <Image
+        style={imageStyle}
+        layout="fixed"
+        width="210px"
+        height="210px"
+        src={imgSrc}
+        alt="leadership team image"
+      />
       <Flex flexDirection="column" alignItems="center">
         <Accordion allowToggle={true}>
           <AccordionItem borderStyle="none">
