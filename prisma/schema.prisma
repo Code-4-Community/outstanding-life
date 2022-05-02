@@ -16,10 +16,11 @@ model Category {
 }
 
 model Programs {
-  id        Int      @id @default(autoincrement())
-  title     String
-  content   String
-  createdAt DateTime @default(now())
+  id            Int      @id @default(autoincrement())
+  title         String
+  content       String
+  createdAt     DateTime @default(now())
+  pictureS3Url  String
 }
 
 enum PrivilegeLevel {
