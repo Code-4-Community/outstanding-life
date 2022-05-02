@@ -1,4 +1,4 @@
-import { getProgramsHandler, postProgramsHandler } from '../../lib/api/programsLogic';
+import { getAllProgramsHandler, postProgramHandler } from '../../lib/api/programsLogic';
 import httpMocks, { Body } from 'node-mocks-http';
 import prisma from '../../prisma/prisma';
 import { BadRequestError } from '../../lib/utils/errors/badRequestError';
@@ -26,7 +26,7 @@ describe('programs endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    await postProgramsHandler(request, response);
+    await postProgramHandler(request, response);
 
     expect(response.statusCode).toBe(201);
     expect(await prisma.programs.findMany({})).toEqual([expect.objectContaining(createPrograms0)]);
@@ -41,7 +41,7 @@ describe('programs endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    expect(postProgramsHandler(request, response)).rejects.toThrow(
+    expect(postProgramHandler(request, response)).rejects.toThrow(
       new BadRequestError('Programs must include title + content'),
     );
   });
@@ -55,7 +55,7 @@ describe('programs endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    expect(postProgramsHandler(request, response)).rejects.toThrow(
+    expect(postProgramHandler(request, response)).rejects.toThrow(
       new BadRequestError('Programs must include title + content'),
     );
   });
@@ -69,7 +69,7 @@ describe('programs endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    expect(postProgramsHandler(request, response)).rejects.toThrow(
+    expect(postProgramHandler(request, response)).rejects.toThrow(
       new BadRequestError('Programs must include title + content'),
     );
   });
@@ -83,7 +83,7 @@ describe('programs endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    expect(postProgramsHandler(request, response)).rejects.toThrow(
+    expect(postProgramHandler(request, response)).rejects.toThrow(
       new BadRequestError('Programs must include title + content'),
     );
   });
@@ -97,7 +97,7 @@ describe('programs endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    await getProgramsHandler(request, response);
+    await getAllProgramsHandler(request, response);
 
     const data = response._getJSONData(); // short-hand for JSON.parse( response._getData() );
     expect(response.statusCode).toBe(200);

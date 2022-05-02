@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import makeRoute from '../../../lib/utils/utils';
-import { getProgramsHandler, postProgramsHandler } from '../../../lib/api/programsLogic';
+import { getAllProgramsHandler, postProgramHandler } from '../../../lib/api/programsLogic';
 
 /**
  * @swagger
@@ -45,4 +45,6 @@ import { getProgramsHandler, postProgramsHandler } from '../../../lib/api/progra
  *       201:
  *         description: OK
  */
-export default makeRoute().get(getProgramsHandler).post(postProgramsHandler);
+export default makeRoute().get(getAllProgramsHandler).post(postProgramHandler);
+
+//todo:update and delete
