@@ -15,7 +15,7 @@ model Category {
   name String
 }
 
-model News {
+model Programs {
   id        Int      @id @default(autoincrement())
   title     String
   content   String
