@@ -10,13 +10,7 @@ type NavBarProps = {
 const NavBar: React.FC<NavBarProps> = ({ navLinks }) => (
   <Flex justifyContent="space-between" padding="5px">
     <Flex width="40%" justifyContent="center">
-      <Image
-        src="/images/logo.png"
-        priority
-        width="300px"
-        height="70%"
-        alt="outstanding life logo"
-      />
+      <Image src="/logo.png" priority width="300px" height="70%" alt="outstanding life logo" />
     </Flex>
     <Flex width="60%" justifyContent="space-evenly" alignItems="end">
       {navLinks.map((button: any) => (
