@@ -1,16 +1,24 @@
-export type NavLinkProps = {
+export type LinkProps = {
   path: string;
   label: string;
 };
 
-const navLinks: NavLinkProps[] = [
+const navLinks: LinkProps[] = [
   {
     label: 'About Us',
-    path: '/about-us'
+    path: '/about-us',
+  },
+  {
+    label: 'Membership',
+    path: '/membership',
   },
   {
     label: 'Programs',
     path: '/programs',
+  },
+  {
+    label: 'Partners',
+    path: '/partners',
   },
   {
     label: 'Contact Us',
