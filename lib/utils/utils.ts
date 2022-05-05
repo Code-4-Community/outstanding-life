@@ -20,7 +20,7 @@ export default function makeRoute() {
   }).use(cors());
 }
 
-export function getImageBufferFromBase64(base64string: string) {
+export function getImageBufferFromBase64(base64string: string): Buffer {
   const cleanedBase64String: string = base64string.replace(/^data:image\/\w+;base64,/, '');
   return Buffer.from(cleanedBase64String, 'base64');
 }

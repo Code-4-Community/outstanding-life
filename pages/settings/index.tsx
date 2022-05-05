@@ -20,6 +20,7 @@ const Settings: React.FC = () => {
     return (
       <>
         <NavBar navLinks={navLinks} />
+        <img src="https://c4c-outstanding-life.s3.us-east-2.amazonaws.com/2020-10-08T10%3A30%3A00.000Z_i+love+jamie2"/>
         Signed in as {session?.user?.email} <br />
         {userPrivilegeLevel &&
           privilegeLevelCompareTo(userPrivilegeLevel, PrivilegeLevel.ADMIN) >= 0 && (

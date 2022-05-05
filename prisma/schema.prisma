@@ -20,6 +20,7 @@ model Programs {
   title         String
   content       String
   createdAt     DateTime @default(now())
+  eventDate     DateTime
   pictureS3Url  String
 }
 
