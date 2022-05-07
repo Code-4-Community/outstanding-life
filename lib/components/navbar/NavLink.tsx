@@ -14,7 +14,7 @@ const NavLink: React.FC<LinkProps> = ({ path, label }) => {
         height="fit-content"
         data-cy="nav-bar"
         color="#4A5568"
-        textDecor={isActive ? 'underline' : ''}
+        textDecor={isActive ? 'underline' : 'none'}
         textUnderlineOffset="3px"
         textDecorationThickness="3px"
         textDecorationColor={'var(--purple)'}>
