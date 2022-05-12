@@ -4,8 +4,9 @@ import { BadRequestError } from './utils/errors/badRequestError';
 const { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } = process.env;
 const AWS_REGION = 'us-east-2';
 export const BUCKET_NAME = 'c4c-outstanding-life';
+export const S3_BASE_URL = 'https://c4c-outstanding-life.s3.us-east-2.amazonaws.com'
 
-AWS.config.update({
+https: AWS.config.update({
   accessKeyId: AWS_ACCESS_KEY_ID,
   secretAccessKey: AWS_SECRET_ACCESS_KEY,
   region: AWS_REGION,
