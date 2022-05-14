@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { chakra, Flex } from '@chakra-ui/react';
+import { chakra, Link as ChakraLink } from '@chakra-ui/react';
 import { LinkProps } from '../navbar/links';
 
 const HamburgerLink: React.FC<LinkProps> = ({ path, label }) => {
@@ -9,7 +9,7 @@ const HamburgerLink: React.FC<LinkProps> = ({ path, label }) => {
 
   return (
     <Link href={path} passHref>
-      <Flex
+      <ChakraLink
         _hover={{ cursor: 'pointer' }}
         _first={{ borderTop: 'none' }}
         height="fit-content"
@@ -28,7 +28,7 @@ const HamburgerLink: React.FC<LinkProps> = ({ path, label }) => {
           fontSize="24px">
           {label}
         </chakra.span>
-      </Flex>
+      </ChakraLink>
     </Link>
   );
 };

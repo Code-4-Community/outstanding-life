@@ -1,4 +1,4 @@
-import { Flex, IconButton } from '@chakra-ui/react';
+import { Box, Flex, IconButton } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useEffect, useState } from 'react';
 import { NavBarProps } from '../navbar';
@@ -19,12 +19,13 @@ const HamburgerMenu: React.FC<NavBarProps> = ({ navLinks }) => {
   }, [isOpen]);
 
   return (
-    <>
+    <Box as="nav">
       <IconButton
         onClick={() => setIsOpen((_isOpen) => !_isOpen)}
         display={isOpen ? 'none' : 'block'}
         icon={<HamburgerIcon />}
-        aria-label="open hamburger menu"
+        aria-label="Menu"
+        aria-expanded={isOpen}
       />
 
       {isOpen && (
@@ -37,19 +38,21 @@ const HamburgerMenu: React.FC<NavBarProps> = ({ navLinks }) => {
           backgroundColor="#D1D1D1"
           flexDir="column"
           alignItems="flex-end"
+          top="0"
           opacity="0.9">
           <IconButton
             onClick={() => setIsOpen((_isOpen) => !_isOpen)}
             display={!isOpen ? 'none' : 'block'}
             icon={<CloseIcon />}
             aria-label="close hamburger menu"
+            aria-expanded={isOpen}
           />
           {navLinks.map((button: LinkProps) => (
             <HamburgerLink key={button.path} path={button.path} label={button.label} />
           ))}
         </Flex>
       )}
-    </>
+    </Box>
   );
 };
 

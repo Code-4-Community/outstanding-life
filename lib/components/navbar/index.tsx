@@ -11,17 +11,22 @@ export type NavBarProps = {
 
 const NavBar: React.FC<NavBarProps> = ({ navLinks, style }) => {
   const breakpoint = useBreakpoint();
-  const hamburgerMenuSizes = ['base', 'sm', 'md'];
+  const hamburgerMenuSizes = ['base', 'sm'];
 
   return (
-    <Flex as="nav" justifyContent="space-between" padding="5px" style={style}>
-      <Flex width="30%" justifyContent="center">
+    <Flex
+      as="header"
+      flexDir={{ base: 'row', md: 'column' }}
+      justifyContent="space-between"
+      padding="5px"
+      style={style}>
+      <Flex justifyContent="center">
         <Image src="/logo.png" priority width="300px" height="70%" alt="outstanding life logo" />
       </Flex>
       {breakpoint && hamburgerMenuSizes.includes(breakpoint) ? (
         <HamburgerMenu navLinks={navLinks} />
       ) : (
-        <Flex width="70%" justifyContent="space-evenly" alignItems="end">
+        <Flex as="nav" justifyContent="space-evenly" alignItems="end">
           {navLinks.map((button: LinkProps) => (
             <NavLink key={button.path} path={button.path} label={button.label} />
           ))}

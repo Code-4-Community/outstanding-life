@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { LinkProps } from './links';
-import { Box, chakra } from '@chakra-ui/react';
+import { chakra, Link as ChakraLink } from '@chakra-ui/react';
 
 const NavLink: React.FC<LinkProps> = ({ path, label }) => {
   const router = useRouter();
@@ -9,7 +9,7 @@ const NavLink: React.FC<LinkProps> = ({ path, label }) => {
 
   return (
     <Link href={path} passHref>
-      <Box
+      <ChakraLink
         _hover={{ cursor: 'pointer' }}
         height="fit-content"
         data-cy="nav-bar"
@@ -17,11 +17,12 @@ const NavLink: React.FC<LinkProps> = ({ path, label }) => {
         textDecor={isActive ? 'underline' : 'none'}
         textUnderlineOffset="3px"
         textDecorationThickness="3px"
-        textDecorationColor={'var(--purple)'}>
+        textDecorationColor={'var(--purple)'}
+        tabIndex={0}>
         <chakra.span fontWeight="bold" fontSize="24px">
           {label}
         </chakra.span>
-      </Box>
+      </ChakraLink>
     </Link>
   );
 };
