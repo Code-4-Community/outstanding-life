@@ -22,14 +22,18 @@ const HamburgerMenu: React.FC<NavBarProps> = ({ navLinks }) => {
     <Box as="nav">
       <IconButton
         onClick={() => setIsOpen((_isOpen) => !_isOpen)}
-        display={isOpen ? 'none' : 'block'}
-        icon={<HamburgerIcon />}
+        position={isOpen ? 'fixed' : 'absolute'}
+        right="0"
+        top="20px"
+        icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
         aria-label="Menu"
+        zIndex="11"
         aria-expanded={isOpen}
       />
 
       {isOpen && (
         <Flex
+          paddingTop="50px"
           position="fixed"
           zIndex="10"
           height="100vh"
@@ -40,13 +44,6 @@ const HamburgerMenu: React.FC<NavBarProps> = ({ navLinks }) => {
           alignItems="flex-end"
           top="0"
           opacity="0.9">
-          <IconButton
-            onClick={() => setIsOpen((_isOpen) => !_isOpen)}
-            display={!isOpen ? 'none' : 'block'}
-            icon={<CloseIcon />}
-            aria-label="close hamburger menu"
-            aria-expanded={isOpen}
-          />
           {navLinks.map((button: LinkProps) => (
             <HamburgerLink key={button.path} path={button.path} label={button.label} />
           ))}
