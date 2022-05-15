@@ -1,9 +1,9 @@
-import { Flex, Stack, Image, Heading, Text } from '@chakra-ui/react';
+import { Flex, VStack, Image, Heading, Text } from '@chakra-ui/react';
 import { Programs } from '@prisma/client';
 import { useEffect, useState } from 'react';
 import apiClient from '../../apiClient';
 
-const Program: React.FC<Programs> = ({
+const ProgramPreview: React.FC<Programs> = ({
   title,
   content,
   location,
@@ -16,26 +16,29 @@ const Program: React.FC<Programs> = ({
       <Flex flexDirection="column" justifyContent="flex-start" alignItems="center">
         <Image src={pictureS3Url} alt={title} />
       </Flex>
-      <Stack spacing={1}>
-        <Flex flexDirection="row" justifyContent="space-between" flexWrap="wrap">
+      <VStack spacing={1} align='stretch'>
+        <Flex flexDirection="row" justifyContent="space-between" flexWrap="wrap" width='750px'>
           <Heading>{title}</Heading>
-          <Heading>{eventDate}</Heading>
+          {/* TODO
+          - add the time for the event date
+          */}
+          <Heading>{new Date(eventDate).toLocaleDateString()}</Heading>
         </Flex>
         <Text noOfLines={1} fontSize="md">
           {location}
         </Text>
         <Text noOfLines={1} fontSize="md">
-          {createdAt}
+          {new Date(createdAt).toLocaleDateString()}
         </Text>
         <Text noOfLines={3} fontSize="xl">
           {content}
         </Text>
-      </Stack>
+      </VStack>
     </Flex>
   );
 };
 
-const ProgramList: React.FC<{}> = () => {
+export const ProgramList: React.FC<{}> = () => {
   const [programs, setPrograms] = useState<Programs[]>([]);
 
   useEffect(() => {
@@ -44,12 +47,13 @@ const ProgramList: React.FC<{}> = () => {
     };
     fetchPrograms();
   }, [setPrograms]);
-
+  
   return (
-    <Stack spacing={3}>
+    <VStack spacing={3} align='stretch'>
+      <Text>hello world</Text>
       {programs.map((program: Programs) => {
-        <Program {...program}></Program>;
+        return <ProgramPreview {...program}></ProgramPreview>;
       })}
-    </Stack>
+    </VStack>
   );
 };

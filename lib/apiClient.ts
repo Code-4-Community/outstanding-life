@@ -14,7 +14,9 @@ export class ApiClient {
   }
 
   private async get(path: string): Promise<unknown> {
-    return this.axiosInstance.get(path).then((response) => response.data);
+    return this.axiosInstance.get(path).then((response) => {
+      return response.data;
+    });
   }
 
   public async updatePrivilegeLevel(

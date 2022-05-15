@@ -6,7 +6,7 @@ import { S3_BASE_URL, uploadToS3 } from '../aws';
 import { getImageBufferFromBase64 } from '../utils/utils';
 
 export const getAllProgramsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
-  res.status(200).json({ Programs: await prisma.programs.findMany() });
+  res.status(200).json(await prisma.programs.findMany());
 };
 
 export const postProgramHandler = async (req: NextApiRequest, res: NextApiResponse) => {
