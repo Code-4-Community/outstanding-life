@@ -12,6 +12,7 @@ const HamburgerLink: React.FC<LinkProps> = ({ path, label }) => {
       <ChakraLink
         _hover={{ cursor: 'pointer' }}
         _first={{ borderTop: 'none' }}
+        _focus={{ boxShadow: 'none' }}
         height="fit-content"
         data-cy="nav-bar"
         borderTop="1px solid #CD0A69"
