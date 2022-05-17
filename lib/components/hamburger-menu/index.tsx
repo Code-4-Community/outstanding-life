@@ -29,6 +29,10 @@ const HamburgerMenu: React.FC<NavBarProps> = ({ navLinks }) => {
         aria-label="Menu"
         zIndex="11"
         aria-expanded={isOpen}
+        _focus={{
+          boxShadow:
+          "0 0 1px 2px var(--purple)",
+        }}
       />
 
       {isOpen && (
