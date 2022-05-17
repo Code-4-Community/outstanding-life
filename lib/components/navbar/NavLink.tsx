@@ -18,7 +18,10 @@ const NavLink: React.FC<LinkProps> = ({ path, label }) => {
         textUnderlineOffset="3px"
         textDecorationThickness="3px"
         textDecorationColor={'var(--purple)'}
-        tabIndex={0}>
+        tabIndex={0}
+        _focus={{
+          boxShadow: 'none',
+        }}>
         <chakra.span fontWeight="bold" fontSize="24px">
           {label}
         </chakra.span>
