@@ -2,13 +2,13 @@
 
 Use the SVG version of the logo to make the logo scalable and responsive to different screens.
 
-How to include in code: 
-```import Logo from '../logo.svg';```
+How to include in code:
+`import Logo from '../logo.svg';`
 
-How to render component:       
-``` <Logo /> ```
+How to render component:  
+`<Logo />`
 
-# Color Palette 
+# Color Palette
 
 These colors align with the logo.
 
@@ -22,7 +22,7 @@ Light yellow: `#CCA20C`
 Dark yellow: `#CC7400`
 Dark grey (logo letters): `#464749`
 
-# Font 
+# Font
 
 Inter, which is also the default font for Chakra.
 
@@ -32,17 +32,17 @@ Use Chakra for taking advantage of standard components when possible.
 
 ## Utilize our custom brand color interface for the color scheme
 
-Use our color scheme values from the interface: ```../style/theme.js```.
+Use our color scheme values from the interface: `../style/theme.js`.
 
 Modify colorScheme attribute as desired within your code. Add numbers for varying
-shades of a color. 
+shades of a color.
 
-## Example component for a button: 
+## Example component for a button:
 
 Documentation: https://chakra-ui.com/docs/components/form/button?scroll=true
 
 To use for a button color scheme specifically, you must use color scheme value 500
-in ```../style/theme.js```. Check which number to change for the component that
+in `../style/theme.js`. Check which number to change for the component that
 you are creating.
 
 ```

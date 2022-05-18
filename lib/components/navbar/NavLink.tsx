@@ -6,7 +6,7 @@ const NavLink: React.FC<NavLinkProps> = ({ path, label }) => {
   const router = useRouter();
   return (
     <Link href={path} passHref>
-      <div className={`NavButton ${router.pathname === path ? 'active' : ''}`}>
+      <div data-cy="nav-bar" className={`NavButton ${router.pathname === path ? 'active' : ''}`}>
         <span className="Label">{label}</span>
       </div>
     </Link>
