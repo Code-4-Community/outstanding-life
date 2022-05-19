@@ -21,7 +21,13 @@ const NavBar: React.FC<NavBarProps> = ({ navLinks, style }) => {
       padding="5px"
       style={style}>
       <Flex justifyContent="center">
-        <Image src="/outstandinglife-logo-tag@4x.png" priority width="450px" height="70%" alt="outstanding life logo" />
+        <Image
+          src="/outstandinglife-logo-tag@4x.png"
+          priority
+          width="450px"
+          height="70%"
+          alt="outstanding life logo"
+        />
       </Flex>
       {breakpoint && hamburgerMenuSizes.includes(breakpoint) ? (
         <HamburgerMenu navLinks={navLinks} />
