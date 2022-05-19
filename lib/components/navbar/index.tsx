@@ -20,19 +20,21 @@ const NavBar: React.FC<NavBarProps> = ({ navLinks, style }) => {
       justifyContent="space-between"
       padding="5px"
       style={style}>
-      <Flex justifyContent="center">
+      <Flex justifyContent="center" mb={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? "0px" : "15px"} alignItems="center">
         <Image
-          src="/outstandinglife-logo-tag@4x.png"
+          quality={100}
+          src="/logo-tag.png"
           priority
-          width="450px"
-          height="70%"
+          layout="fixed"
+          width={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? "434px" :"506px"}
+          height={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? "60px" : "70px"}
           alt="outstanding life logo"
         />
       </Flex>
       {breakpoint && hamburgerMenuSizes.includes(breakpoint) ? (
         <HamburgerMenu navLinks={navLinks} />
       ) : (
-        <Flex as="nav" justifyContent="space-evenly" alignItems="end">
+        <Flex as="nav" justifyContent="space-evenly" alignItems="end" mb="15px">
           {navLinks.map((button: LinkProps) => (
             <NavLink key={button.path} path={button.path} label={button.label} />
           ))}
