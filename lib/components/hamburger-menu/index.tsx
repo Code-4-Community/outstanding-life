@@ -23,7 +23,7 @@ const HamburgerMenu: React.FC<NavBarProps> = ({ navLinks }) => {
       <IconButton
         onClick={() => setIsOpen((_isOpen) => !_isOpen)}
         position={isOpen ? 'fixed' : 'absolute'}
-        right="0"
+        right="10px"
         top="20px"
         icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
         aria-label="Menu"
