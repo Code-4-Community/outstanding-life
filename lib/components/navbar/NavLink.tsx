@@ -12,7 +12,7 @@ const NavLink: React.FC<LinkProps> = ({ path, label }) => {
       <ChakraLink
         _hover={{ cursor: 'pointer' }}
         height="fit-content"
-        data-cy="nav-bar"
+        data-cy={'nav-bar-' + label}
         color="#4A5568"
         textDecor={isActive ? 'underline' : 'none'}
         textUnderlineOffset="3px"

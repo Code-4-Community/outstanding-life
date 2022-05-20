@@ -14,7 +14,7 @@ const HamburgerLink: React.FC<LinkProps> = ({ path, label }) => {
         _first={{ borderTop: 'none' }}
         _focus={{ boxShadow: 'none' }}
         height="fit-content"
-        data-cy="nav-bar"
+        data-cy={'hamburger-navbar-' + label}
         borderTop="1px solid #CD0A69"
         width="100%"
         justifyContent="flex-end"

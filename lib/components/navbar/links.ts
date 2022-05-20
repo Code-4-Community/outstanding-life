@@ -9,10 +9,6 @@ const navLinks: LinkProps[] = [
     path: '/about-us',
   },
   {
-    label: 'Membership',
-    path: '/membership',
-  },
-  {
     label: 'Programs',
     path: '/programs',
   },

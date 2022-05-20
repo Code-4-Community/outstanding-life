@@ -37,7 +37,12 @@ const NavBar: React.FC<NavBarProps> = ({ navLinks, style }) => {
       {breakpoint && hamburgerMenuSizes.includes(breakpoint) ? (
         <HamburgerMenu navLinks={navLinks} />
       ) : (
-        <Flex as="nav" justifyContent="space-evenly" alignItems="end" mb="15px">
+        <Flex
+          as="nav"
+          justifyContent="space-evenly"
+          alignItems="end"
+          mb="15px"
+          data-cy="standard-navbar">
           {navLinks.map((button: LinkProps) => (
             <NavLink key={button.path} path={button.path} label={button.label} />
           ))}
