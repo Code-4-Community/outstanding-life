@@ -1,14 +1,29 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { NavLinkProps as NavLinkProps } from './links';
+import { LinkProps } from './links';
+import { chakra, Link as ChakraLink } from '@chakra-ui/react';
 
-const NavLink: React.FC<NavLinkProps> = ({ path, label }) => {
+const NavLink: React.FC<LinkProps> = ({ path, label }) => {
   const router = useRouter();
+  const isActive = router.pathname === path;
+
   return (
     <Link href={path} passHref>
-      <div data-cy="nav-bar" className={`NavButton ${router.pathname === path ? 'active' : ''}`}>
-        <span className="Label">{label}</span>
-      </div>
+      <ChakraLink
+        _hover={{ cursor: 'pointer' }}
+        height="fit-content"
+        data-cy={'nav-bar-' + label}
+        color="#4A5568"
+        textDecor={isActive ? 'underline' : 'none'}
+        textUnderlineOffset="3px"
+        textDecorationThickness="3px"
+        textDecorationColor={'var(--purple)'}
+        tabIndex={0}
+        _focus={{ boxShadow: 'none' }}>
+        <chakra.span fontWeight="bold" fontSize="24px">
+          {label}
+        </chakra.span>
+      </ChakraLink>
     </Link>
   );
 };
