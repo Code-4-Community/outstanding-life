@@ -1,4 +1,4 @@
-import { Flex, VStack, Image, Heading, Text } from '@chakra-ui/react';
+import { Flex, VStack, Image, Heading, Text, HStack } from '@chakra-ui/react';
 import { Programs } from '@prisma/client';
 import { useEffect, useState } from 'react';
 import apiClient from '../../apiClient';
@@ -12,12 +12,12 @@ const ProgramPreview: React.FC<Programs> = ({
   pictureS3Url,
 }) => {
   return (
-    <Flex flexDirection="row">
+    <HStack flexDirection="row" spacing={4}>
       <Flex flexDirection="column" justifyContent="flex-start" alignItems="center">
         <Image src={pictureS3Url} alt={title} />
       </Flex>
-      <VStack spacing={1} align='stretch'>
-        <Flex flexDirection="row" justifyContent="space-between" flexWrap="wrap" width='750px'>
+      <VStack spacing={1} align="stretch">
+        <Flex flexDirection="row" justifyContent="space-between" flexWrap="wrap" width="750px">
           <Heading>{title}</Heading>
           {/* TODO
           - add the time for the event date
@@ -34,7 +34,7 @@ const ProgramPreview: React.FC<Programs> = ({
           {content}
         </Text>
       </VStack>
-    </Flex>
+    </HStack>
   );
 };
 
@@ -47,12 +47,12 @@ export const ProgramList: React.FC<{}> = () => {
     };
     fetchPrograms();
   }, [setPrograms]);
-  
+
   return (
-    <VStack spacing={3} align='stretch'>
+    <VStack spacing={3} align="stretch">
       <Text>hello world</Text>
       {programs.map((program: Programs) => {
-        return <ProgramPreview {...program}></ProgramPreview>;
+        return <ProgramPreview key={program.id} {...program}></ProgramPreview>;
       })}
     </VStack>
   );

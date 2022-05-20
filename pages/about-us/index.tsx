@@ -1,4 +1,4 @@
-import Header from '../../lib/components/header';
+import OSLHeader from '../../lib/components/header';
 import { Container, Text, UnorderedList, ListItem, Flex } from '@chakra-ui/react';
 import CommitteeGroupProfile from '../../lib/components/committee-group-profile';
 import Hero from '../../lib/components/hero';
@@ -14,7 +14,7 @@ const AboutUs: React.FC = () => {
         <Container maxW={'container.lg'} mb="100px" fontSize="24px">
           <Flex gap={'120px'} flexDir="column">
             <div data-cy="mission-statement-section" id={'mission-statement'}>
-              <Header
+              <OSLHeader
                 style={{ marginTop: '30px', marginBottom: '30px' }}
                 header="Our Mission and Purpose"
               />
@@ -39,7 +39,7 @@ const AboutUs: React.FC = () => {
               </Flex>
             </div>
             <div data-cy="need-section">
-              <Header style={{ marginBottom: '30px' }} header="The Need" />
+              <OSLHeader style={{ marginBottom: '30px' }} header="The Need" />
               <Flex flexDir="column" gap={'15px'}>
                 <Text>
                   Despite increased physical longevity, social isolation and loneliness are leading
@@ -75,7 +75,7 @@ const AboutUs: React.FC = () => {
               </Flex>
             </div>
             <div data-cy="committee-group-profile-section">
-              <Header style={{ marginBottom: '50px' }} header="Steering Committee" />
+              <OSLHeader style={{ marginBottom: '50px' }} header="Steering Committee" />
               <CommitteeGroupProfile />
             </div>
           </Flex>
