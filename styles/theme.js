@@ -1,5 +1,4 @@
 import { extendTheme } from '@chakra-ui/react';
-import '@fontsource/poppins/500.css';
 
 const Theme = extendTheme({
   colors: {
@@ -13,6 +12,16 @@ const Theme = extendTheme({
   fonts: {
     heading: `'poppins', sans-serif`,
     body: `'poppins', sans-serif`,
+  },
+  components: {
+    Button: {
+      variants: {
+        osl: {
+          backgroundColor: '#C00074',
+          color: '#FFFFFF',
+        },
+      },
+    },
   },
 });
 
