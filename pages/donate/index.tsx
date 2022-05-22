@@ -4,49 +4,41 @@ import NextLink from 'next/link';
 const Donate: React.FC = () => {
   return (
     <>
-      <Flex gap={'150px'} flexDir={'column'}>
-        <Container maxW={'container.lg'} mb="100px">
-          <Flex gap={'60px'} flexDir="column">
-            <div data-cy="donate-top-message" id={'donate-top-message'}>
-              <Flex flexDir="column" gap={'15px'}>
-                <Center>
-                  <Text fontSize="5xl">Any amount helps us reach our goal!</Text>
-                </Center>
+      <Flex gap="150px" flexDir="column">
+        <Container maxW="container.lg" mb="100px">
+          <Flex gap="60px" flexDir="column">
+            <div data-cy="donate-top-message" id="donate-top-message">
+              <Flex flexDir="column" gap="15px">
+                <Text fontSize="5xl" textAlign="center">
+                  Please help us grow!
+                </Text>
               </Flex>
             </div>
-            <div data-cy="donate-top-submessage" id={'donate-top-submessage'}>
-              <Flex flexDir="column" gap={'15px'}>
-                <Center>
-                  <Text fontSize="24px">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua
-                  </Text>
-                </Center>
+            <div data-cy="donate-top-submessage" id="donate-top-submessage">
+              <Flex flexDir="column" gap="15px">
+                <Text fontSize="24px" textAlign="center">
+                  OUTstandingLIFE is not yet a 501.c.3 not-for-profit organization. However,
+                  OUTstandingLIFE has a partnership with the Multicultural AIDS Coalition (MAC), a
+                  registered not-for-profit corporation in Massachusetts. Our fiscal sponsorship
+                  agreement allows OUTstandingLIFE donors to make tax deductible donations through
+                  MAC’s website.
+                </Text>
               </Flex>
             </div>
             <div data-cy="donate-button">
-              <Flex flexDir="column" gap={'15px'}>
+              <Flex flexDir="column" gap="15px">
                 <Center>
                   <NextLink href="/">
                     <Link
-                      as="button"
                       bg="#C00074"
                       color="#FFFFFF"
                       borderRadius="20"
-                      width="316px"
-                      height="110px"
+                      padding="30px 80px"
                       fontSize="48px"
                       fontWeight="bolder">
                       DONATE
                     </Link>
                   </NextLink>
-                </Center>
-              </Flex>
-            </div>
-            <div data-cy="donate-bottom-message">
-              <Flex flexDir="column" gap={'15px'}>
-                <Center>
-                  <Text fontSize="3xl">All donations go to the Multicultural Aids Coalition</Text>
                 </Center>
               </Flex>
             </div>
