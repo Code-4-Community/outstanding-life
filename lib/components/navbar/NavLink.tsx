@@ -13,7 +13,7 @@ const NavLink: React.FC<LinkProps> = ({ path, label }) => {
         _hover={{ cursor: 'pointer' }}
         height="fit-content"
         data-cy={'nav-bar-' + label}
-        color="#4A5568"
+        color="#58595B"
         textDecor={isActive ? 'underline' : 'none'}
         textUnderlineOffset="3px"
         textDecorationThickness="3px"
