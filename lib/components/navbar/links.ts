@@ -5,21 +5,12 @@ export type LinkProps = {
 
 const navLinks: LinkProps[] = [
   {
-<<<<<<< HEAD
-    label: 'Donate',
-    path: '/donate',
-  },
-  {
-    label: 'Contact',
-    path: '/contact',
-=======
     label: 'About Us',
     path: '/about-us',
   },
   {
     label: 'Programs',
     path: '/programs',
->>>>>>> master
   },
   {
     label: 'Partners',
