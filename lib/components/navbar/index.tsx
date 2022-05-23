@@ -30,7 +30,7 @@ const NavBar: React.FC<NavBarProps> = ({ navLinks, style }) => {
           priority
           layout="fixed"
           width={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? '300px' : '506px'}
-          height={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? '60px' : '70px'}
+          height={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? '41px' : '70px'}
           alt="outstanding life logo"
         />
       </Flex>
