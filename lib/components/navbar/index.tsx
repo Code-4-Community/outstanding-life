@@ -29,8 +29,8 @@ const NavBar: React.FC<NavBarProps> = ({ navLinks, style }) => {
           src="/logo-tag.png"
           priority
           layout="fixed"
-          width={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? '434px' : '506px'}
-          height={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? '60px' : '70px'}
+          width={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? '300px' : '506px'}
+          height={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? '41px' : '70px'}
           alt="outstanding life logo"
         />
       </Flex>
