@@ -1,5 +1,4 @@
 import { ProgramList } from '../../lib/components/programList';
-import { Programs } from '@prisma/client';
 import { Divider, VStack, Text, Container, Flex } from '@chakra-ui/react';
 import OSLHeader from '../../lib/components/header';
 import { getDate } from '../../lib/utils/utils';

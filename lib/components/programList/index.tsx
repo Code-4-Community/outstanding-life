@@ -1,46 +1,51 @@
 import { Flex, VStack, Image, Heading, Text, HStack, Divider } from '@chakra-ui/react';
-import { Programs } from '@prisma/client';
 import { useEffect, useState } from 'react';
 import apiClient from '../../apiClient';
 import { getDate } from '../../utils/utils';
 
-const programs = [{
-  title: "LAUNCH PARTY",
-  description: "...",
-  dayOfTheWeek: "FRIDAY",
-  date:"June 3 noon to 1pm"
-}]
+const programs = [
+  {
+    title: 'LAUNCH PARTY',
+    description: '...',
+    dayOfTheWeek: 'FRIDAY',
+    date: 'Friday, June 3',
+    time: '12:00pm - 1:00pm',
+    registerLink: 'https://tinyurl.com/2p9cfa3f',
+  },
+];
 
 // TODO: Use type from database rather than this type
-type ProgramFrontend = {
-  
-}
+type ProgramFrontendProps = {
+  title: string;
+  description: string;
+  dayOfTheWeek: string;
+  date: string;
+  time: string;
+  registerLink: string;
+};
 
-const ProgramPreview: React.FC = ({
-  title, description, dayOfTheWeek, date
+const ProgramPreview: React.FC<ProgramFrontendProps> = ({
+  title,
+  description,
+  dayOfTheWeek,
+  date,
+  time,
+  registerLink,
 }) => {
-  const date = getDate();
   return (
     <HStack flexDirection="row" spacing={4} width="container.lg">
       <VStack spacing={1} align="stretch">
-        <Heading>{`${date.day}, ${date.monthString} ${date.date}`}</Heading>
-        <Heading>{title}</Heading>
+        <Heading>{date}</Heading>
+        <Text>{time}</Text>
       </VStack>
       <Divider orientation="vertical" />
-      <VStack>
-        <Flex flexDirection="row" justifyContent="space-between" flexWrap="wrap">
-          {/* TODO
-          - add the time for the event date
-          */}
-        </Flex>
+      <VStack alignItems="start">
+        <Heading>{title}</Heading>
         <Text noOfLines={1} fontSize="md">
-          {location}
-        </Text>
-        <Text noOfLines={1} fontSize="md">
-          {new Date(createdAt).toLocaleDateString()}
+          {description}
         </Text>
         <Text noOfLines={3} fontSize="xl">
-          {content}
+          {registerLink}
         </Text>
       </VStack>
     </HStack>
@@ -48,7 +53,6 @@ const ProgramPreview: React.FC = ({
 };
 
 export const ProgramList: React.FC<{}> = () => {
-  
   // const [programs, setPrograms] = useState<Programs[]>(programs);
 
   // useEffect(() => {
@@ -62,7 +66,9 @@ export const ProgramList: React.FC<{}> = () => {
     <VStack spacing={3} align="stretch">
       <Text>hello world</Text>
       {programs.map((program) => {
-        return <ProgramPreview key={`${program.title}_${program.date}`} {...program}></ProgramPreview>;
+        return (
+          <ProgramPreview key={`${program.title}_${program.date}`} {...program}></ProgramPreview>
+        );
       })}
     </VStack>
   );
