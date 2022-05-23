@@ -1,5 +1,6 @@
 import { Flex, useBreakpoint } from '@chakra-ui/react';
 import Image from 'next/image';
+import { PAGE_SIZES } from '../../constants';
 import HamburgerMenu from '../hamburger-menu';
 import { LinkProps } from './links';
 import NavLink from './NavLink';
@@ -11,7 +12,6 @@ export type NavBarProps = {
 
 const NavBar: React.FC<NavBarProps> = ({ navLinks, style }) => {
   const breakpoint = useBreakpoint();
-  const hamburgerMenuSizes = ['base', 'sm'];
 
   return (
     <Flex
@@ -26,12 +26,12 @@ const NavBar: React.FC<NavBarProps> = ({ navLinks, style }) => {
           src="/logo-tag.png"
           priority
           layout="fixed"
-          width={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? '300px' : '506px'}
-          height={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? '41px' : '70px'}
+          width={breakpoint && PAGE_SIZES.includes(breakpoint) ? '300px' : '506px'}
+          height={breakpoint && PAGE_SIZES.includes(breakpoint) ? '41px' : '70px'}
           alt="outstanding life logo"
         />
       </Flex>
-      {breakpoint && hamburgerMenuSizes.includes(breakpoint) ? (
+      {breakpoint && PAGE_SIZES.includes(breakpoint) ? (
         <HamburgerMenu navLinks={navLinks} />
       ) : (
         <Flex

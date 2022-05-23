@@ -2,15 +2,14 @@ import Header from '../../lib/components/header';
 import { Container, Text, UnorderedList, ListItem, Flex, useBreakpoint } from '@chakra-ui/react';
 import CommitteeGroupProfile from '../../lib/components/leadership-team';
 import Hero from '../../lib/components/hero';
+import { PAGE_SIZES } from '../../lib/constants';
 
 const AboutUs: React.FC = () => {
   const breakpoint = useBreakpoint();
-  const pageSizes = ['base', 'sm'];
-
   return (
     <>
       <Flex
-        gap={breakpoint && pageSizes.includes(breakpoint) ? '60px' : '120px'}
+        gap={breakpoint && PAGE_SIZES.includes(breakpoint) ? '30px' : '120px'}
         flexDir={'column'}>
         <Hero imgSrc={'/hero.jpeg'} text={'A Virtual Community for LGBTQ+ Older Adults'} />
         <Container maxW={'container.lg'} mb="100px" fontSize="24px">
