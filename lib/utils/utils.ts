@@ -24,3 +24,32 @@ export function getImageBufferFromBase64(base64string: string): Buffer {
   const cleanedBase64String: string = base64string.replace(/^data:image\/\w+;base64,/, '');
   return Buffer.from(cleanedBase64String, 'base64');
 }
+
+export function getDate(date: Date = new Date()) {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const dayString = days[date.getDay()];
+  const monthNum = date.getMonth();
+  const monthString = months[monthNum];
+
+  return {
+    year: date.getFullYear(),
+    monthNumber: monthNum,
+    date: date.getDate(),
+    monthString: monthString,
+    day: dayString,
+  };
+}

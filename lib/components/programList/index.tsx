@@ -1,7 +1,8 @@
-import { Flex, VStack, Image, Heading, Text, HStack } from '@chakra-ui/react';
+import { Flex, VStack, Image, Heading, Text, HStack, Divider } from '@chakra-ui/react';
 import { Programs } from '@prisma/client';
 import { useEffect, useState } from 'react';
 import apiClient from '../../apiClient';
+import { getDate } from '../../utils/utils';
 
 const ProgramPreview: React.FC<Programs> = ({
   title,
@@ -11,18 +12,19 @@ const ProgramPreview: React.FC<Programs> = ({
   eventDate,
   pictureS3Url,
 }) => {
+  const date = getDate();
   return (
-    <HStack flexDirection="row" spacing={4}>
-      <Flex flexDirection="column" justifyContent="flex-start" alignItems="center">
-        <Image src={pictureS3Url} alt={title} />
-      </Flex>
+    <HStack flexDirection="row" spacing={4} width="container.lg">
       <VStack spacing={1} align="stretch">
-        <Flex flexDirection="row" justifyContent="space-between" flexWrap="wrap" width="750px">
-          <Heading>{title}</Heading>
+        <Heading>{`${date.day}, ${date.monthString} ${date.date}`}</Heading>
+        <Heading>{title}</Heading>
+      </VStack>
+      <Divider orientation="vertical" />
+      <VStack>
+        <Flex flexDirection="row" justifyContent="space-between" flexWrap="wrap">
           {/* TODO
           - add the time for the event date
           */}
-          <Heading>{new Date(eventDate).toLocaleDateString()}</Heading>
         </Flex>
         <Text noOfLines={1} fontSize="md">
           {location}
