@@ -15,6 +15,7 @@ model Category {
   name String
 }
 
+//TODO: Programs need a start and end time
 model Programs {
   id           Int      @id @default(autoincrement())
   title        String

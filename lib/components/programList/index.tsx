@@ -4,13 +4,20 @@ import { useEffect, useState } from 'react';
 import apiClient from '../../apiClient';
 import { getDate } from '../../utils/utils';
 
-const ProgramPreview: React.FC<Programs> = ({
-  title,
-  content,
-  location,
-  createdAt,
-  eventDate,
-  pictureS3Url,
+const programs = [{
+  title: "LAUNCH PARTY",
+  description: "...",
+  dayOfTheWeek: "FRIDAY",
+  date:"June 3 noon to 1pm"
+}]
+
+// TODO: Use type from database rather than this type
+type ProgramFrontend = {
+  
+}
+
+const ProgramPreview: React.FC = ({
+  title, description, dayOfTheWeek, date
 }) => {
   const date = getDate();
   return (
@@ -41,20 +48,21 @@ const ProgramPreview: React.FC<Programs> = ({
 };
 
 export const ProgramList: React.FC<{}> = () => {
-  const [programs, setPrograms] = useState<Programs[]>([]);
+  
+  // const [programs, setPrograms] = useState<Programs[]>(programs);
 
-  useEffect(() => {
-    const fetchPrograms = async (): Promise<void> => {
-      setPrograms(await apiClient.getPrograms());
-    };
-    fetchPrograms();
-  }, [setPrograms]);
+  // useEffect(() => {
+  //   const fetchPrograms = async (): Promise<void> => {
+  //     setPrograms(await apiClient.getPrograms());
+  //   };
+  //   fetchPrograms();
+  // }, [setPrograms]);
 
   return (
     <VStack spacing={3} align="stretch">
       <Text>hello world</Text>
-      {programs.map((program: Programs) => {
-        return <ProgramPreview key={program.id} {...program}></ProgramPreview>;
+      {programs.map((program) => {
+        return <ProgramPreview key={`${program.title}_${program.date}`} {...program}></ProgramPreview>;
       })}
     </VStack>
   );
