@@ -17,10 +17,7 @@ interface LeadershipTeamProfileProps {
 }
 
 const imageStyle = {
-  display: 'block',
   borderRadius: '50%',
-  height: '210px',
-  width: '210px',
 };
 
 const LeadershipTeamProfile: React.FC<LeadershipTeamProfileProps> = ({

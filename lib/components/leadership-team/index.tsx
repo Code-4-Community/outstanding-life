@@ -51,6 +51,24 @@ const profileData: { name: string; description: string; imgSrc: string }[] = [
       'Susan Trotz is a long time social justice & community feminist activist.  Early on, she was inspired by  anti-war protests and the Black Panther trials.  After graduating college, Susan moved to the Boston area and organized  to end violence against women at Transition House and Take Back the Night events.   She later joined R2N2 —Reproductive Rights National Network— seeking abortion access for all.  Susan participated in Act-Up and Act-Out, and was a founding member of the Boston Dyke March.  Before retiring in 2016, Susan was a school counselor in Boston Public Schools for over 3 decades and organized for equal quality schools.  In retirement she has been dedicated to organizing in the LGBTQ+ older adults community, as well as local and national political campaigns.  Susan lives in Jamaica Plain with her longtime beautiful partner, Eileen.  She loves gardening, walking, yoga, meditation, and cooking.',
     imgSrc: '/trotz.jpg',
   },
+  {
+    name: 'Bob Linscott',
+    description:
+      'Bob Linscott is one of the country’s leading advocates on lesbian, gay, bisexual, transgender, Queer (LGBTQ) Aging. He is the Assistant Director at The LGBTQIA+ Aging Project at The Fenway Institute in Boston. Linscott’s work with LGBTQ older adults is profiled in the award-winning film Gen Silent, which has been seen by audiences around the world. Linscott’s work focuses on making the existing elder-care network more welcoming and inclusive for the needs of LGBTQ older adults.',
+    imgSrc: '/bl.jpeg',
+  },
+  {
+    name: 'Cynthia Wilkerson',
+    description:
+      'Cynthia has over 15 years of program development and management experience. She has a Master of Divinity from Harvard Divinity School and a Certificate in Nonprofit Management and Leadership from Boston University’s Questrom School of Business. Cynthia is a member of several advisory boards and committees, including the Massachusetts Healthy Aging Collaborative’s Executive Committee, Northeastern University Office of City and Community Engagement’s Community Advisory Board, and Madison Park Technical Vocational High School’s Health Assistant Program Advisory Committee. In her free time, Cynthia is an avid movie and museum goer.',
+    imgSrc: '/cw.jpg',
+  },
+  {
+    name: 'David Conner',
+    description:
+      'David Conner is a steering committee member and project manager of LGBTQ+ Worcester FOR THE RECORD. He is responsible for coordinating the ongoing collection of artifacts, archiving of oral histories, and accompanying educational programming for the Project. David has been involved in community organizing through historical documentation for the last 7 years and is on the Pride Worcester Committee.',
+    imgSrc: '/dc.jpg',
+  },
 ];
 
 const LeadershipTeam: React.FC = () => {

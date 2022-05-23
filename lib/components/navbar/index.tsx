@@ -20,10 +20,7 @@ const NavBar: React.FC<NavBarProps> = ({ navLinks, style }) => {
       justifyContent="space-between"
       padding="5px"
       style={style}>
-      <Flex
-        justifyContent="center"
-        mb={breakpoint && hamburgerMenuSizes.includes(breakpoint) ? '0px' : '15px'}
-        alignItems="center">
+      <Flex justifyContent="center" alignItems="center" m={'15px 0px 15px 15px'}>
         <Image
           quality={100}
           src="/logo-tag.png"
