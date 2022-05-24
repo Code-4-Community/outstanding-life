@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import React from 'react';
 import LeadershipTeamProfile from '../leadership-team-profile';
-import { leadershipTeamData } from './leadershipTeam';
+import { leadershipTeamData } from './leadershipTeamData';
 
 const LeadershipTeam: React.FC = () => {
   return (
