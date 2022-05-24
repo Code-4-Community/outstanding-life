@@ -46,7 +46,7 @@ const LeadershipTeamProfile: React.FC<LeadershipTeamProfileProps> = ({
               <AccordionIcon />
             </AccordionButton>
             <AccordionPanel pb={4}>
-              <Text fontSize="md" textAlign="center" lineHeight={5} padding="0 10px">
+              <Text fontSize="md" textAlign="left" lineHeight={5} padding="0 10px">
                 {description}
               </Text>
             </AccordionPanel>

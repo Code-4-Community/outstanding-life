@@ -20,23 +20,29 @@ const Hero: React.FC<HeroProps> = ({ imgSrc }) => {
         flexDir="column"
         alignItems="center"
         position="absolute"
-        bottom={'80px'}
-        left="calc(50% - min(100%, 600px)/2)"
+        top="0px"
+        left="0px"
         color="#ffffff"
         textAlign="center"
-        width="min(100%, 600px)">
+        width="100%"
+        height="100%">
         <Link href="#mission-statement" passHref>
-          <Button
-            visibility={breakpoint && PAGE_SIZES.includes(breakpoint) ? 'hidden' : 'visible'}
+          <Flex
             data-cy="learn-more-button"
-            backgroundColor="#ffffff"
-            color="var(--purple)"
-            variant="solid"
-            rounded="8px"
-            fontSize={breakpoint && PAGE_SIZES.includes(breakpoint) ? '16px' : '24px'}
-            padding="40px">
-            LEARN MORE ABOUT OUTSTANDINGLIFE.ORG
-          </Button>
+            background="gray"
+            width="100%"
+            height="100%"
+            opacity="80%"
+            textAlign="center"
+            justifyContent="center"
+            alignItems="center"
+            color="white"
+            _focus={{ outline: 'none', boxShadow: 'none' }}
+            _hover={{ cursor: 'pointer' }}
+            fontSize={breakpoint && PAGE_SIZES.includes(breakpoint) ? '20px' : '40px'}
+            fontWeight="bolder">
+            A Virtual Community of LGBTQ+ Older Adults
+          </Flex>
         </Link>
       </Flex>
     </div>
