@@ -1,22 +1,14 @@
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { NextRouter, useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const Home: React.FC = () => {
-  const { data: session } = useSession();
+  const router: NextRouter = useRouter();
 
-  if (session) {
-    return (
-      <>
-        Signed in as {session?.user?.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    );
-  }
-  return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
-  );
+  useEffect(() => {
+    router.push('/about-us');
+  }, []);
+
+  return <></>;
 };
 
 export default Home;
