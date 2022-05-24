@@ -10,7 +10,6 @@ import {
 
 interface PopUpProps {
   header?: string;
-  body?: string;
   manageModal: { isOpen: boolean; onOpen: () => void; onClose: () => void };
   cancelText?: string;
   confirmText?: string;
@@ -20,12 +19,12 @@ interface PopUpProps {
 
 const PopUp: React.FC<PopUpProps> = ({
   header,
-  body,
   cancelText,
   confirmText,
   onConfirm,
   style,
   manageModal,
+  children,
 }) => {
   return (
     <>
@@ -33,7 +32,7 @@ const PopUp: React.FC<PopUpProps> = ({
         <ModalOverlay />
         <ModalContent>
           {header && <ModalHeader>{header}</ModalHeader>}
-          {body && <ModalBody>{body}</ModalBody>}
+          {children && <ModalBody>{children}</ModalBody>}
           <ModalFooter>
             <Button mr={3} onClick={manageModal.onClose}>
               {cancelText ?? 'Cancel'}
