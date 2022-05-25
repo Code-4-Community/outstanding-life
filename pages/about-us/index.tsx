@@ -1,16 +1,17 @@
 import OSLHeader from '../../lib/components/header';
-import { Container, Text, UnorderedList, ListItem, Flex } from '@chakra-ui/react';
-import CommitteeGroupProfile from '../../lib/components/committee-group-profile';
+import { Container, Text, UnorderedList, ListItem, Flex, useBreakpoint } from '@chakra-ui/react';
+import LeadershipTeam from '../../lib/components/leadership-team';
 import Hero from '../../lib/components/hero';
+import { PAGE_SIZES } from '../../lib/constants';
 
 const AboutUs: React.FC = () => {
+  const breakpoint = useBreakpoint();
   return (
     <>
-      <Flex gap={'120px'} flexDir={'column'}>
-        <Hero
-          imgSrc={'https://media.giphy.com/media/kVbWMnGg4xTJ6/giphy.gif'}
-          text={'We are never ever getting back together, said Taylor Swift.'}
-        />
+      <Flex
+        gap={breakpoint && PAGE_SIZES.includes(breakpoint) ? '30px' : '120px'}
+        flexDir={'column'}>
+        <Hero imgSrc={'/hero.jpeg'} text={'A Virtual Community for LGBTQ+ Older Adults'} />
         <Container maxW={'container.lg'} mb="100px" fontSize="24px">
           <Flex gap={'120px'} flexDir="column">
             <div data-cy="mission-statement-section" id={'mission-statement'}>
@@ -74,9 +75,9 @@ const AboutUs: React.FC = () => {
                 </Text>
               </Flex>
             </div>
-            <div data-cy="committee-group-profile-section">
-              <OSLHeader style={{ marginBottom: '50px' }} header="Steering Committee" />
-              <CommitteeGroupProfile />
+            <div data-cy="leadership-team-section">
+              <OSLHeader style={{ marginBottom: '50px' }} header="Leadership Team" />
+              <LeadershipTeam />
             </div>
           </Flex>
         </Container>

@@ -9,6 +9,20 @@ const Theme = extendTheme({
       500: '#C00074',
     },
   },
+  fonts: {
+    heading: `'poppins', sans-serif`,
+    body: `'poppins', sans-serif`,
+  },
+  components: {
+    Button: {
+      variants: {
+        osl: {
+          backgroundColor: '#C00074',
+          color: '#FFFFFF',
+        },
+      },
+    },
+  },
 });
 
 export default Theme;

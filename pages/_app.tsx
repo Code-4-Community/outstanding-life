@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import { SessionProvider } from 'next-auth/react';
 import Layout from '../lib/components/layout';
 import Theme from '../styles/theme';
+import '@fontsource/poppins';
 
 const queryClient = new QueryClient();
 

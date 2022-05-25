@@ -6,7 +6,7 @@ import { getDate } from '../../utils/utils';
 const programs = [
   {
     title: 'LAUNCH PARTY',
-    description: '...',
+    description: 'Join OutstandingLife for a fun and informative conversation about how we ...',
     dayOfTheWeek: 'FRIDAY',
     date: 'Friday, June 3',
     time: '12:00pm - 1:00pm',
@@ -34,7 +34,7 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
 }) => {
   return (
     <HStack flexDirection="row" spacing={4} width="container.lg">
-      <VStack spacing={1} align="stretch">
+      <VStack spacing={1} justifyContent="flex-start" align="stretch">
         <Heading>{date}</Heading>
         <Text>{time}</Text>
       </VStack>
