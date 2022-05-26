@@ -1,5 +1,5 @@
 import { ProgramList } from '../../lib/components/programList';
-import { Divider, VStack, Text, Container, Flex } from '@chakra-ui/react';
+import { VStack, Text, Container } from '@chakra-ui/react';
 import OSLHeader from '../../lib/components/header';
 import { getDate } from '../../lib/utils/utils';
 
@@ -16,7 +16,7 @@ const Programs: React.FC = () => {
           educational workshops, and seminars, free member registration, member profiles and chats
           and lots more!
         </Text>
-        <ProgramList></ProgramList>
+        <ProgramList />
       </VStack>
     </Container>
   );
