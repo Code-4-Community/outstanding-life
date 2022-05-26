@@ -24,7 +24,6 @@ const ContactUs: React.FC = () => {
         <Heading>We would love to hear from you and keep you updated with our progress!</Heading>
         <Box margin="50px 0">
           <Box margin="25px 0">
-            <Text>Please add me to your mailing list. I know that I can cancel at any time.</Text>
             <Text>
               For questions, press inquiries, or other issues please contact us at{' '}
               <b>
@@ -33,7 +32,8 @@ const ContactUs: React.FC = () => {
               .
             </Text>
           </Box>
-          <form>
+          {/* hiding form for now because we don't have registration functionality */}
+          { false && <form>
             <Flex
               flexWrap="wrap"
               flexDir={'row'}
@@ -95,7 +95,7 @@ const ContactUs: React.FC = () => {
                 Register
               </Button>
             </Flex>
-          </form>
+          </form>}
         </Box>
       </Box>
     </>
