@@ -13,9 +13,9 @@ import {
 import { useState } from 'react';
 
 const ContactUs: React.FC = () => {
-  const [firstName, setFirstName] = useState<string>();
-  const [lastName, setLastName] = useState<string>();
-  const [email, setEmail] = useState<string>();
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [zipCode, setZipCode] = useState<string>();
 
   return (
