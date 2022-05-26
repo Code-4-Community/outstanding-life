@@ -1,9 +1,11 @@
-import { Flex, VStack, Heading, Text, Box } from '@chakra-ui/react';
+import { Flex, VStack, Heading, Text, Box, HStack, Link } from '@chakra-ui/react';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 const programs = [
   {
     title: 'LAUNCH PARTY',
-    description: 'Join OutstandingLife for a fun and informative conversation about how we ...',
+    description:
+      'Join OutstandingLife for a fun and informative conversation about how we Join OutstandingLife for a fun and informative conversation about how weJoin OutstandingLife for a fun and informative conversation about how weJoin OutstandingLife for a fun and informative conversation about how weJoin OutstandingLife for a fun and informative conversation about how weJoin OutstandingLife for a fun and informative conversation about how weJoin OutstandingLife for a fun and informative conversation about how we ',
     dayOfTheWeek: 'FRIDAY',
     date: 'Friday, June 3',
     time: '12:00pm - 1:00pm',
@@ -16,7 +18,7 @@ const programs = [
     date: 'Friday, June 3',
     time: '12:00pm - 1:00pm',
     registerLink: 'https://tinyurl.com/2p9cfa3f',
-  }
+  },
 ];
 
 // TODO: Use type from database rather than this type
@@ -38,22 +40,31 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
   registerLink,
 }) => {
   return (
-    <Flex flexDirection="row" gap={4}>
-      <VStack alignItems="start"> //spacing={1} justify="start" align="start"
+    <Flex flexDirection="row" gap={4} height={'250px'}>
+      <VStack alignItems="start" minWidth={'30%'}>
         <Heading>{date}</Heading>
         <Text>{time}</Text>
       </VStack>
-      <Box height={"100px"} width={"4px"} bg="#cd0a69"/> 
+      <Box minWidth={'4px'} bg="#cd0a69" minHeight={'120%'} />
       <VStack alignItems="start">
         <Heading>{title}</Heading>
-        <Text noOfLines={1} fontSize="md">
+        <Text noOfLines={5} fontSize="md">
           {description}
         </Text>
-        <Text noOfLines={3} fontSize="xl">
-          {registerLink}
-        </Text>
+        <HStack>
+          <Box bg="#cd0a69" padding="6px" borderRadius="lg">
+            <Text color="white" fontSize="md">
+              Register Here
+            </Text>
+          </Box>
+          <Text noOfLines={3} fontSize="xl">
+            <Link href={registerLink} isExternal>
+              {registerLink} <ExternalLinkIcon mx="2px" />
+            </Link>
+          </Text>
+        </HStack>
       </VStack>
-      </Flex>
+    </Flex>
   );
 };
 
