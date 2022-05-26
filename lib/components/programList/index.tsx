@@ -1,9 +1,16 @@
-import { Flex, VStack, Image, Heading, Text, HStack, Divider } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
-import apiClient from '../../apiClient';
-import { getDate } from '../../utils/utils';
+import { Flex, VStack, Heading, Text, Box, HStack, Link } from '@chakra-ui/react';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 const programs = [
+  {
+    title: 'LAUNCH PARTY',
+    description:
+      'Join OutstandingLife for a fun and informative conversation about how we Join OutstandingLife for a fun and informative conversation about how weJoin OutstandingLife for a fun and informative conversation about how weJoin OutstandingLife for a fun and informative conversation about how weJoin OutstandingLife for a fun and informative conversation about how weJoin OutstandingLife for a fun and informative conversation about how weJoin OutstandingLife for a fun and informative conversation about how we ',
+    dayOfTheWeek: 'FRIDAY',
+    date: 'Friday, June 3',
+    time: '12:00pm - 1:00pm',
+    registerLink: 'https://tinyurl.com/2p9cfa3f',
+  },
   {
     title: 'LAUNCH PARTY',
     description: 'Join OutstandingLife for a fun and informative conversation about how we ...',
@@ -33,22 +40,31 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
   registerLink,
 }) => {
   return (
-    <HStack flexDirection="row" spacing={4} width="container.lg">
-      <VStack spacing={1} justifyContent="flex-start" align="stretch">
+    <Flex flexDirection="row" gap={4} height={'250px'}>
+      <VStack alignItems="start" minWidth={'30%'}>
         <Heading>{date}</Heading>
         <Text>{time}</Text>
       </VStack>
-      <Divider orientation="vertical" />
+      <Box minWidth={'4px'} bg="#cd0a69" minHeight={'120%'} />
       <VStack alignItems="start">
         <Heading>{title}</Heading>
-        <Text noOfLines={1} fontSize="md">
+        <Text noOfLines={5} fontSize="md">
           {description}
         </Text>
-        <Text noOfLines={3} fontSize="xl">
-          {registerLink}
-        </Text>
+        <HStack>
+          <Box bg="#cd0a69" padding="6px" borderRadius="lg">
+            <Text color="white" fontSize="md">
+              Register Here
+            </Text>
+          </Box>
+          <Text noOfLines={3} fontSize="xl">
+            <Link href={registerLink} isExternal>
+              {registerLink} <ExternalLinkIcon mx="2px" />
+            </Link>
+          </Text>
+        </HStack>
       </VStack>
-    </HStack>
+    </Flex>
   );
 };
 
@@ -64,7 +80,6 @@ export const ProgramList: React.FC<{}> = () => {
 
   return (
     <VStack spacing={3} align="stretch">
-      <Text>hello world</Text>
       {programs.map((program) => {
         return (
           <ProgramPreview key={`${program.title}_${program.date}`} {...program}></ProgramPreview>
