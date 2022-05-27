@@ -1,1 +1,3 @@
-export const signUpForMailingList = () => {};
+export const signUpForMailingList = () => {
+  /* TOOD */
+};
