@@ -1,3 +1,3 @@
 export const signUpForMailingList = () => {
-  /* TOOD */
+  /* TODO */
 };
