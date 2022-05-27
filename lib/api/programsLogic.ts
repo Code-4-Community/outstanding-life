@@ -4,6 +4,7 @@ import { BadRequestError } from '../utils/errors/badRequestError';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { S3_BASE_URL, uploadToS3 } from '../aws';
 import { getImageBufferFromBase64 } from '../utils/utils';
+import { ZodError } from 'zod';
 
 export const getAllProgramsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   res.status(200).json(await prisma.programs.findMany());
@@ -33,14 +34,17 @@ export const postProgramHandler = async (req: NextApiRequest, res: NextApiRespon
   res.status(201).end();
 };
 
-//export const updateProgramHandler = async
-
 const validateCreateProgramRequest = (maybePrograms: unknown): ProgramsWrite => {
   try {
     return programsWriteSchema.parse(maybePrograms);
-  } catch (e) {
+  } catch (err) {
+    if (err instanceof ZodError) {
+      console.log(err.issues);
+    }
     throw new BadRequestError(
-      'Programs must include title, content, location, eventDateISOString, and base64EncodedImage',
+      `Received error(s): ${
+        err instanceof ZodError ? err.issues : err
+      }Programs must include title, content, location, eventDateISOString, and base64EncodedImage`,
     );
   }
 };

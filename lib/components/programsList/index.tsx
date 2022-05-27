@@ -54,7 +54,7 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
   registerLink,
 }) => {
   return (
-    <Flex flexDirection="row" gap={4}>
+    <Flex flexDirection="row" gap={4} maxHeight="250px">
       <VStack alignItems="end" minWidth={'40%'}>
         <Heading>{date}</Heading>
         <Text>{time}</Text>
@@ -83,23 +83,12 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
 };
 
 export const ProgramsList: React.FC<{}> = () => {
-  // const [programs, setPrograms] = useState<Programs[]>(programs);
-
-  // useEffect(() => {
-  //   const fetchPrograms = async (): Promise<void> => {
-  //     setPrograms(await apiClient.getPrograms());
-  //   };
-  //   fetchPrograms();
-  // }, [setPrograms]);
-
   return (
     <div data-cy="programs-list">
       <VStack spacing={'100px'} align="stretch">
-        {programs.map((program) => {
-          return (
-            <ProgramPreview key={`${program.title}_${program.date}`} {...program}></ProgramPreview>
-          );
-        })}
+        {programs.map((program) => (
+          <ProgramPreview key={`${program.title}_${program.date}`} {...program}></ProgramPreview>
+        ))}
       </VStack>
     </div>
   );

@@ -2,6 +2,7 @@
 import makeRoute from '../../../lib/utils/utils';
 import { getAllProgramsHandler, postProgramHandler } from '../../../lib/api/programsLogic';
 
+//TODO: eventdateisostring needs a start and end time
 /**
  * @swagger
  * /api/programs:
@@ -28,6 +29,15 @@ import { getAllProgramsHandler, postProgramHandler } from '../../../lib/api/prog
  *                     createdAt:
  *                       type: dateTime
  *                       example: Jan-08-2022
+ *                     location:
+ *                       type: String
+ *                       example: 123 AppletonSt. Room 34
+ *                     eventDate:
+ *                       type: dateTime
+ *                       example: Jan-09-2022
+ *                     pictureS3Url:
+ *                       type: String
+ *                       example: https://s3.amazonaws.com/bucketname/foldername/imagename.jpg
  *   post:
  *     description: Creates valid programs headline
  *     parameters:
@@ -39,6 +49,21 @@ import { getAllProgramsHandler, postProgramHandler } from '../../../lib/api/prog
  *       - name: content
  *         required: true
  *         description: The content of the programs headline.
+ *         schema:
+ *              type : string
+ *       - name: location
+ *         required: true
+ *         description: The location of the event.
+ *         schema:
+ *              type : string
+ *      - name: base64EncodedImage
+ *         required: true
+ *         description: The image for the event as a base64 encoded string.
+ *         schema:
+ *              type : string
+ *      - name: eventDateISOString
+ *         required: true
+ *         description: The date of the event as an ISOString
  *         schema:
  *              type : string
  *     responses:
