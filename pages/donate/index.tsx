@@ -7,12 +7,16 @@ const Donate: React.FC = () => {
     <>
       <PopUp
         header="Open different page"
-        body="This donation button will take you to MAC’s donation page where you will find a YELLOW button that says OUTstandingLIFE. All donations go through their secure account and are then credited to OUTstandingLIFE."
         manageModal={modalManagement}
         onConfirm={() => {
           window.open('https://www.mac-boston.org/donate', '_blank');
-        }}
-      />
+        }}>
+        <Text>
+          This donation button will take you to MAC’s donation page where you will find a YELLOW
+          button that says OUTstandingLIFE. All donations go through their secure account and are
+          then credited to OUTstandingLIFE.
+        </Text>
+      </PopUp>
       <Flex gap="150px" flexDir="column" marginTop="50px">
         <Container maxW="container.lg" mb="100px">
           <Flex gap="60px" flexDir="column">
