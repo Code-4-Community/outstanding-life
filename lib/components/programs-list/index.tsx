@@ -70,7 +70,7 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
           <Text as="u" fontSize="lg">{`${descriptionLink}`}</Text>
         </a>
         <HStack>
-          <Box bg="#cd0a69" borderRadius="md">
+          <Box bg="var(--magenta)" borderRadius="md">
             <Text margin={'2px'} color="white" fontSize="large" fontWeight={'bolder'}>
               REGISTER HERE:
             </Text>
