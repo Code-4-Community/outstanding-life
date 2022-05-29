@@ -1,5 +1,4 @@
-import { Flex, VStack, Heading, Text, Box, HStack, Link } from '@chakra-ui/react';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { Flex, Heading, Text, Box, Link, Button } from '@chakra-ui/react';
 
 const programs = [
   {
@@ -56,32 +55,28 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
 }) => {
   return (
     <Flex flexDirection="row" gap={4} maxHeight="250px">
-      <VStack alignItems="end" minWidth={'40%'}>
+      <Flex flexDirection="column" alignItems="end" minWidth={'40%'}>
         <Heading>{date}</Heading>
         <Text>{time}</Text>
-      </VStack>
-      <Box minWidth={'4px'} bg={'var(--magenta)'} />
-      <VStack alignItems="start">
+      </Flex>
+      <Box minWidth={'4px'} bg="#cd0a69" />
+      <Flex flexDirection="column" alignItems="start">
         <Heading>{title}</Heading>
         <Text noOfLines={5} fontSize="lg">
           {description}
         </Text>
-        <a href={descriptionLink}>
-          <Text as="u" fontSize="lg">{`${descriptionLink}`}</Text>
-        </a>
-        <HStack>
-          <Box bg="var(--magenta)" borderRadius="md">
+        <Link href={registerLink} isExternal>
+          <Button
+            bg="#cd0a69"
+            borderRadius="md"
+            alt="External page link to register for this event."
+            pointerEvents={'none'}>
             <Text margin={'2px'} color="white" fontSize="large" fontWeight={'bolder'}>
-              REGISTER HERE:
+              REGISTER HERE
             </Text>
-          </Box>
-          <Text noOfLines={3} fontSize="xl" as="u">
-            <Link href={registerLink} isExternal>
-              {registerLink} <ExternalLinkIcon mx="2px" />
-            </Link>
-          </Text>
-        </HStack>
-      </VStack>
+          </Button>
+        </Link>
+      </Flex>
     </Flex>
   );
 };
@@ -89,11 +84,11 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
 export const ProgramsList: React.FC<{}> = () => {
   return (
     <div data-cy="programs-list">
-      <VStack spacing={'100px'} align="stretch">
+      <Flex flexDirection={'column'} gap={'50px'} align="stretch">
         {programs.map((program) => (
           <ProgramPreview key={`${program.title}_${program.date}`} {...program}></ProgramPreview>
         ))}
-      </VStack>
+      </Flex>
     </div>
   );
 };
