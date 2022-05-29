@@ -1,6 +1,7 @@
-import { Flex, Heading, Text, Box, Link, Button } from '@chakra-ui/react';
+import { Flex, Heading, Text, Box, Link, Button, useBreakpoint } from '@chakra-ui/react';
+import { PAGE_SIZES } from '../../constants';
 
-const programs = [
+const programs: ProgramFrontendProps[] = [
   {
     title: 'LAUNCH PARTY',
     description:
@@ -53,13 +54,20 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
   time,
   registerLink,
 }) => {
+  const breakpoint = useBreakpoint();
+  let useMobileLayout = breakpoint && PAGE_SIZES.includes(breakpoint);
+
   return (
-    <Flex flexDirection="row" gap={4} maxHeight="250px">
-      <Flex flexDirection="column" alignItems="end" minWidth={'40%'}>
+    <Flex flexDirection={useMobileLayout ? 'column' : 'row'} gap={4}>
+      <Flex flexDirection="column" alignItems={useMobileLayout ? 'start' : 'end'} minWidth={'40%'}>
         <Heading>{date}</Heading>
         <Text>{time}</Text>
       </Flex>
-      <Box minWidth={'4px'} bg="#cd0a69" />
+      {useMobileLayout ? (
+        <Box h={'4px'} bg={'var(--magenta)'} />
+      ) : (
+        <Box minWidth="4px" bg={'var(--magenta)'} />
+      )}
       <Flex flexDirection="column" alignItems="start">
         <Heading>{title}</Heading>
         <Text noOfLines={5} fontSize="lg">
@@ -67,6 +75,7 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
         </Text>
         <Link href={registerLink} isExternal>
           <Button
+            mt="5px"
             bg="#cd0a69"
             borderRadius="md"
             alt="External page link to register for this event."
@@ -84,7 +93,7 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
 export const ProgramsList: React.FC<{}> = () => {
   return (
     <div data-cy="programs-list">
-      <Flex flexDirection={'column'} gap={'50px'} align="stretch">
+      <Flex flexDirection={'column'} gap={'70px'} align="stretch">
         {programs.map((program) => (
           <ProgramPreview key={`${program.title}_${program.date}`} {...program}></ProgramPreview>
         ))}
