@@ -1,16 +1,7 @@
-import {
-  Flex,
-  Heading,
-  Text,
-  Box,
-  Link,
-  Button,
-  useBreakpoint,
-  textDecoration,
-} from '@chakra-ui/react';
+import { Flex, Heading, Text, Box, Link, Button, useBreakpoint } from '@chakra-ui/react';
 import { PAGE_SIZES } from '../../constants';
 
-const programs: ProgramFrontendProps[] = [
+const programs: ProgramProps[] = [
   {
     title: 'LAUNCH PARTY',
     description:
@@ -22,8 +13,7 @@ const programs: ProgramFrontendProps[] = [
   {
     title: 'BOOK CLUB',
     description:
-      'Bob Linscott from the LGBTQIA+ Aging Project will facilitate a two-part discussion of Aging With Wisdom by Olivia Ames Hoblitzelle. Copies can be purchased online from Brookline Booksmith:',
-    descriptionLink: 'https://tinyurl.com/39bd2duk',
+      'Bob Linscott from the LGBTQIA+ Aging Project will facilitate a two-part discussion of Aging With Wisdom by Olivia Ames Hoblitzelle. Copies can be purchased online from Brookline Booksmith.',
     date: 'Tuesday, June 14 & 28',
     time: '2:00pm - 4:00pm',
     registerLink: 'https://tinyurl.com/7hkuzxb6',
@@ -46,19 +36,17 @@ const programs: ProgramFrontendProps[] = [
   },
 ];
 
-type ProgramFrontendProps = {
+type ProgramProps = {
   title: string;
   description: string;
-  descriptionLink?: string;
   date: string;
   time: string;
   registerLink: string;
 };
 
-const ProgramPreview: React.FC<ProgramFrontendProps> = ({
+const ProgramPreview: React.FC<ProgramProps> = ({
   title,
   description,
-  descriptionLink = '',
   date,
   time,
   registerLink,
