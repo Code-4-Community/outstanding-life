@@ -1,5 +1,5 @@
 import { Flex, Text } from '@chakra-ui/react';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import React from 'react';
 import {
   Accordion,
