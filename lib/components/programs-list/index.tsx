@@ -72,11 +72,11 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
         <Heading textAlign="right">{date}</Heading>
         <Text>{time}</Text>
       </Flex>
-      {useMobileLayout ? (
-        <Box h={'4px'} bg={'var(--magenta)'} />
-      ) : (
-        <Box minWidth="4px" bg={'var(--magenta)'} />
-      )}
+      <Box
+        h={useMobileLayout ? '4px' : 'maxContent'}
+        minWidth={useMobileLayout ? 'maxContent' : '4px'}
+        bg={'var(--magenta)'}
+      />
       <Flex flexDirection="column" alignItems="start">
         <Heading>{title}</Heading>
         <Text noOfLines={5} fontSize="lg">
@@ -89,11 +89,11 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
           _focus={{ outline: 'none' }}>
           <Button
             mt="5px"
-            bg="#cd0a69"
+            bg="var(--magenta)"
             borderRadius="md"
             alt="External page link to register for this event."
-            pointerEvents={'none'}>
-            <Text margin={'2px'} color="white" fontSize="large" fontWeight={'bolder'}>
+            pointerEvents="none">
+            <Text margin="2px" color="white" fontSize="large" fontWeight="bolder">
               REGISTER HERE
             </Text>
           </Button>
