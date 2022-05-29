@@ -1,11 +1,11 @@
 import { ProgramsList } from '../../lib/components/programsList';
-import { VStack, Text, Container } from '@chakra-ui/react';
+import { Text, Container, Flex } from '@chakra-ui/react';
 import OSLHeader from '../../lib/components/header';
 
 const Programs: React.FC = () => {
   return (
     <Container maxW={'container.lg'} mb="100px" fontSize="24px" paddingTop="24px">
-      <VStack align="flex-start">
+      <Flex flexDirection="column" align="flex-start">
         <div data-cy="programs-heading">
           <OSLHeader
             header="June Online Events"
@@ -18,7 +18,7 @@ const Programs: React.FC = () => {
           </Text>
         </div>
         <ProgramsList />
-      </VStack>
+      </Flex>
     </Container>
   );
 };
