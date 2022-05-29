@@ -15,11 +15,15 @@ model Category {
   name String
 }
 
-model News {
-  id        Int      @id @default(autoincrement())
-  title     String
-  content   String
-  createdAt DateTime @default(now())
+//TODO: Programs need a start and end time
+model Programs {
+  id           Int      @id @default(autoincrement())
+  title        String
+  content      String
+  location     String
+  createdAt    DateTime @default(now())
+  eventDate    DateTime
+  pictureS3Url String
 }
 
 enum PrivilegeLevel {
