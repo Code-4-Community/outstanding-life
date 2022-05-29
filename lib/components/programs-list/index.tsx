@@ -1,4 +1,13 @@
-import { Flex, Heading, Text, Box, Link, Button, useBreakpoint } from '@chakra-ui/react';
+import {
+  Flex,
+  Heading,
+  Text,
+  Box,
+  Link,
+  Button,
+  useBreakpoint,
+  textDecoration,
+} from '@chakra-ui/react';
 import { PAGE_SIZES } from '../../constants';
 
 const programs: ProgramFrontendProps[] = [
@@ -73,7 +82,11 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
         <Text noOfLines={5} fontSize="lg">
           {description}
         </Text>
-        <Link href={registerLink} isExternal>
+        <Link
+          href={registerLink}
+          isExternal
+          _hover={{ textDecoration: 'none' }}
+          _focus={{ outline: 'none' }}>
           <Button
             mt="5px"
             bg="#cd0a69"
