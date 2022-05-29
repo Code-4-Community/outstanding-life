@@ -1,7 +1,7 @@
 import { Flex, Heading, Text, Box, Link, Button, useBreakpoint } from '@chakra-ui/react';
 import { PAGE_SIZES } from '../../constants';
 
-const programs: ProgramProps[] = [
+const programs: ProgramListingProps[] = [
   {
     title: 'LAUNCH PARTY',
     description:
@@ -36,7 +36,7 @@ const programs: ProgramProps[] = [
   },
 ];
 
-type ProgramProps = {
+type ProgramListingProps = {
   title: string;
   description: string;
   date: string;
@@ -44,7 +44,7 @@ type ProgramProps = {
   registerLink: string;
 };
 
-const ProgramPreview: React.FC<ProgramProps> = ({
+const ProgramListing: React.FC<ProgramListingProps> = ({
   title,
   description,
   date,
@@ -96,7 +96,7 @@ export const ProgramsList: React.FC<{}> = () => {
     <div data-cy="programs-list">
       <Flex flexDirection={'column'} gap={'70px'} align="stretch">
         {programs.map((program) => (
-          <ProgramPreview key={`${program.title}_${program.date}`} {...program}></ProgramPreview>
+          <ProgramListing key={`${program.title}_${program.date}`} {...program}></ProgramListing>
         ))}
       </Flex>
     </div>
