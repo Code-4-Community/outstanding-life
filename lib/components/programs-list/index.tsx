@@ -60,7 +60,7 @@ const ProgramPreview: React.FC<ProgramFrontendProps> = ({
   return (
     <Flex flexDirection={useMobileLayout ? 'column' : 'row'} gap={4}>
       <Flex flexDirection="column" alignItems={useMobileLayout ? 'start' : 'end'} minWidth={'40%'}>
-        <Heading>{date}</Heading>
+        <Heading textAlign="right">{date}</Heading>
         <Text>{time}</Text>
       </Flex>
       {useMobileLayout ? (
