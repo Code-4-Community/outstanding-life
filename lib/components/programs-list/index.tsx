@@ -57,7 +57,7 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
   return (
     <Flex flexDirection={useMobileLayout ? 'column' : 'row'} gap={4}>
       <Flex flexDirection="column" alignItems={useMobileLayout ? 'start' : 'end'} minWidth={'40%'}>
-        <Heading textAlign="right">{date}</Heading>
+        <Heading textAlign={useMobileLayout ? 'left' : 'right'}>{date}</Heading>
         <Text>{time}</Text>
       </Flex>
       <Box
