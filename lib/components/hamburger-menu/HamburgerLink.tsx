@@ -20,7 +20,7 @@ const HamburgerLink: React.FC<LinkProps> = ({ path, label }) => {
         justifyContent="flex-end"
         padding="10px 0">
         <chakra.span
-          backgroundColor={isActive ? 'var(--purple)' : 'transparent'}
+          backgroundColor={isActive ? 'var(--magenta)' : 'transparent'}
           color={isActive ? '#FFFFFF' : 'gray.600'}
           borderRadius="20px"
           padding="0 10px"

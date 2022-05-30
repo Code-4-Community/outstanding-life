@@ -32,7 +32,7 @@ const HamburgerMenu: React.FC<NavBarProps> = ({ navLinks }) => {
         aria-expanded={isOpen}
         data-cy="hamburger-navbar-icon"
         _focus={{
-          boxShadow: '0 0 1px 2px var(--purple)',
+          boxShadow: '0 0 1px 2px var(--magenta)',
         }}
       />
 
