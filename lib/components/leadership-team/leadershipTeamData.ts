@@ -3,7 +3,7 @@ export const leadershipTeamData: { name: string; description: string; imgSrc: st
     name: 'David Aronstein',
     description:
       'David Aronstein has been an activist for LGBTQ+ rights and leader of a number of LGBTQ+-focused organizations. After  receiving his Master’s in Social Work degree, he founded the Gay and Lesbian Counseling Program in Salem, MA in 1982. He became part of the senior management team at the AIDS Action Committee of MA helping to grow AIDS Action from a small team of mostly volunteers to a large organization with 100 employees and an annual  budget of $7 million. He founded Stonewall Communities whose primary mission was to build a residential community for LGBTQ+ older adults. He co-founded the LGBT Aging Project and the Stonewall Life-long Learning Institute which is now at UMass-Boston. Before retiring in 2019, he led the Boston Alliance for Community Health for eight years. David lives in Jamaica Plain, MA with his husband, Steven.',
-    imgSrc: '/da.jpg',
+    imgSrc: '/da.JPG',
   },
   {
     name: 'Maxine Schuster',
@@ -64,5 +64,10 @@ export const leadershipTeamData: { name: string; description: string; imgSrc: st
     description:
       'David Conner is a steering committee member and project manager of LGBTQ+ Worcester FOR THE RECORD. He is responsible for coordinating the ongoing collection of artifacts, archiving of oral histories, and accompanying educational programming for the Project. David has been involved in community organizing through historical documentation for the last 7 years and is on the Pride Worcester Committee.',
     imgSrc: '/dc.jpg',
+  },
+  {
+    name: 'Alice Fisher',
+    description: 'Alice Fisher is a member of the Leadership Team.',
+    imgSrc: '/fisher.JPG',
   },
 ];
