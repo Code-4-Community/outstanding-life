@@ -1,8 +1,8 @@
 import Header from '../../lib/components/header';
 import { Container, Text, UnorderedList, ListItem, Flex, useBreakpoint } from '@chakra-ui/react';
-import CommitteeGroupProfile from '../../lib/components/leadership-team';
 import Hero from '../../lib/components/hero';
 import { PAGE_SIZES } from '../../lib/constants';
+import LeadershipTeam from '../../lib/components/leadership-team';
 
 const AboutUs: React.FC = () => {
   const breakpoint = useBreakpoint();
@@ -77,7 +77,7 @@ const AboutUs: React.FC = () => {
             </div>
             <div data-cy="leadership-team-section">
               <Header style={{ marginBottom: '50px' }} header="Leadership Team" />
-              <CommitteeGroupProfile />
+              <LeadershipTeam />
             </div>
           </Flex>
         </Container>

@@ -22,7 +22,7 @@ const programs: ProgramListingProps[] = [
     title: "ONE SIZE DOESN'T SUIT ALL",
     description:
       'Older adults need multiple avenues for creating supportive communities, and safe environments, online and in-person, particularly LGBTQ+ older adults. Panel Discussion and Q&A with Paul Glass from LGBTQ Elders of Color and David Aronstein from OUTStandingLIFE.',
-    date: 'Wednesday, July 15',
+    date: 'Wednesday, June 15',
     time: '12:00pm - 1:30pm',
     registerLink: 'https://tinyurl.com/yc267tzz',
   },
@@ -67,9 +67,7 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
       />
       <Flex flexDirection="column" alignItems="start">
         <Heading>{title}</Heading>
-        <Text noOfLines={5} fontSize="lg">
-          {description}
-        </Text>
+        <Text fontSize="lg">{description}</Text>
         <Link
           href={registerLink}
           isExternal
@@ -94,7 +92,7 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
 export const ProgramsList: React.FC<{}> = () => {
   return (
     <div data-cy="programs-list">
-      <Flex flexDirection={'column'} gap={'70px'} align="stretch">
+      <Flex flexDirection={'column'} gap={'100px'} align="stretch">
         {programs.map((program) => (
           <ProgramListing key={`${program.title}_${program.date}`} {...program}></ProgramListing>
         ))}
