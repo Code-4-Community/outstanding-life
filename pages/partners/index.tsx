@@ -76,26 +76,26 @@ const PartnersListing: React.FC<PartnersListingProps> = ({ name, imageSrc, image
 
 const Partners: React.FC<{}> = () => {
   return (
-    <div>
-      <Container maxW={'container.lg'} mb="80px" fontSize="24px" mt="50px" justifyContent="center">
-        <div>
-          <Flex direction="column" mb="25px">
-            <Header header="Our Partners" />
-            <Text mt="32px">
-              We are grateful to many people who are working with us to create OUTstandingLIFE. In
-              addition to our volunteers, we would like to thank the following organizations who are
-              key to making OUTstandingLIFE a reality.
-            </Text>
-          </Flex>
-        </div>
+    <Container maxW={'container.lg'} mb="80px" fontSize="24px" mt="50px" justifyContent="center">
+      <div data-cy="partners-header">
+        <Flex direction="column" mb="25px">
+          <Header header="Our Partners" />
+          <Text mt="32px">
+            We are grateful to many people who are working with us to create OUTstandingLIFE. In
+            addition to our volunteers, we would like to thank the following organizations who are
+            key to making OUTstandingLIFE a reality.
+          </Text>
+        </Flex>
+      </div>
 
+      <div data-cy="partners-logos">
         <Flex wrap="wrap" direction="row" justifyContent="space-evenly" alignItems="center">
           {partnersData.map((partner: PartnersListingProps, index: number) => (
             <PartnersListing key={index} {...partner} />
           ))}
         </Flex>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 };
 
