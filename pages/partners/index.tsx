@@ -77,7 +77,7 @@ const PartnersListing: React.FC<PartnersListingProps> = ({ name, imageSrc, image
 const Partners: React.FC<{}> = () => {
   return (
     <div>
-      <Container maxW="80%" mb="80px" fontSize="24px" mt="50px" justifyContent="center">
+      <Container maxW={'container.lg'} mb="80px" fontSize="24px" mt="50px" justifyContent="center">
         <div>
           <Flex direction="column" mb="25px">
             <Header header="Our Partners" />
