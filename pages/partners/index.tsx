@@ -62,8 +62,7 @@ const PartnersListing: React.FC<PartnersListingProps> = ({ name, imageSrc, image
       textAlign="center"
       justifyContent="flex-end"
       w="360px"
-      mr="35px"
-      mb="60px"
+      m="30px 20px"
       onClick={() => {
         window.open(url);
       }}
@@ -78,9 +77,9 @@ const PartnersListing: React.FC<PartnersListingProps> = ({ name, imageSrc, image
 const Partners: React.FC<{}> = () => {
   return (
     <div>
-      <Container maxW="80%" mb="100px" fontSize="24px">
+      <Container maxW="80%" mb="80px" fontSize="24px" mt="50px" justifyContent="center">
         <div>
-          <Flex direction="column" mt="50px" mb="100px">
+          <Flex direction="column" mb="25px">
             <Header header="Our Partners" />
             <Text mt="32px">
               We are grateful to many people who are working with us to create OUTstandingLIFE. In
@@ -90,7 +89,7 @@ const Partners: React.FC<{}> = () => {
           </Flex>
         </div>
 
-        <Flex wrap="wrap" direction="row" justifyContent="space-evenly">
+        <Flex wrap="wrap" direction="row" justifyContent="space-evenly" alignItems="center">
           {partnersData.map((partner: PartnersListingProps, index: number) => (
             <PartnersListing key={index} {...partner} />
           ))}

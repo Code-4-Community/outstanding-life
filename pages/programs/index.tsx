@@ -4,7 +4,7 @@ import OSLHeader from '../../lib/components/header';
 
 const Programs: React.FC = () => {
   return (
-    <Container maxW={'container.lg'} mb="100px" fontSize="24px" paddingTop="24px">
+    <Container maxW="80%" mt="50px" mb="100px" fontSize="24px" paddingTop="24px">
       <Flex flexDirection="column" align="flex-start">
         <div data-cy="programs-heading">
           <OSLHeader header="June Online Events" style={{ marginBottom: '30px' }} />

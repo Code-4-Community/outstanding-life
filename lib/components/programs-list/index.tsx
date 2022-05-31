@@ -92,7 +92,7 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
 export const ProgramsList: React.FC<{}> = () => {
   return (
     <div data-cy="programs-list">
-      <Flex flexDirection={'column'} gap={'70px'} align="stretch">
+      <Flex flexDirection={'column'} gap={'100px'} align="stretch">
         {programs.map((program) => (
           <ProgramListing key={`${program.title}_${program.date}`} {...program}></ProgramListing>
         ))}
