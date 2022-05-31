@@ -1,6 +1,6 @@
 import Header from '../../lib/components/header';
 import { Container, Text, UnorderedList, ListItem, Flex, useBreakpoint } from '@chakra-ui/react';
-import CommitteeGroupProfile from '../../lib/components/leadership-team';
+import CommitteeGroupProfile from '../../lib/components/hero/leadership-team';
 import Hero from '../../lib/components/hero';
 import { PAGE_SIZES } from '../../lib/constants';
 
