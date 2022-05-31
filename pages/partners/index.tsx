@@ -1,7 +1,6 @@
 import { Box, Container, Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import React from 'react';
-import { map, string } from 'zod';
 import Header from '../../lib/components/header';
 
 const partnersData: PartnersListingProps[] = [
@@ -92,8 +91,8 @@ const Partners: React.FC<{}> = () => {
         </div>
 
         <Flex wrap="wrap" direction="row" justifyContent="space-evenly">
-          {partnersData.map((partner: PartnersListingProps) => (
-            <PartnersListing {...partner} />
+          {partnersData.map((partner: PartnersListingProps, index: number) => (
+            <PartnersListing key={index} {...partner} />
           ))}
         </Flex>
       </Container>
