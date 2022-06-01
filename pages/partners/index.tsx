@@ -60,7 +60,6 @@ const PartnersListing: React.FC<PartnersListingProps> = ({ name, imageSrc, image
     <Flex
       direction="column"
       textAlign="center"
-      justifyContent="flex-end"
       w="360px"
       m="30px 20px"
       onClick={() => {
@@ -89,9 +88,11 @@ const Partners: React.FC<{}> = () => {
       </div>
 
       <div data-cy="partners-logos">
-        <Flex wrap="wrap" direction="row" justifyContent="space-evenly" alignItems="center">
+        <Flex wrap="wrap" direction="row" justifyContent="space-around">
           {partnersData.map((partner: PartnersListingProps, index: number) => (
-            <PartnersListing key={index} {...partner} />
+            <Flex direction="column" justifyContent="flex-end" mb="25px">
+              <PartnersListing key={index} {...partner} />
+            </Flex>
           ))}
         </Flex>
       </div>
