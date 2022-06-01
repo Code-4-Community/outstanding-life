@@ -90,8 +90,8 @@ const Partners: React.FC<{}> = () => {
       <div data-cy="partners-logos">
         <Flex wrap="wrap" direction="row" justifyContent="space-around">
           {partnersData.map((partner: PartnersListingProps, index: number) => (
-            <Flex direction="column" justifyContent="flex-end" mb="25px">
-              <PartnersListing key={index} {...partner} />
+            <Flex key={index} direction="column" justifyContent="flex-end" mb="25px">
+              <PartnersListing {...partner} />
             </Flex>
           ))}
         </Flex>
