@@ -24,8 +24,8 @@ const partnersData: PartnersListingProps[] = [
   },
   {
     name: 'Little Brothers Friends Of The Elderly',
-    imageSrc: '/lbfe.jpg',
-    imageHeight: '360px',
+    imageSrc: '/lbfe.png',
+    imageHeight: '265px',
     url: 'https://lbfeboston.org/',
   },
   {
