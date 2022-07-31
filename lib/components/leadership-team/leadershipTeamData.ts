@@ -67,7 +67,14 @@ export const leadershipTeamData: { name: string; description: string; imgSrc: st
   },
   {
     name: 'Alice Fisher',
-    description: 'Alice Fisher is a member of the Leadership Team.',
+    description:
+      'Alice Fisher is a lifelong advocate and activist in the LGBTQ and disability communities.  She earned her PHD in 1980 and wrote a dissertation about lesbian mothers.   When not fighting for some cause she can be found hanging in her garden at Montgomery Park entertaining neighbors and friends….She has been on the board of Women and Disability, Stonewall Communities, The Asian Task Force Against Domestic Violence, The Equality Fund, The Advisory of Age Friendly Boston, City School, and the City of Boston Commission for Persons with Disabilities Advisory Board and a number of political campaigns.',
     imgSrc: '/fisher.JPG',
+  },
+  {
+    name: 'Julie Nowak',
+    description:
+      'Julie Nowak (she/they/xe) is the LGBTQIA+ Initiative Coordinator for Springwell, leading their outreach to older adults in the rainbow community and hosting talks, events, and cultural competency trainings that help build understanding and create affirming spaces where everyone is welcome!  She is a facilitator for the Concord, MA chapter of Greater Boston PFLAG, a community of grassroots support groups embracing families with LGBTQIA+ loved ones;  the Concord chapter includes several “late bloomers” and is very good for people who are questioning or coming out as mature/older adults.',
+    imgSrc: '/JulieNowak.JPG',
   },
 ];
