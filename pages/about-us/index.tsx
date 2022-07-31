@@ -27,15 +27,14 @@ const AboutUs: React.FC = () => {
                   can still be creative and vital, no matter their age.
                 </Text>
                 <Text>
-                  We want our LGBTQ+ peers to flourish, feel empowered and engaged. We provide
-                  a platform and a safe environment that fosters joy and independence. We are
-                  a diverse community committed to uplifting our members most impacted not only by
+                  We want our LGBTQ+ peers to flourish, feel empowered and engaged. We provide a
+                  platform and a safe environment that fosters joy and independence. We are a
+                  diverse community committed to uplifting our members most impacted not only by
                   homophobia and sexism but through systemic racism, transphobia, and income
-                  inequality. As life expectancy grows, we are living well into our 70s,
-                  80s, and beyond. Longevity requires new ways of connecting and thinking about
-                  our wants and desires in what we need and want to do during our entire lives. We
-                  want to treat each person with dignity and respect and help people achieve their
-                  best life.
+                  inequality. As life expectancy grows, we are living well into our 70s, 80s, and
+                  beyond. Longevity requires new ways of connecting and thinking about our wants and
+                  desires in what we need and want to do during our entire lives. We want to treat
+                  each person with dignity and respect and help people achieve their best life.
                 </Text>
               </Flex>
             </div>
@@ -51,15 +50,16 @@ const AboutUs: React.FC = () => {
                   points to evidence linking perceived social isolation with adverse health
                   consequences including depression, poor sleep quality, impaired executive
                   function, accelerated cognitive decline, poor cardiovascular function and impaired
-                  immunity at every stage of life. Older LGBTQ+ adults have been at an increased risk for deteriorating health. Many do not have children or family members who, traditionally, are the companions and caretakers of older adults.
-
+                  immunity at every stage of life. Older LGBTQ+ adults have been at an increased
+                  risk for deteriorating health. Many do not have children or family members who,
+                  traditionally, are the companions and caretakers of older adults.
                 </Text>
                 <Text>
-                  In Sean Cahill, PhD’s report for the Fenway
-                  Institute’s “LGBT Aging 2025: Strategies for Achieving a Healthy and Thriving LGBT
-                  Older Adult Community in Massachusetts, he identifies key themes of social isolation and lack of connection from numerous
-                  listening sessions across Massachusetts that include social isolation and lack of
-                  connection, the need for:
+                  In Sean Cahill, PhD’s report for the Fenway Institute’s “LGBT Aging 2025:
+                  Strategies for Achieving a Healthy and Thriving LGBT Older Adult Community in
+                  Massachusetts, he identifies key themes of social isolation and lack of connection
+                  from numerous listening sessions across Massachusetts that include social
+                  isolation and lack of connection, the need for:
                 </Text>
                 <UnorderedList margin={'0 30px'}>
                   <ListItem>
