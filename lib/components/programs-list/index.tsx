@@ -21,10 +21,12 @@ const programs: ProgramListingProps[] = [
   {
     title: "ONE SIZE DOESN'T SUIT ALL",
     description:
-      'Older adults need multiple avenues for creating supportive communities, and safe environments, online and in-person, particularly LGBTQ+ older adults. Panel Discussion and Q&A with Paul Glass from LGBTQ Elders of Color and David Aronstein from OUTStandingLIFE.',
+      'Older adults need multiple avenues for creating supportive communities, and safe environments, online and in-person, particularly LGBTQ+ older adults. Panel Discussion and Q&A with Paul Glass from LGBTQ Elders of Color and David Aronstein from OutstandingLife.',
     date: 'Wednesday, June 15',
     time: '12:00pm - 1:30pm',
     registerLink: 'https://tinyurl.com/yc267tzz',
+    recordingLink:
+      'https://drive.google.com/file/d/1MGgz2dOhDmVjuJz2CfKdgShoZU8WVhb3/view?usp=sharing',
   },
   {
     title: 'MODERN PRONOUNS: THEY IS CORRECT',
@@ -33,6 +35,8 @@ const programs: ProgramListingProps[] = [
     date: 'Thursday, June 16',
     time: '2:00pm - 3:00pm',
     registerLink: 'https://tinyurl.com/yc349dr9',
+    recordingLink:
+      'https://drive.google.com/file/d/1NEqeIMFUsv3-hhy5uxOgkTVPIkamthEO/view?usp=sharing',
   },
 ];
 
@@ -42,6 +46,7 @@ type ProgramListingProps = {
   date: string;
   time: string;
   registerLink: string;
+  recordingLink?: string;
 };
 
 const ProgramListing: React.FC<ProgramListingProps> = ({
@@ -50,6 +55,7 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
   date,
   time,
   registerLink,
+  recordingLink,
 }) => {
   const breakpoint = useBreakpoint();
   let useMobileLayout = breakpoint && PAGE_SIZES.includes(breakpoint);
@@ -69,7 +75,7 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
         <Heading>{title}</Heading>
         <Text fontSize="lg">{description}</Text>
         <Link
-          href={registerLink}
+          href={recordingLink || registerLink}
           isExternal
           _hover={{ textDecoration: 'none' }}
           _focus={{ outline: 'none' }}>
@@ -80,7 +86,7 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
             alt="External page link to register for this event."
             pointerEvents="none">
             <Text margin="2px" color="white" fontSize="large" fontWeight="bolder">
-              REGISTER HERE
+              {recordingLink ? `VIEW RECORDING` : `REGISTER HERE`}
             </Text>
           </Button>
         </Link>
