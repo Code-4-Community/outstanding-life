@@ -55,10 +55,10 @@ const AboutUs: React.FC = () => {
                   traditionally, are the companions and caretakers of older adults.
                 </Text>
                 <Text>
-                  In Sean Cahill, PhD’s report for the Fenway Institute’s “LGBT Aging 2025:
+                  In Sean Cahill, PhD’s report for the Fenway Institute’s &quot;LGBT Aging 2025:
                   Strategies for Achieving a Healthy and Thriving LGBT Older Adult Community in
-                  Massachusetts, he identifies key themes of social isolation and lack of connection
-                  from numerous listening sessions across Massachusetts" that include social
+                  Massachusetts&quot;, he identifies key themes of social isolation and lack of connection
+                  from numerous listening sessions across Massachusetts that include social
                   isolation and lack of connection, the need for:
                 </Text>
                 <UnorderedList margin={'0 30px'}>
