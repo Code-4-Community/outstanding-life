@@ -57,9 +57,9 @@ const AboutUs: React.FC = () => {
                 <Text>
                   In Sean Cahill, PhD’s report for the Fenway Institute’s &quot;LGBT Aging 2025:
                   Strategies for Achieving a Healthy and Thriving LGBT Older Adult Community in
-                  Massachusetts&quot;, he identifies key themes of social isolation and lack of connection
-                  from numerous listening sessions across Massachusetts that include social
-                  isolation and lack of connection, the need for:
+                  Massachusetts&quot;, he identifies key themes of social isolation and lack of
+                  connection from numerous listening sessions across Massachusetts that include
+                  social isolation and lack of connection, the need for:
                 </Text>
                 <UnorderedList margin={'0 30px'}>
                   <ListItem>
