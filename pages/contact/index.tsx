@@ -10,12 +10,11 @@ const ContactUs: React.FC = () => {
         <Box margin="50px 0">
           <Box margin="25px 0">
             <Text>
-              To be added to our mailing and newsletter list, questions, press inquiries, or other
-              issues please contact us at{' '}
+              Please contact us at{' '}
               <b>
                 <a href="mailto:info@outstandinglife.org">info@outstandinglife.org</a>
-              </b>
-              .
+              </b>{' '}
+              with questions, press inquiries, or to be added to our mailing and newsletter list.
             </Text>
           </Box>
           {/* hiding form for now because we don't have registration functionality */}
