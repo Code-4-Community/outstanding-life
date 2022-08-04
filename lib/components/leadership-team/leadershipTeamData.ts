@@ -68,7 +68,7 @@ export const leadershipTeamData: { name: string; description: string; imgSrc: st
   {
     name: 'Alice Fisher',
     description:
-      'Alice Fisher is a lifelong advocate and activist in the LGBTQ and disability communities.  She earned her PHD in 1980 and wrote a dissertation about lesbian mothers.   When not fighting for some cause she can be found hanging in her garden at Montgomery Park entertaining neighbors and friends….She has been on the board of Women and Disability, Stonewall Communities, The Asian Task Force Against Domestic Violence, The Equality Fund, The Advisory of Age Friendly Boston, City School, and the City of Boston Commission for Persons with Disabilities Advisory Board and a number of political campaigns.',
+      'Alice Fisher is a lifelong advocate and activist in the LGBTQ and disability communities.  She earned her PHD in 1980 and wrote a dissertation about lesbian mothers.   When not fighting for some cause she can be found hanging in her garden at Montgomery Park entertaining neighbors and friends. She has been on the board of Women and Disability, Stonewall Communities, The Asian Task Force Against Domestic Violence, The Equality Fund, The Advisory of Age Friendly Boston, City School, and the City of Boston Commission for Persons with Disabilities Advisory Board and a number of political campaigns.',
     imgSrc: '/fisher.JPG',
   },
   {
