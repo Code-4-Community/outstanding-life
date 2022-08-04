@@ -31,6 +31,7 @@ const LeadershipTeamProfile: React.FC<LeadershipTeamProfileProps> = ({
       <Image
         style={imageStyle}
         layout="fixed"
+        objectFit="cover"
         width="210px"
         height="210px"
         src={imgSrc}
