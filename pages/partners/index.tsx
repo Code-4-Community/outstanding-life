@@ -54,14 +54,14 @@ const partnersData: PartnersListingProps[] = [
   },
   {
     name: 'LGBTQIA+ Aging Project',
-    imageSrc: '/lap.png',
-    imageHeight: '78px',
+    imageSrc: '/lap.jpg',
+    imageHeight: '60px',
     url: 'https://fenwayhealth.org/the-fenway-institute/lgbtqia-aging-project/',
   },
   {
     name: 'Springwell',
-    imageSrc: '/sw.png',
-    imageHeight: '83px',
+    imageSrc: '/sw.jpg',
+    imageHeight: '76px',
     url: 'https://springwell.com/',
   },
 ];
