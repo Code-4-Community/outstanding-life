@@ -7,5 +7,6 @@ describe('Partners Flow', () => {
   it('should show page content correctly', () => {
     cy.get('[data-cy=partners-header]').should('be.visible');
     cy.get('[data-cy=partners-logos]').should('be.visible');
+    cy.get('[data-cy=partners-footer]').should('be.visible');
   });
 });

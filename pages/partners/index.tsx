@@ -29,7 +29,7 @@ const partnersData: PartnersListingProps[] = [
     url: 'https://lbfeboston.org/',
   },
   {
-    name: 'Friendship Works',
+    name: 'FriendshipWorks',
     imageSrc: '/fw.jpeg',
     imageHeight: '75px',
     url: 'https://fw4elders.org/',
@@ -45,6 +45,24 @@ const partnersData: PartnersListingProps[] = [
     imageSrc: '/sh.jpeg',
     imageHeight: '362px',
     url: 'https://www.lgbtqseniorhousing.org/',
+  },
+  {
+    name: 'The Equality Fund',
+    imageSrc: '/ef.jpg',
+    imageHeight: '58px',
+    url: 'https://www.tbf.org/nonprofits/grant-making-initiatives/equality-fund',
+  },
+  {
+    name: 'LGBTQIA+ Aging Project',
+    imageSrc: '/lap.jpg',
+    imageHeight: '60px',
+    url: 'https://fenwayhealth.org/the-fenway-institute/lgbtqia-aging-project/',
+  },
+  {
+    name: 'Springwell',
+    imageSrc: '/sw.jpg',
+    imageHeight: '76px',
+    url: 'https://springwell.com/',
   },
 ];
 
@@ -95,6 +113,13 @@ const Partners: React.FC<{}> = () => {
             </Flex>
           ))}
         </Flex>
+      </div>
+
+      <div data-cy="partners-footer">
+        <Text mt="32px" textAlign="center">
+          A big thank you to The Equality Fund at The Boston Foundation which has awarded us a
+          $10,000 grant to help us move forward. Thank you!
+        </Text>
       </div>
     </Container>
   );
