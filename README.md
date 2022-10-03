@@ -31,8 +31,8 @@ Install Node version 17.3.0 (npm 8.3.0)
 Clone this repo and enter the root directory
 
 ```bash
-git clone https://github.com/Code-4-Community/vsc.git
-cd vsc
+git clone https://github.com/Code-4-Community/outstanding-life.git
+cd outstanding-life
 ```
 
 Install dependencies
