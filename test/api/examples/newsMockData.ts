@@ -1,12 +1,12 @@
 import { News } from '@prisma/client';
-import { NewsWrite } from '../../../lib/types/dtos/createNewsRequest.dto';
+import { EventsWrite } from '../../../lib/types/dtos/createEventRequest.dto';
 
-export const createNews0: NewsWrite = {
+export const createNews0: EventsWrite = {
   title: 'First news',
   content: ':)',
 };
 
-export const createNewsBad: unknown = {
+export const createEventsBad: unknown = {
   title: "i'm missing content field!",
 };
 
@@ -14,23 +14,23 @@ export const createNoTitle: unknown = {
   content: "i'm missing title field!",
 };
 
-export const createNewsEmptyTitle: unknown = {
+export const createEventsEmptyTitle: unknown = {
   title: '',
 };
 
-export const createNewsEmptyContent: unknown = {
+export const createEventsEmptyContent: unknown = {
   title: 'First news',
   content: '',
 };
 
-export const news0: News = {
+export const events0: Event = {
   id: 0,
   title: 'First news',
   content: ':)',
   createdAt: new Date('1997-08-17'),
 };
 
-export const news1 = {
+export const events1 = {
   id: 1,
   title: 'Second news',
   content: ':))',

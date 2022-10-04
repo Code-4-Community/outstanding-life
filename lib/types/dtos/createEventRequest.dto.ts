@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const eventWriteSchema = z.object({
+export const eventsWriteSchema = z.object({
   title: z.string().min(1),
   content: z.string().min(1),
   link: z.string().min(1),
@@ -8,4 +8,4 @@ export const eventWriteSchema = z.object({
   eventEnd: z.date()
 });
 
-export type EventWrite = z.infer<typeof eventWriteSchema>;
+export type EventsWrite = z.infer<typeof eventsWriteSchema>;
