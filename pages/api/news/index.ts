@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import makeRoute from '../../../lib/utils/utils';
-import { getNewsHandler, postNewsHandler } from '../../../lib/api/eventLogic';
+import { getNewsHandler, postProgramsHandler } from '../../../lib/api/programsLogic';
 
 /**
  * @swagger
@@ -45,4 +45,4 @@ import { getNewsHandler, postNewsHandler } from '../../../lib/api/eventLogic';
  *       201:
  *         description: OK
  */
-export default makeRoute().get(getNewsHandler).post(postNewsHandler);
+export default makeRoute().get(getNewsHandler).post(postProgramsHandler);

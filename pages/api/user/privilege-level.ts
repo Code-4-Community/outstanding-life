@@ -2,7 +2,7 @@
 import makeRoute from '../../../lib/utils/utils';
 import { makeUpdatePrivilegeLevelHandler } from '../../../lib/api/privilegeLevelLogic';
 import prisma from '../../../prisma/prisma';
-import { getNewsHandler } from '../../../lib/api/eventLogic';
+import { getNewsHandler } from '../../../lib/api/programsLogic';
 import { getSession } from 'next-auth/react';
 
 /**

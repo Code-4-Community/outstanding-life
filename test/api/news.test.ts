@@ -1,16 +1,16 @@
-import { getNewsHandler, postEventsHandler } from '../../lib/api/eventLogic';
+import { getNewsHandler, postProgramsHandler } from '../../lib/api/programsLogic';
 import httpMocks, { Body } from 'node-mocks-http';
 import prisma from '../../prisma/prisma';
 import { BadRequestError } from '../../lib/utils/errors/badRequestError';
 import {
-  createNews0,
-  createNewsBad,
-  createNewsEmptyContent,
-  createNewsEmptyTitle,
-  createNoTitle,
-  news0,
-  news1,
-} from './examples/newsMockData';
+  createProgram0,
+  createProgramBad,
+  createProgramsEmptyContent,
+  createProgramsEmptyTitle,
+  createProgramNoTitle,
+  program0,
+  program1,
+} from './examples/programMockData';
 
 describe('news endpoint', () => {
   beforeEach(async () => {
@@ -21,41 +21,41 @@ describe('news endpoint', () => {
     const request = httpMocks.createRequest({
       method: 'POST',
       url: '/api/news',
-      body: createNews0,
+      body: createProgram0,
     });
 
     const response = httpMocks.createResponse();
 
-    await postEventsHandler(request, response);
+    await postProgramsHandler(request, response);
 
     expect(response.statusCode).toBe(201);
-    expect(await prisma.news.findMany({})).toEqual([expect.objectContaining(createNews0)]);
+    expect(await prisma.news.findMany({})).toEqual([expect.objectContaining(createProgram0)]);
   });
 
   it('should fail to post an inadequate news', async () => {
     const request = httpMocks.createRequest({
       method: 'POST',
       url: '/api/news',
-      body: createNewsBad as Body,
+      body: createProgramBad as Body,
     });
 
     const response = httpMocks.createResponse();
 
-    expect(postEventsHandler(request, response)).rejects.toThrow(
-      new BadRequestError('News must include title + content'),
+    expect(postProgramsHandler(request, response)).rejects.toThrow(
+      new BadRequestError('Program must include title + content'),
     );
   });
 
-  it('should fail to POST news with an empty title', async () => {
+  it('should fail to POST program with an empty title', async () => {
     const request = httpMocks.createRequest({
       method: 'POST',
-      url: '/api/news',
-      body: createNewsEmptyTitle as Body,
+      url: '/api/program',
+      body: createProgramsEmptyTitle as Body,
     });
 
     const response = httpMocks.createResponse();
 
-    expect(postEventsHandler(request, response)).rejects.toThrow(
+    expect(postProgramsHandler(request, response)).rejects.toThrow(
       new BadRequestError('News must include title + content'),
     );
   });
@@ -63,52 +63,52 @@ describe('news endpoint', () => {
   it('should fail to POST news with an empty content', async () => {
     const request = httpMocks.createRequest({
       method: 'POST',
-      url: '/api/news',
-      body: createNewsEmptyContent as Body,
+      url: '/api/program',
+      body: createProgramsEmptyContent as Body,
     });
 
     const response = httpMocks.createResponse();
 
-    expect(postEventsHandler(request, response)).rejects.toThrow(
-      new BadRequestError('News must include title + content'),
+    expect(postProgramsHandler(request, response)).rejects.toThrow(
+      new BadRequestError('program must include title + content'),
     );
   });
 
-  it('should fail to POST news with no title', async () => {
+  it('should fail to POST program with no title', async () => {
     const request = httpMocks.createRequest({
       method: 'POST',
-      url: '/api/news',
-      body: createNoTitle as Body,
+      url: '/api/program',
+      body: createProgramNoTitle as Body,
     });
 
     const response = httpMocks.createResponse();
 
-    expect(postEventsHandler(request, response)).rejects.toThrow(
-      new BadRequestError('News must include title + content'),
+    expect(postProgramsHandler(request, response)).rejects.toThrow(
+      new BadRequestError('program must include title + content'),
     );
   });
 
-  it('should get all news', async () => {
-    await prisma.news.createMany({ data: [news0, news1] });
+  it('should get all programs', async () => {
+    await prisma.program.createMany({ data: [program0, program1] });
     const request = httpMocks.createRequest({
       method: 'GET',
-      url: '/api/news',
+      url: '/api/program',
     });
 
     const response = httpMocks.createResponse();
 
-    await getNewsHandler(request, response);
+    await getProgramsHandler(request, response);
 
     const data = response._getJSONData(); // short-hand for JSON.parse( response._getData() );
     expect(response.statusCode).toBe(200);
-    expect(data.news).toEqual([
-      { ...news0, createdAt: expect.anything() },
-      { ...news1, createdAt: expect.anything() },
+    expect(data.program).toEqual([
+      { ...program0, createdAt: expect.anything() },
+      { ...program1, createdAt: expect.anything() },
     ]);
   });
 
   it('should be true', async () => {
-    await prisma.news.findMany({});
+    await prisma.program.findMany({});
     expect(true).toBe(true);
   });
 });
