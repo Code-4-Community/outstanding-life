@@ -3,7 +3,7 @@ import { eventWriteSchema } from '../types/dtos/createEventRequest.dto';
 import { BadRequestError } from '../utils/errors/badRequestError';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-export const getNewsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+export const getEventsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   res.status(200).json({ news: await prisma.news.findMany() });
 };
 

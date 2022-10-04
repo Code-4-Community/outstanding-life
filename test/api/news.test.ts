@@ -1,4 +1,4 @@
-import { getNewsHandler, postNewsHandler } from '../../lib/api/newsLogic';
+import { getEventsHandler, postEventsHandler } from '../../lib/api/eventLogic';
 import httpMocks, { Body } from 'node-mocks-http';
 import prisma from '../../prisma/prisma';
 import { BadRequestError } from '../../lib/utils/errors/badRequestError';
@@ -26,7 +26,7 @@ describe('news endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    await postNewsHandler(request, response);
+    await postEventsHandler(request, response);
 
     expect(response.statusCode).toBe(201);
     expect(await prisma.news.findMany({})).toEqual([expect.objectContaining(createNews0)]);
@@ -41,7 +41,7 @@ describe('news endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    expect(postNewsHandler(request, response)).rejects.toThrow(
+    expect(postEventsHandler(request, response)).rejects.toThrow(
       new BadRequestError('News must include title + content'),
     );
   });
@@ -55,7 +55,7 @@ describe('news endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    expect(postNewsHandler(request, response)).rejects.toThrow(
+    expect(postEventsHandler(request, response)).rejects.toThrow(
       new BadRequestError('News must include title + content'),
     );
   });
@@ -69,7 +69,7 @@ describe('news endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    expect(postNewsHandler(request, response)).rejects.toThrow(
+    expect(postEventsHandler(request, response)).rejects.toThrow(
       new BadRequestError('News must include title + content'),
     );
   });
@@ -83,7 +83,7 @@ describe('news endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    expect(postNewsHandler(request, response)).rejects.toThrow(
+    expect(postEventsHandler(request, response)).rejects.toThrow(
       new BadRequestError('News must include title + content'),
     );
   });
@@ -97,7 +97,7 @@ describe('news endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    await getNewsHandler(request, response);
+    await getEventsHandler(request, response);
 
     const data = response._getJSONData(); // short-hand for JSON.parse( response._getData() );
     expect(response.statusCode).toBe(200);
