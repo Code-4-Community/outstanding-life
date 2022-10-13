@@ -3,6 +3,8 @@ import GithubProvider from 'next-auth/providers/github';
 import CognitoProvider from 'next-auth/providers/cognito';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { PrismaClient } from '@prisma/client';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const prisma = new PrismaClient();
 
