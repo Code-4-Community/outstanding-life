@@ -112,7 +112,10 @@ const Programs: React.FC = () => {
         </div>
         <ProgramsList programListings={programs} />
         <div data-cy="past-programs-heading">
-          <OSLHeader header="Past Online Events" style={{ marginBottom: '30px' }} />
+          <OSLHeader
+            header="Past Online Events"
+            style={{ marginTop: '60px', marginBottom: '30px' }}
+          />
         </div>
         <ProgramsList programListings={pastPrograms} />
       </Flex>

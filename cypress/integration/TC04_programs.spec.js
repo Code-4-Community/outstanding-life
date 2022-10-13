@@ -8,5 +8,6 @@ describe('Programs Page', () => {
   it('should display programs page contents', () => {
     cy.get('[data-cy=programs-heading]').should('be.visible');
     cy.get('[data-cy=programs-list]').scrollIntoView().should('be.visible');
+    cy.get('[data-cy=past-programs-heading]').scrollIntoView().should('be.visible');
   });
 });
