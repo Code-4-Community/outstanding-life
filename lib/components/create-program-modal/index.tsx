@@ -1,7 +1,7 @@
 import ProgramForm from '../program-form';
 import PopUp from '../pop-up';
 
-type EditProgramModalProps = {
+type CreateProgramModalProps = {
     modalManagement: {
         isOpen: boolean;
         onOpen: () => void;
@@ -9,19 +9,19 @@ type EditProgramModalProps = {
     }
 };
 
-const EditProgramModal: React.FC<EditProgramModalProps> = ({
+const CreateProgramModal: React.FC<CreateProgramModalProps> = ({
     modalManagement
 }) => {
  return <PopUp
-header="Edit Event"
+header="Create Event"
 manageModal={modalManagement}
-confirmText='Edit'
+confirmText='Create'
 size='2xl'
 onConfirm={() => {
-  console.log('Editing program...');
+  console.log('Creating program...');
 }}>
       <ProgramForm />
 </PopUp>
 }
 
-export default EditProgramModal;
+export default CreateProgramModal;
