@@ -1,14 +1,18 @@
-import { Heading, Box, Button, Text, Flex } from '@chakra-ui/react';
+import { Heading, Box, Button, Text, Flex, useBreakpoint } from '@chakra-ui/react';
+import { PAGE_SIZES } from '../../constants';
 
 interface HeaderProps {
   header: String;
   style?: React.CSSProperties;
-  hasButton?: Boolean;
+  hasButton?: boolean;
   buttonText?: String;
   onButtonClick?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ header, style, hasButton, buttonText, onButtonClick }: HeaderProps) => (
+const Header: React.FC<HeaderProps> = ({ header, style, hasButton, buttonText, onButtonClick }: HeaderProps) => {
+  const breakpoint = useBreakpoint();
+
+  return (
   <Box style={style}>
     <Flex
       flexDir={'row'}
@@ -26,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ header, style, hasButton, buttonText, o
             _focus={{ outline: 'none' }}
             onClick={ onButtonClick }
             >
-            <Text margin="2px" fontSize="large" fontWeight="bolder">
+            <Text margin="2px" fontSize={breakpoint && PAGE_SIZES.includes(breakpoint) ? 'xs' : 'lg'} fontWeight="bolder">
               { buttonText }
             </Text>
           </Button> : <></>
@@ -34,6 +38,7 @@ const Header: React.FC<HeaderProps> = ({ header, style, hasButton, buttonText, o
       </Flex>
     <Box h={'4px'} bg={'var(--magenta)'} />
   </Box>
-);
+)
+    };
 
 export default Header;
