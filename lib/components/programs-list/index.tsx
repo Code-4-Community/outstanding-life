@@ -1,4 +1,13 @@
-import { Flex, Heading, Text, Box, Link, Button, useBreakpoint, useDisclosure } from '@chakra-ui/react';
+import {
+  Flex,
+  Heading,
+  Text,
+  Box,
+  Link,
+  Button,
+  useBreakpoint,
+  useDisclosure,
+} from '@chakra-ui/react';
 import { PAGE_SIZES } from '../../constants';
 import EditProgramModal from '../edit-program-modal';
 
@@ -25,29 +34,31 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
 
   return (
     <>
-    <EditProgramModal modalManagement={editProgramModalManagement} />
+      <EditProgramModal modalManagement={editProgramModalManagement} />
 
-    <Flex flexDirection={useMobileLayout ? 'column' : 'row'} gap={4}>
-      <Flex flexDirection="column" alignItems={useMobileLayout ? 'start' : 'end'} minWidth={'40%'}>
-        <Heading textAlign={useMobileLayout ? 'left' : 'right'}>{date}</Heading>
-        <Text>{time}</Text>
-      </Flex>
-      <Box
-        h={useMobileLayout ? '4px' : 'maxContent'}
-        minWidth={useMobileLayout ? 'maxContent' : '4px'}
-        bg={'var(--magenta)'}
-      />
-      <Flex flexDirection="column" alignItems="start">
-        <Heading>{title}</Heading>
-        <Text fontSize="lg" whiteSpace="pre-line">
-          {description}
-        </Text>
-        <Link
-          href={recordingLink || registerLink}
-          isExternal
-          _hover={{ textDecoration: 'none' }}
-          _focus={{ outline: 'none' }}>
-        </Link>
+      <Flex flexDirection={useMobileLayout ? 'column' : 'row'} gap={4}>
+        <Flex
+          flexDirection="column"
+          alignItems={useMobileLayout ? 'start' : 'end'}
+          minWidth={'40%'}>
+          <Heading textAlign={useMobileLayout ? 'left' : 'right'}>{date}</Heading>
+          <Text>{time}</Text>
+        </Flex>
+        <Box
+          h={useMobileLayout ? '4px' : 'maxContent'}
+          minWidth={useMobileLayout ? 'maxContent' : '4px'}
+          bg={'var(--magenta)'}
+        />
+        <Flex flexDirection="column" alignItems="start">
+          <Heading>{title}</Heading>
+          <Text fontSize="lg" whiteSpace="pre-line">
+            {description}
+          </Text>
+          <Link
+            href={recordingLink || registerLink}
+            isExternal
+            _hover={{ textDecoration: 'none' }}
+            _focus={{ outline: 'none' }}></Link>
           <Button
             mt="5px"
             padding="15px 30px"
@@ -60,26 +71,27 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
             <Text margin="2px" fontSize="large" fontWeight="bolder">
               EDIT EVENT
             </Text>
-          </Button> :
-        <Link
-        href={recordingLink || registerLink}
-        isExternal
-        _hover={{ textDecoration: 'none' }}
-        _focus={{ outline: 'none' }}>
-        <Button
-          mt="5px"
-          bg="var(--magenta)"
-          borderRadius="md"
-          alt="External page link to register for this event."
-          pointerEvents="none">
-          <Text margin="2px" color="white" fontSize="large" fontWeight="bolder">
-            {recordingLink ? `VIEW RECORDING` : `REGISTER HERE`}
-          </Text>
-        </Button>
-        </Link>
+          </Button>{' '}
+          :
+          <Link
+            href={recordingLink || registerLink}
+            isExternal
+            _hover={{ textDecoration: 'none' }}
+            _focus={{ outline: 'none' }}>
+            <Button
+              mt="5px"
+              bg="var(--magenta)"
+              borderRadius="md"
+              alt="External page link to register for this event."
+              pointerEvents="none">
+              <Text margin="2px" color="white" fontSize="large" fontWeight="bolder">
+                {recordingLink ? `VIEW RECORDING` : `REGISTER HERE`}
+              </Text>
+            </Button>
+          </Link>
+        </Flex>
       </Flex>
-    </Flex>
-  </>
+    </>
   );
 };
 

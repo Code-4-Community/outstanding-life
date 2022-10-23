@@ -26,11 +26,15 @@ const PopUp: React.FC<PopUpProps> = ({
   style,
   manageModal,
   children,
-  size
+  size,
 }) => {
   return (
     <>
-      <Modal styleConfig={style} isOpen={manageModal.isOpen} onClose={manageModal.onClose} size={ size ?? 'lg'}>
+      <Modal
+        styleConfig={style}
+        isOpen={manageModal.isOpen}
+        onClose={manageModal.onClose}
+        size={size ?? 'lg'}>
         <ModalOverlay />
         <ModalContent>
           {header && <ModalHeader>{header}</ModalHeader>}
