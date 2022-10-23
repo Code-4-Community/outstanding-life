@@ -47,6 +47,7 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
           isExternal
           _hover={{ textDecoration: 'none' }}
           _focus={{ outline: 'none' }}>
+        </Link>
           <Button
             mt="5px"
             padding="15px 30px"
@@ -75,11 +76,10 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
             {recordingLink ? `VIEW RECORDING` : `REGISTER HERE`}
           </Text>
         </Button>
-      </Link>
-      }
+        </Link>
       </Flex>
     </Flex>
-    </>
+  </>
   );
 };
 
