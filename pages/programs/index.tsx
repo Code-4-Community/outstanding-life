@@ -1,5 +1,5 @@
 import { ProgramListingProps, ProgramsList } from '../../lib/components/programs-list';
-import { Container, Flex } from '@chakra-ui/react';
+import { Container, Flex, useDisclosure } from '@chakra-ui/react';
 import OSLHeader from '../../lib/components/header';
 import CreateProgramModal from '../../lib/components/create-program-modal';
 
