@@ -34,8 +34,7 @@ const NavLink: React.FC<LinkProps> = ({ path, label, dropDownOptions }) => {
           position="absolute"
           width="100%"
           background="#FFF"
-          zIndex="100"
-          onMouseLeave={onClose}>
+          zIndex="100">
           {dropDownOptions.map(({ label, path }) => (
             <Box
               key={label}
