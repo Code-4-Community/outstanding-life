@@ -107,7 +107,7 @@ const Programs: React.FC = () => {
   return (
     <Container maxW={'container.lg'} mt="50px" mb="100px" fontSize="24px">
       <Flex flexDirection="column" align="flex-start">
-        <div data-cy="programs-heading">
+        <div data-cy="programs-heading" style={{ width: '100%' }}>
           <OSLHeader header="October 2022 Online Events" style={{ marginBottom: '30px' }} />
         </div>
         <ProgramsList programListings={programs} />
