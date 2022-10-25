@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { LinkProps } from './links';
 import { Box, chakra, Link as ChakraLink, useDisclosure } from '@chakra-ui/react';
-import { ArrowDownIcon } from '@chakra-ui/icons';
 
 const NavLink: React.FC<LinkProps> = ({ path, label, dropDownOptions }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();

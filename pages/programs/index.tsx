@@ -111,7 +111,7 @@ const Programs: React.FC = () => {
           <OSLHeader header="October 2022 Online Events" style={{ marginBottom: '30px' }} />
         </div>
         <ProgramsList programListings={programs} />
-        <div data-cy="past-programs-heading">
+        <div data-cy="past-programs-heading" style={{ width: '100%' }}>
           <OSLHeader
             header="Past Online Events"
             style={{ marginTop: '60px', marginBottom: '30px' }}
