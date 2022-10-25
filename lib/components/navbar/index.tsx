@@ -40,8 +40,13 @@ const NavBar: React.FC<NavBarProps> = ({ navLinks, style }) => {
           alignItems="end"
           mb="15px"
           data-cy="standard-navbar">
-          {navLinks.map((button: LinkProps) => (
-            <NavLink key={button.path} path={button.path} label={button.label} />
+          {navLinks.map((linkProps: LinkProps) => (
+            <NavLink
+              key={linkProps.path}
+              path={linkProps.path}
+              label={linkProps.label}
+              dropDownOptions={linkProps?.dropDownOptions}
+            />
           ))}
         </Flex>
       )}

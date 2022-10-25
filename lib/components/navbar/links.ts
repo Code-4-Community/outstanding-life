@@ -1,7 +1,13 @@
 export type LinkProps = {
   path: string;
   label: string;
+  dropDownOptions?: NavDropdownItemProps[];
 };
+
+export interface NavDropdownItemProps {
+  label: string;
+  path: string;
+}
 
 const navLinks: LinkProps[] = [
   {
@@ -11,6 +17,10 @@ const navLinks: LinkProps[] = [
   {
     label: 'Programs',
     path: '/programs',
+    dropDownOptions: [
+      { label: 'Upcoming', path: '/programs/upcoming-programs' },
+      { label: 'Past', path: '/programs/past-programs' },
+    ],
   },
   {
     label: 'Partners',
