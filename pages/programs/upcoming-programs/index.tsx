@@ -68,7 +68,7 @@ const UpcomingPrograms: React.FC = () => {
     <Container maxW={'container.lg'} mt="50px" mb="100px" fontSize="24px">
       <Flex flexDirection="column" align="flex-start">
         <div data-cy="upcoming-programs-heading" style={{ width: '100%' }}>
-          <OSLHeader header="October 2022 Online Events" style={{ marginBottom: '30px' }} />
+          <OSLHeader header="Upcoming Events" style={{ marginBottom: '30px' }} />
         </div>
         <ProgramsList programListings={programs} />
       </Flex>

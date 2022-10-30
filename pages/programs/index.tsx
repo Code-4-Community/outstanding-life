@@ -6,35 +6,34 @@ const programs: ProgramListingProps[] = [
   {
     title: 'MONTHLY WRITING GROUP',
     description:
-      "Ready to focus on your writing? Join OutstandingLife's new monthly writing group. \
-    In this monthly writing workshop, we will discuss a short passage or \
-    poem that effectively uses a particular form or point of view. After \
-    considering how the technique enhances the piece, we will use some \
-    aspect of the text as a prompt to jumpstart our own writing. The \
-    focus will be on short, in-class writing and discussion. Suitable for \
-    writers with some experience. \n\n Bios of workshop leaders \n\n \
-    Jan Donley is a writer, a visual artist, and a professor. Her novel, The \
-    Side Door, made the 2011-2012 American Library Association's (ALA) \
-    Rainbow List, was nominated for a Lambda Literary Award (2011), \
-    won an Honorable Mention Eric Hoffer Award (2011), and won the \
-    Golden Crown Literary Society's Goldie for Dramatic General Fiction \
-    (2011). Her short stories appear in the magazines 34th Parallel, Silk \
-    Road, and Best New Writing 2015. Her story \
-    \"Salamander.\" \
-    appears \
-    in Milkweed's anthology Stories from Where We Live. Her paintings \
-    are represented \
-    by Stewart Clifford Gallery in Provincetown, \
-    Massachusetts. She recently relocated from Boston to Dobbs Ferry, \
-    NY. She teaches writing and literature at Berklee College of Music. \
-    \n \
-    Jean Hey's essays and reviews have appeared in The New York Times \
-    Magazine, The Plain Dealer, The Chicago Tribune, Solstice Magazine, \
-    Los Angeles Review of Books, The MacGuffin and Arrowsmith Journal. \
-    She holds a dual-genre MFA in fiction and nonfiction from Bennington \
-    College where she won the Sven Birkerts award for best nonfiction. \
-    She recently finished a collection or memoiristic essays about \
-    immigration and identity.",
+    "In this monthly writing workshop, we will discuss a short excerpt from fiction, \
+    non-fiction, or poetry. We will discuss its effectiveness either in form, style, \
+    point of view, or other literary devices/techniques. After considering what makes \
+    the passage work, we will use some aspect of the text as a prompt to jumpstart our \
+    own writing. The focus will be on short, in-class writing and discussion. Some \
+    experience in writing is required. \ \n\n Bios of workshop leaders \n\n \
+  Jan Donley is a writer, a visual artist, and a professor. Her novel, The \
+  Side Door, made the 2011-2012 American Library Association's (ALA) \
+  Rainbow List, was nominated for a Lambda Literary Award (2011), \
+  won an Honorable Mention Eric Hoffer Award (2011), and won the \
+  Golden Crown Literary Society's Goldie for Dramatic General Fiction \
+  (2011). Her short stories appear in the magazines 34th Parallel, Silk \
+  Road, and Best New Writing 2015. Her story \
+  \"Salamander.\" \
+  appears \
+  in Milkweed's anthology Stories from Where We Live. Her paintings \
+  are represented \
+  by Stewart Clifford Gallery in Provincetown, \
+  Massachusetts. She recently relocated from Boston to Dobbs Ferry, \
+  NY. She teaches writing and literature at Berklee College of Music. \
+  \n\n \
+  Jean Hey's essays and reviews have appeared in The New York Times \
+  Magazine, The Plain Dealer, The Chicago Tribune, Solstice Magazine, \
+  Los Angeles Review of Books, The MacGuffin and Arrowsmith Journal. \
+  She holds a dual-genre MFA in fiction and nonfiction from Bennington \
+  College where she won the Sven Birkerts award for best nonfiction. \
+  She recently finished a collection or memoiristic essays about \
+  immigration and identity.",
     date: 'Thursday, October 20',
     time: '2:00pm - 3:15pm',
     registerLink: 'https://us06web.zoom.us/meeting/register/tZAqd-CvrT0uGdDVqIRPH_AUpzJ35zR0igDK',

@@ -47,7 +47,7 @@ const PastPrograms: React.FC = () => {
       <Flex flexDirection="column" align="flex-start">
         <div data-cy="past-programs-heading" style={{ width: '100%' }}>
           <OSLHeader
-            header="Past Online Events"
+            header="Past Events"
             style={{ marginBottom: '30px' }}
           />
         </div>
