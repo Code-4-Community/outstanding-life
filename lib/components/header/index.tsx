@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({
     <Box style={style}>
       <Flex flexDir={'row'} justifyContent="space-between" mb={'3px'}>
         <Heading>{header}</Heading>
-        {hasButton ? (
+        {hasButton && (
           <Button
             mt="5px"
             padding="15px 10px"
@@ -38,8 +38,6 @@ const Header: React.FC<HeaderProps> = ({
               {buttonText}
             </Text>
           </Button>
-        ) : (
-          <></>
         )}
       </Flex>
       <Box h={'4px'} bg={'var(--magenta)'} />

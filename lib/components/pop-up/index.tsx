@@ -15,7 +15,7 @@ interface PopUpProps {
   confirmText?: string;
   onConfirm: () => void;
   style?: React.CSSProperties;
-  size?: string;
+  size?: "lg" | "sm" | "md";
 }
 
 const PopUp: React.FC<PopUpProps> = ({
