@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { PAGE_SIZES } from '../../constants';
 import EditProgramModal from '../edit-program-modal';
+import DeleteProgramModal from '../delete-program-modal';
 
 export type ProgramListingProps = {
   title: string;
@@ -30,12 +31,13 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
 }) => {
   const breakpoint = useBreakpoint();
   const editProgramModalManagement = useDisclosure();
+  const deleteProgramModalManagement = useDisclosure();
   let useMobileLayout = breakpoint && PAGE_SIZES.includes(breakpoint);
 
   return (
     <>
       <EditProgramModal modalManagement={editProgramModalManagement} />
-
+      <DeleteProgramModal modalManagement={deleteProgramModalManagement} />
       <Flex flexDirection={useMobileLayout ? 'column' : 'row'} gap={4}>
         <Flex
           flexDirection="column"
@@ -59,28 +61,49 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
             isExternal
             _hover={{ textDecoration: 'none' }}
             _focus={{ outline: 'none' }}></Link>
-          <Button
-            mt="5px"
-            padding="15px 30px"
-            borderRadius="md"
-            alt="Button to edit this event"
-            variant="osl"
-            _hover={{ textDecoration: 'none' }}
-            _focus={{ outline: 'none' }}
-            onClick={() => editProgramModalManagement.onOpen()}>
-            <Text margin="2px" fontSize="large" fontWeight="bolder">
-              EDIT EVENT
-            </Text>
-          </Button>{' '}
-          :
+          <Flex 
+            flexDirection={useMobileLayout ? 'column' : 'row'}
+            gap={useMobileLayout ? 0 : 3}
+          >
+            <Button
+              mt="5px"
+              bg="var(--magenta)"
+              padding="15px 30px"
+              borderRadius="md"
+              alt="Button to edit this event"
+              variant="osl"
+              _hover={{ textDecoration: 'none' }}
+              _focus={{ outline: 'none' }}
+              onClick={() => editProgramModalManagement.onOpen()}>
+              <Text margin="2px" fontSize="large" fontWeight="bolder">
+                EDIT EVENT
+              </Text>
+            </Button>
+            <Button
+              mt="5px"
+              bg="var(--magenta)"
+              padding="15px 30px"
+              borderRadius="md"
+              alt="Button to delete this event"
+              variant="osl"
+              _hover={{ textDecoration: 'none' }}
+              _focus={{ outline: 'none' }}
+              onClick={() => deleteProgramModalManagement.onOpen()}>
+              <Text margin="2px" fontSize="large" fontWeight="bolder">
+                DELETE EVENT
+              </Text>
+            </Button>
+          </Flex>
+          
           <Link
             href={recordingLink || registerLink}
             isExternal
             _hover={{ textDecoration: 'none' }}
             _focus={{ outline: 'none' }}>
             <Button
-              mt="5px"
+              mt="10px"
               bg="var(--magenta)"
+              padding="15px 25px"
               borderRadius="md"
               alt="External page link to register for this event."
               pointerEvents="none">
