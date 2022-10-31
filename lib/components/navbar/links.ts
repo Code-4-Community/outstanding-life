@@ -16,7 +16,7 @@ const navLinks: LinkProps[] = [
   },
   {
     label: 'Programs',
-    path: '/programs',
+    path: '/programs/upcoming-programs',
     dropDownOptions: [
       { label: 'Upcoming', path: '/programs/upcoming-programs' },
       { label: 'Past', path: '/programs/past-programs' },
