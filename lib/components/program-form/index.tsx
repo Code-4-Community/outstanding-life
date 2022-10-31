@@ -1,8 +1,6 @@
 import { FormControl, FormLabel, Input, Textarea, Flex, Checkbox } from '@chakra-ui/react';
 
-type ProgramFormProps = {};
-
-const ProgramForm: React.FC<ProgramFormProps> = () => {
+const ProgramForm: React.FC = () => {
   return (
     <form>
       <Flex flexWrap="wrap" flexDir={'row'} rowGap={'25px'} columnGap={'6%'} justifyContent="left">
