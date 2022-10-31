@@ -34,7 +34,7 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
       />
       <Flex flexDirection="column" alignItems="start">
         <Heading>{title}</Heading>
-        <Text fontSize="lg" whiteSpace="pre-wrap">
+        <Text fontSize="lg" whiteSpace="pre-line">
           {description}
         </Text>
         <Link
