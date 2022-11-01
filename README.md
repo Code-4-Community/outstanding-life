@@ -123,9 +123,12 @@ Various commands that may help in the development process:
 
 Troubleshooting Postgres Issues:
 
-- Make sure your .env file is updated with your postgres user and password
+- Make sure your .env file is updated with your postgresql user and password
+  - username often defaults to 'postgres' upon installation
 
 - Make sure your postgres server is running and is in an environment that shares processes with your dev environment (e.g. using WSL for both)
+  - `sudo service postgresql status`
+  - `sudo service postgresql start` 
 
 - If you are having trouble with psql authentication or need to reset a postgres user's password follow these guides
   - [Peer authentication failed for user postgres](https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge)
