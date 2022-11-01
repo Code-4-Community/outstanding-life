@@ -14,7 +14,7 @@ import {
 
 describe('news endpoint', () => {
   beforeEach(async () => {
-    await prisma.news.deleteMany({});
+    await prisma.program.deleteMany({});
   });
 
   it('should post our first news object', async () => {
@@ -29,7 +29,7 @@ describe('news endpoint', () => {
     await postProgramsHandler(request, response);
 
     expect(response.statusCode).toBe(201);
-    expect(await prisma.news.findMany({})).toEqual([expect.objectContaining(createProgram0)]);
+    expect(await prisma.program.findMany({})).toEqual([expect.objectContaining(createProgram0)]);
   });
 
   it('should fail to post an inadequate news', async () => {
@@ -42,7 +42,7 @@ describe('news endpoint', () => {
     const response = httpMocks.createResponse();
 
     expect(postProgramsHandler(request, response)).rejects.toThrow(
-      new BadRequestError('Program must include title + content'),
+      new BadRequestError('Program must contain: title, content, link, program start and program end times.'),
     );
   });
 
@@ -56,7 +56,7 @@ describe('news endpoint', () => {
     const response = httpMocks.createResponse();
 
     expect(postProgramsHandler(request, response)).rejects.toThrow(
-      new BadRequestError('News must include title + content'),
+      new BadRequestError('Program must contain: title, content, link, program start and program end times.'),
     );
   });
 
@@ -70,7 +70,7 @@ describe('news endpoint', () => {
     const response = httpMocks.createResponse();
 
     expect(postProgramsHandler(request, response)).rejects.toThrow(
-      new BadRequestError('program must include title + content'),
+      new BadRequestError('Program must contain: title, content, link, program start and program end times.'),
     );
   });
 
@@ -84,7 +84,7 @@ describe('news endpoint', () => {
     const response = httpMocks.createResponse();
 
     expect(postProgramsHandler(request, response)).rejects.toThrow(
-      new BadRequestError('program must include title + content'),
+      new BadRequestError('Program must contain: title, content, link, program start and program end times.'),
     );
   });
 
@@ -97,7 +97,7 @@ describe('news endpoint', () => {
 
     const response = httpMocks.createResponse();
 
-    await getProgramsHandler(request, response);
+    await getNewsHandler(request, response);
 
     const data = response._getJSONData(); // short-hand for JSON.parse( response._getData() );
     expect(response.statusCode).toBe(200);

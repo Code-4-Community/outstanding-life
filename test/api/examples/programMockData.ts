@@ -1,9 +1,12 @@
 import { Program } from '@prisma/client';
-import { ProgramsWrite } from '../../../lib/types/dtos/createEventRequest.dto';
+import { ProgramsWrite } from '../../../lib/types/dtos/createProgramRequest.dto';
 
 export const createProgram0: ProgramsWrite = {
-  title: 'First news',
+  title: 'halloween',
   content: ':)',
+  link: 'https://www.c4cneu.com/',
+  eventStart: new Date('2022-10-31T14:00:00.000Z'),
+  eventEnd: new Date('2022-10-31T15:00:00.000Z')
 };
 
 export const createProgramBad: unknown = {
