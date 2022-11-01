@@ -121,6 +121,16 @@ Various commands that may help in the development process:
 | `npx prisma migrate dev` | Allows you to run changes/db migrations in the Prisma schema |
 | `npm run prepush:fix`    | Helps when CI tests are failing                              |
 
+Troubleshooting Postgres Issues:
+
+- Make sure your .env file is updated with your postgres user and password
+
+- Make sure your postgres server is running and is in an environment that shares processes with your dev environment (e.g. using WSL for both)
+
+- If you are having trouble with psql authentication or need to reset a postgres user's password follow these guides
+  - [Peer authentication failed for user postgres](https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge)
+  - [Changing a postgres user password](https://stackoverflow.com/questions/12720967/how-can-i-change-a-postgresql-user-password)
+
 ## 🔎 Learn More
 
 - [The C4C Website](https://www.c4cneu.com/)
