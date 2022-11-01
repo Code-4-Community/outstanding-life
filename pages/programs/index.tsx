@@ -6,20 +6,35 @@ const programs: ProgramListingProps[] = [
   {
     title: 'LUNCHTIME PRESENTATION',
     description: `
-    Please join OustandingLife for this informative lunchtime presentation. Bring your lunch and your questions! Attorney Samantha Gentel of Generations Law Group will be discussing the essential estate planning documents like Health Care Proxies, Powers of Attorney, Wills, and more.  
+    Please join OustandingLife for this informative lunchtime presentation. Bring your lunch \
+    and your questions! Attorney Samantha Gentel of Generations Law Group will be discussing \
+    the essential estate planning documents like Health Care Proxies, Powers of Attorney, Wills, \
+    and more.  
 
-    She will address questions surrounding estate planning in the LGBTQ+ Community, such as: \"What documents do you really need, and why?\" and \"Who should you name in important roles such as your Power of Attorney and Health Care Proxy?\" and other questions and challenges that may present when creating your estate plan. This presentation will not be recorded.
+    She will address questions surrounding estate planning in the LGBTQ+ Community, such as: \
+    \"What documents do you really need, and why?\" and \"Who should you name in important \
+    roles such as your Power of Attorney and Health Care Proxy?\" and other questions and \
+    challenges that may present when creating your estate plan. This presentation will not \
+    be recorded.
     
-    Presenter bio: Samanta F. Gentel, Esq. is an attorney with many years of legal experience specializing in the areas of Elder Law, Estate Planning, Medicaid/MassHealth Application and Appeals, and Asset Protection. Samanta has volunteered with organizations in her community, including Aspberger's Autism Network (AANE), Gay and Lesbian Advocates and Defenders (GLAD), and Jewish National Fund (JNF). Samanta is an LGBTQ+ Ally. 
+    Presenter bio: Samanta F. Gentel, Esq. is an attorney with many years of legal experience \
+    specializing in the areas of Elder Law, Estate Planning, Medicaid/MassHealth Application \
+    and Appeals, and Asset Protection. Samanta has volunteered with organizations in her \
+    community, including Aspberger's Autism Network (AANE), Gay and Lesbian Advocates and \
+    Defenders (GLAD), and Jewish National Fund (JNF). Samanta is an LGBTQ+ Ally. 
     `,
     date: 'Wednesday, November 2',
     time: 'Noon - 2pm',
-    registerLink: 'https://us06web.zoom.us/meeting/register/tZUldeyhqj4oG9Ak_X04hnVB4SZvi-UkFK88'
+    registerLink: 'https://us06web.zoom.us/meeting/register/tZUldeyhqj4oG9Ak_X04hnVB4SZvi-UkFK88',
   },
   {
     title: 'MONTHLY WRITING GROUP',
     description: `
-    Join OutstandingLife's monthly writing group. In this monthly writing workshop, we will discuss a short passage or poem that effectively uses a particular form or point of view. After considering how the technique enhances the piece, we will use some aspect of the text as a prompt to jumpstart our own writing. The focus will be on short, in-class writing and discussion. Suitable for writers with some experience.
+    Join OutstandingLife's monthly writing group. In this monthly writing workshop, we will \
+    discuss a short passage or poem that effectively uses a particular form or point of view. \
+    After considering how the technique enhances the piece, we will use some aspect of the \
+    text as a prompt to jumpstart our own writing. The focus will be on short, in-class \
+    writing and discussion. Suitable for writers with some experience.
     
     Jan Donley is a writer, a visual artist, and a professor. Her novel, The \
     Side Door, made the 2011-2012 American Library Association's (ALA) \
@@ -47,7 +62,7 @@ const programs: ProgramListingProps[] = [
     `,
     date: 'Thursday, November 17',
     time: '7pm - 8pm',
-    registerLink: 'https://us06web.zoom.us/meeting/register/tZAqd-CvrT0uGdDVqIRPH_AUpzJ35zR0igDK'
+    registerLink: 'https://us06web.zoom.us/meeting/register/tZAqd-CvrT0uGdDVqIRPH_AUpzJ35zR0igDK',
   },
 ];
 
