@@ -72,7 +72,6 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
               EDIT EVENT
             </Text>
           </Button>{' '}
-          :
           <Link
             href={recordingLink || registerLink}
             isExternal

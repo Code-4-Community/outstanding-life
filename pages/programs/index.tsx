@@ -171,21 +171,30 @@ const Programs: React.FC = () => {
   const createProgramModalManagement = useDisclosure();
 
   return (
-    <Container maxW={'container.lg'} mt="50px" mb="100px" fontSize="24px">
-      <Flex flexDirection="column" align="flex-start">
-        <div data-cy="programs-heading">
-          <OSLHeader header="November 2022 Online Events" style={{ marginBottom: '30px' }} />
-        </div>
-        <ProgramsList programListings={programs} />
-        <div data-cy="past-programs-heading">
-          <OSLHeader
-            header="Past Online Events"
-            style={{ marginTop: '60px', marginBottom: '30px' }}
-          />
-        </div>
-        <ProgramsList programListings={pastPrograms} />
-      </Flex>
-    </Container>
+    <>
+      <CreateProgramModal modalManagement={createProgramModalManagement} />
+      <Container maxW={'container.lg'} mt="50px" mb="100px" fontSize="24px">
+        <Flex flexDirection="column" align="flex-start">
+          <div data-cy="programs-heading">
+            <OSLHeader
+              header="October 2022 Online Events"
+              style={{ marginBottom: '30px' }}
+              hasButton={true}
+              buttonText={'CREATE EVENT'}
+              onButtonClick={() => createProgramModalManagement.onOpen()}
+            />
+          </div>
+          <ProgramsList programListings={programs} />
+          <div data-cy="past-programs-heading">
+            <OSLHeader
+              header="Past Online Events"
+              style={{ marginTop: '60px', marginBottom: '30px' }}
+            />
+          </div>
+          <ProgramsList programListings={pastPrograms} />
+        </Flex>
+      </Container>
+    </>
   );
 };
 
