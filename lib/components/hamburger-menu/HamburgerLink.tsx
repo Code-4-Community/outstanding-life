@@ -11,8 +11,6 @@ const HamburgerLink: React.FC<LinkProps | NavDropdownItemProps> = ({
   const router = useRouter();
   const isActive = router.pathname === path;
   const labelToUse = mobileLabel ? mobileLabel : label;
-  console.log(mobileLabel);
-  console.log(labelToUse);
 
   return (
     <Link href={path} passHref>
