@@ -1,11 +1,18 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { chakra, Link as ChakraLink } from '@chakra-ui/react';
-import { LinkProps } from '../navbar/links';
+import { LinkProps, NavDropdownItemProps } from '../navbar/links';
 
-const HamburgerLink: React.FC<LinkProps> = ({ path, label }) => {
+const HamburgerLink: React.FC<LinkProps | NavDropdownItemProps> = ({
+  path,
+  label,
+  mobileLabel,
+}) => {
   const router = useRouter();
   const isActive = router.pathname === path;
+  const labelToUse = mobileLabel ? mobileLabel : label;
+  console.log(mobileLabel);
+  console.log(labelToUse);
 
   return (
     <Link href={path} passHref>
@@ -14,7 +21,7 @@ const HamburgerLink: React.FC<LinkProps> = ({ path, label }) => {
         _first={{ borderTop: 'none' }}
         _focus={{ boxShadow: 'none' }}
         height="fit-content"
-        data-cy={'hamburger-navbar-' + label}
+        data-cy={'hamburger-navbar-' + labelToUse}
         borderTop="1px solid #CD0A69"
         width="100%"
         justifyContent="flex-end"
@@ -27,7 +34,7 @@ const HamburgerLink: React.FC<LinkProps> = ({ path, label }) => {
           margin="0 10px"
           fontWeight="bold"
           fontSize="24px">
-          {label}
+          {labelToUse}
         </chakra.span>
       </ChakraLink>
     </Link>
