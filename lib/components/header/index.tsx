@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({
     <Box style={style}>
       <Flex flexDir={'row'} justifyContent="space-between" mb={'3px'}>
         <Heading>{header}</Heading>
-        {hasButton && <HeaderButton buttonText={buttonText} onButtonClick={onButtonClick}/>}
+        {hasButton && <HeaderButton buttonText={buttonText} onButtonClick={onButtonClick} />}
       </Flex>
       <Box h={'4px'} bg={'var(--magenta)'} />
     </Box>

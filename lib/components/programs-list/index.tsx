@@ -61,36 +61,35 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
             isExternal
             _hover={{ textDecoration: 'none' }}
             _focus={{ outline: 'none' }}></Link>
-            <Flex
-              alignItems='end'
-              gap='10px'>
-              <Link
-                href={recordingLink || registerLink}
-                isExternal
-                _hover={{ textDecoration: 'none' }}
-                _focus={{ outline: 'none' }}>
-                <Button
-                  mt="5px"
-                  bg="var(--magenta)"
-                  borderRadius="md"
-                  alt="External page link to register for this event."
-                  pointerEvents="none">
-                  <Text margin="2px" color="white" fontSize="large" fontWeight="bolder">
-                    {recordingLink ? `VIEW RECORDING` : `REGISTER HERE`}
-                  </Text>
-                </Button>
-              </Link>
-              <IconButton
-                alt="Button to edit this event"
-                aria-label='Edit event'
-                variant="outline"
-                borderColor="#C00074"
-                color="#C00074"
-                _hover={{ textDecoration: 'none' }}
-                _focus={{ outline: 'none' }}
-                onClick={() => editProgramModalManagement.onOpen()}
-                icon={<EditIcon />} />
-            </Flex>
+          <Flex alignItems="end" gap="10px">
+            <Link
+              href={recordingLink || registerLink}
+              isExternal
+              _hover={{ textDecoration: 'none' }}
+              _focus={{ outline: 'none' }}>
+              <Button
+                mt="5px"
+                bg="var(--magenta)"
+                borderRadius="md"
+                alt="External page link to register for this event."
+                pointerEvents="none">
+                <Text margin="2px" color="white" fontSize="large" fontWeight="bolder">
+                  {recordingLink ? `VIEW RECORDING` : `REGISTER HERE`}
+                </Text>
+              </Button>
+            </Link>
+            <IconButton
+              alt="Button to edit this event"
+              aria-label="Edit event"
+              variant="outline"
+              borderColor="#C00074"
+              color="#C00074"
+              _hover={{ textDecoration: 'none' }}
+              _focus={{ outline: 'none' }}
+              onClick={() => editProgramModalManagement.onOpen()}
+              icon={<EditIcon />}
+            />
+          </Flex>
         </Flex>
       </Flex>
     </>
