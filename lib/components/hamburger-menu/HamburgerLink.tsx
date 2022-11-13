@@ -10,7 +10,7 @@ const HamburgerLink: React.FC<LinkProps | NavDropdownItemProps> = ({
 }) => {
   const router = useRouter();
   const isActive = router.pathname === path;
-  const labelToUse = mobileLabel ? mobileLabel : label;
+  const linkLabel = mobileLabel ? mobileLabel : label;
 
   return (
     <Link href={path} passHref>
@@ -19,7 +19,7 @@ const HamburgerLink: React.FC<LinkProps | NavDropdownItemProps> = ({
         _first={{ borderTop: 'none' }}
         _focus={{ boxShadow: 'none' }}
         height="fit-content"
-        data-cy={'hamburger-navbar-' + labelToUse}
+        data-cy={'hamburger-navbar-' + linkLabel}
         borderTop="1px solid #CD0A69"
         width="100%"
         justifyContent="flex-end"
@@ -32,7 +32,7 @@ const HamburgerLink: React.FC<LinkProps | NavDropdownItemProps> = ({
           margin="0 10px"
           fontWeight="bold"
           fontSize="24px">
-          {labelToUse}
+          {linkLabel}
         </chakra.span>
       </ChakraLink>
     </Link>

@@ -32,12 +32,12 @@ const NavLink: React.FC<LinkProps> = ({ path, label, dropDownOptions }) => {
           border="3px solid var(--magenta)"
           position="absolute"
           width="100%"
-          background="#FFF"
+          background="white"
           zIndex="100">
           {dropDownOptions.map(({ label, path }) => (
             <Box
               key={label}
-              backgroundColor={router.pathname === path ? '#c2c4c8' : undefined}
+              backgroundColor={router.pathname === path ? 'var(--slate)' : undefined}
               padding="8px 4px">
               <Link href={path} passHref>
                 {label.toUpperCase()}
