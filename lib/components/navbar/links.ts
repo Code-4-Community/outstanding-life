@@ -5,11 +5,11 @@ export type LinkProps = {
   dropDownOptions?: NavDropdownItemProps[];
 };
 
-export interface NavDropdownItemProps {
+export type NavDropdownItemProps = {
   label: string;
   mobileLabel?: string;
   path: string;
-}
+};
 
 const navLinks: LinkProps[] = [
   {
