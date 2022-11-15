@@ -39,7 +39,3 @@ yarn-error.log*
 
 # SQLite
 prisma/dev.*
-
-# NPM
-package-lock.json
-package.json

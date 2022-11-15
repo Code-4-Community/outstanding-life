@@ -1,12 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import makeRoute from '../../../lib/utils/utils';
-import { getNewsHandler, postProgramsHandler } from '../../../lib/api/programsLogic';
+import { getProgramsHandler, postProgramsHandler } from '../../../lib/api/programsLogic';
 
 /**
  * @swagger
- * /api/news:
+ * /api/programs:
  *   get:
- *     description: Returns the news headline
+ *     description: Returns the programs headline
  *     responses:
  *       200:
  *         description: OK
@@ -29,20 +29,20 @@ import { getNewsHandler, postProgramsHandler } from '../../../lib/api/programsLo
  *                       type: dateTime
  *                       example: Jan-08-2022
  *   post:
- *     description: Creates valid news headline
+ *     description: Creates valid programs headline
  *     parameters:
  *       - name: title
  *         required: true
- *         description: The title of the news headline.
+ *         description: The title of the programs headline.
  *         schema:
  *              type : string
  *       - name: content
  *         required: true
- *         description: The content of the news headline.
+ *         description: The content of the programs headline.
  *         schema:
  *              type : string
  *     responses:
  *       201:
  *         description: OK
  */
-export default makeRoute().get(getNewsHandler).post(postProgramsHandler);
+export default makeRoute().get(getProgramsHandler).post(postProgramsHandler);
