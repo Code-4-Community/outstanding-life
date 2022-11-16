@@ -126,3 +126,16 @@ Various commands that may help in the development process:
 - [The C4C Website](https://www.c4cneu.com/)
 
 - [The LBFE Website](https://lbfeboston.org/)
+
+## Testing Docker deployment locally
+
+```
+docker build . -t osl:[INSERT DATE/IDENTIFER]
+docker run -p 80:80 osl:[ABOVE TAG (DATE/IDENTIFIER)]
+```
+
+navigate to localhost in the browser
+
+## Deploying to prod
+
+TBD on build step
