@@ -17,6 +17,8 @@ const validateCreateProgramsRequest = (maybeProgram: unknown) => {
   try {
     return programsWriteSchema.parse(maybeProgram);
   } catch (e) {
-    throw new BadRequestError('Program must contain: title, content, link, program start and program end times.');
+    throw new BadRequestError(
+      'Program must contain: title, content, link, program start and program end times.',
+    );
   }
 };

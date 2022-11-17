@@ -5,7 +5,7 @@ export const programsWriteSchema = z.object({
   content: z.string().min(1),
   link: z.string().min(1),
   eventStart: z.date(),
-  eventEnd: z.date()
+  eventEnd: z.date(),
 });
 
 export type ProgramsWrite = z.infer<typeof programsWriteSchema>;
