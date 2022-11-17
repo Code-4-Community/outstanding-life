@@ -78,7 +78,7 @@ export const createProgramsNoEndDate: unknown = {
 
 export const program0: Program = {
   id: 0,
-  title: 'First news',
+  title: 'First program',
   content: ':)',
   createdAt: new Date('1997-08-17'),
   link: 'https://www.c4cneu.com/',
@@ -88,7 +88,7 @@ export const program0: Program = {
 
 export const program1: Program = {
   id: 1,
-  title: 'Second news',
+  title: 'Second program',
   content: ':))',
   createdAt: new Date('2001-01-15'),
   link: 'https://www.c4cneu.com/',
