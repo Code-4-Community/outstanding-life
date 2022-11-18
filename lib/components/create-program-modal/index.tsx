@@ -1,5 +1,6 @@
 import ProgramForm from '../program-form';
 import PopUp from '../pop-up';
+import { ApiClient } from '../../apiClient';
 
 type CreateProgramModalProps = {
   modalManagement: {
@@ -17,6 +18,8 @@ const CreateProgramModal: React.FC<CreateProgramModalProps> = ({ modalManagement
       confirmText="Create"
       size="2xl"
       onConfirm={() => {
+        // TODO
+        ApiClient.createProgram({})
         console.log('Creating program...');
       }}>
       <ProgramForm />
