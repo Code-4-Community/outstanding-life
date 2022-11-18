@@ -1,6 +1,9 @@
 import { ProgramListingProps, ProgramsList } from '../../lib/components/programs-list';
-import { Container, Flex } from '@chakra-ui/react';
+import { Container, Flex, useDisclosure } from '@chakra-ui/react';
 import OSLHeader from '../../lib/components/header';
+import CreateProgramModal from '../../lib/components/create-program-modal';
+
+const isAdmin = true;
 
 const programs: ProgramListingProps[] = [
   {
@@ -165,22 +168,33 @@ Since 1983 Women's Review of Books has provided a forum for serious, informed di
 ];
 
 const Programs: React.FC = () => {
+  const createProgramModalManagement = useDisclosure();
+
   return (
-    <Container maxW={'container.lg'} mt="50px" mb="100px" fontSize="24px">
-      <Flex flexDirection="column" align="flex-start">
-        <div data-cy="programs-heading">
-          <OSLHeader header="November 2022 Online Events" style={{ marginBottom: '30px' }} />
-        </div>
-        <ProgramsList programListings={programs} />
-        <div data-cy="past-programs-heading">
-          <OSLHeader
-            header="Past Online Events"
-            style={{ marginTop: '60px', marginBottom: '30px' }}
-          />
-        </div>
-        <ProgramsList programListings={pastPrograms} />
-      </Flex>
-    </Container>
+    <>
+      <CreateProgramModal modalManagement={createProgramModalManagement} />
+      <Container maxW={'container.lg'} mt="50px" mb="100px" fontSize="24px">
+        <Flex flexDirection="column" align="flex-start">
+          <div data-cy="programs-heading">
+            <OSLHeader
+              header="October 2022 Online Events"
+              style={{ marginBottom: '30px' }}
+              hasButton={true}
+              buttonText={'CREATE EVENT'}
+              onButtonClick={() => createProgramModalManagement.onOpen()}
+            />
+          </div>
+          <ProgramsList programListings={programs} />
+          <div data-cy="past-programs-heading">
+            <OSLHeader
+              header="Past Online Events"
+              style={{ marginTop: '60px', marginBottom: '30px' }}
+            />
+          </div>
+          <ProgramsList programListings={pastPrograms} />
+        </Flex>
+      </Container>
+    </>
   );
 };
 
