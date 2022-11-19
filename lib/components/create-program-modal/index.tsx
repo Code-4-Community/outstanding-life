@@ -1,6 +1,7 @@
 import ProgramForm from '../program-form';
 import PopUp from '../pop-up';
 import { ApiClient } from '../../apiClient';
+import { useState } from 'react';
 
 type CreateProgramModalProps = {
   modalManagement: {
@@ -11,6 +12,12 @@ type CreateProgramModalProps = {
 };
 
 const CreateProgramModal: React.FC<CreateProgramModalProps> = ({ modalManagement }) => {
+  const [eventName, setEventName] = useState<string>('');
+  const [eventStart, setEventStart] = useState<Date>(new Date());
+  const [eventEnd, setEventEnd] = useState<Date>(new Date());
+  const [eventDescription, setEventDescription] = useState<string>('');
+  const [registrationLink, setRegistrationLink] = useState<string>('');
+  const [recurring, setRecurring] = useState<boolean>(false);
   return (
     <PopUp
       header="Create Event"
@@ -18,11 +25,14 @@ const CreateProgramModal: React.FC<CreateProgramModalProps> = ({ modalManagement
       confirmText="Create"
       size="2xl"
       onConfirm={() => {
+        console.log(eventName)
         // TODO
-        ApiClient.createProgram({})
-        console.log('Creating program...');
+        // ApiClient.createProgram({})
+        // console.log('Creating program...');
       }}>
-      <ProgramForm />
+      <ProgramForm eventName={eventName} setEventName={setEventName} eventStart={eventStart} setEventStart={setEventStart} 
+        eventEnd={eventEnd} setEventEnd={setEventEnd} eventDescription={eventDescription} setEventDescription={setEventDescription}
+        registrationLink={registrationLink} setRegistrationLink={setRegistrationLink} setRecurring={setRecurring} recurring={recurring} />
     </PopUp>
   );
 };
