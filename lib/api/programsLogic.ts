@@ -9,7 +9,7 @@ export const getProgramsHandler = async (req: NextApiRequest, res: NextApiRespon
 
 export const postProgramsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const validatedProgram = validateCreateProgramsRequest(req.body);
-  await prisma.program.create({ data: validatedProgram });
+  await prisma.program.create({ data: req.body });
   res.status(201).end();
 };
 

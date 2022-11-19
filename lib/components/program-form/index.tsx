@@ -49,7 +49,7 @@ const ProgramForm: React.FC<ProgramFormProps> = ({ setEventName, eventName, setE
             <FormLabel htmlFor="registrationLink">Registration Link:</FormLabel>
             <Input id="registrationLink" type="url" placeholder="Registration link" onChange={(e) => setRegistrationLink(e.target.value)} value={registrationLink} />
           </FormControl>
-          <FormControl isRequired width={{ base: '100%', md: '33%' }}>
+          <FormControl width={{ base: '100%', md: '33%' }}>
             <FormLabel>Event Frequency:</FormLabel>
             <Checkbox id="recurring" onChange={(e) => setRecurring(e.target.checked)} checked={recurring}>Recurring?</Checkbox>
           </FormControl>
@@ -61,6 +61,7 @@ const ProgramForm: React.FC<ProgramFormProps> = ({ setEventName, eventName, setE
 
 // gets a date as a string without the Z for the purpose of storing the a Date as a string for the Chakra Input tag
 function getDateAsString(date: Date): string {
+  date.setSeconds(0,0);
   return date.toISOString().split('.')[0];
 }
 
