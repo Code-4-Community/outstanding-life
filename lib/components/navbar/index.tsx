@@ -46,6 +46,7 @@ const NavBar: React.FC<NavBarProps> = ({ navLinks, style }) => {
               path={linkProps.path}
               label={linkProps.label}
               dropDownOptions={linkProps?.dropDownOptions}
+              clickable={linkProps.clickable}
             />
           ))}
         </Flex>
