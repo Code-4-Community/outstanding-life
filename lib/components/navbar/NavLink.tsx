@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { LinkProps } from './links';
 import { Box, chakra, Link as ChakraLink, useDisclosure } from '@chakra-ui/react';
 
-const NavLink: React.FC<LinkProps> = ({ path, label, dropDownOptions }) => {
+const NavLink: React.FC<LinkProps> = ({ path, label, clickable, dropDownOptions }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   const isActive = router.pathname === path;
@@ -21,7 +21,8 @@ const NavLink: React.FC<LinkProps> = ({ path, label, dropDownOptions }) => {
           textDecorationThickness="3px"
           textDecorationColor={'var(--magenta)'}
           tabIndex={0}
-          _focus={{ boxShadow: 'none' }}>
+          _focus={{ boxShadow: 'none' }}
+          pointerEvents={clickable ? 'all' : 'none'}>
           <chakra.span fontWeight="bold" fontSize="24px">
             {label}
           </chakra.span>
@@ -34,11 +35,12 @@ const NavLink: React.FC<LinkProps> = ({ path, label, dropDownOptions }) => {
           width="100%"
           background="white"
           zIndex="100">
-          {dropDownOptions.map(({ label, path }) => (
+          {dropDownOptions.map(({ label, path, clickable }) => (
             <Box
               key={label}
               backgroundColor={router.pathname === path ? 'var(--slate)' : undefined}
-              padding="8px 4px">
+              padding="8px 4px"
+              pointerEvents={clickable ? 'all' : 'none'}>
               <Link href={path} passHref>
                 {label.toUpperCase()}
               </Link>
