@@ -15,6 +15,7 @@ interface PopUpProps {
   confirmText?: string;
   onConfirm: () => void;
   style?: React.CSSProperties;
+  size?: 'lg' | 'sm' | 'md' | 'xl' | '2xl';
 }
 
 const PopUp: React.FC<PopUpProps> = ({
@@ -25,10 +26,15 @@ const PopUp: React.FC<PopUpProps> = ({
   style,
   manageModal,
   children,
+  size,
 }) => {
   return (
     <>
-      <Modal styleConfig={style} isOpen={manageModal.isOpen} onClose={manageModal.onClose}>
+      <Modal
+        styleConfig={style}
+        isOpen={manageModal.isOpen}
+        onClose={manageModal.onClose}
+        size={size ?? 'lg'}>
         <ModalOverlay />
         <ModalContent>
           {header && <ModalHeader>{header}</ModalHeader>}

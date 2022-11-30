@@ -9,8 +9,29 @@ export class ApiClient {
     this.axiosInstance = axios.create({ baseURL });
   }
 
+  private async post(path: string, body: unknown): Promise<unknown> {
+    return this.axiosInstance.post(path, body).then((response) => response.data);
+  }
+
+
   private async put(path: string, body: unknown): Promise<unknown> {
     return this.axiosInstance.put(path, body).then((response) => response.data);
+  }
+
+  public async createProgram(
+    title: string,
+    content: string,
+    link: string,
+    eventStart: Date,
+    eventEnd: Date
+  ): Promise<void> {
+    await this.post(`/api/programs`, {
+      title: title,
+      content: content,
+      link: link,
+      eventStart: eventStart,
+      eventEnd: eventEnd
+    });
   }
 
   public async updatePrivilegeLevel(
