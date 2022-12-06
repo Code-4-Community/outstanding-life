@@ -61,10 +61,7 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
             isExternal
             _hover={{ textDecoration: 'none' }}
             _focus={{ outline: 'none' }}></Link>
-          <Flex 
-            flexDirection={useMobileLayout ? 'column' : 'row'}
-            gap={useMobileLayout ? 0 : 3}
-          >
+          <Flex flexDirection={useMobileLayout ? 'column' : 'row'} gap={useMobileLayout ? 0 : 3}>
             <Button
               mt="5px"
               bg="var(--magenta)"
@@ -94,7 +91,7 @@ const ProgramListing: React.FC<ProgramListingProps> = ({
               </Text>
             </Button>
           </Flex>
-          
+
           <Link
             href={recordingLink || registerLink}
             isExternal
