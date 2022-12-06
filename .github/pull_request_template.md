@@ -12,9 +12,9 @@ Briefly list the changes made to the code:
 
 ### ✔️ Verification
 
-What steps did you take to verify your changes work? These should be clear enough for someone to be able to clone the branch and follow the steps themselves. 
+What steps did you take to verify your changes work? These should be clear enough for someone to be able to clone the branch and follow the steps themselves.
 
-Provide screenshots of any new components, styling changes, or pages. 
+Provide screenshots of any new components, styling changes, or pages.
 
 ### 🏕️ (Optional) Future Work / Notes
 

@@ -5,11 +5,11 @@ about: A basic template for writing tickets in the form of user stories to hand 
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
 ### Description
-<!-- 
+
+<!--
 Consider phrasing a feature request in the form of a user story (https://dannorth.net/whats-in-a-story/)
 
 Narrative:

@@ -5,7 +5,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - "3000:3000"
+      - '3000:3000'
   postgres:
     image: postgres:14
     environment:
