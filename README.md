@@ -42,7 +42,7 @@ npm install
 npm install prisma --save-dev
 ```
 
-Start the development server. (warning: not _not_ use `npm start` that starts up the server in production mode)
+Start the development server. (warning: do _not_ use `npm start` that starts up the server in production mode)
 
 ```bash
 npm run dev
@@ -71,7 +71,7 @@ npm run test:cy       # opens the Cypress app to run E2E tests visually
 There are 5 main folders in this project:
 
 - pages
-  - Covers all of the pages in the website.
+  - Covers all the pages in the website.
   - Each page has their own folder with an `index.tsx` file containing the source code for that page.
   - An `_app.tsx` file is also included which has the overall page structure as well as an `index.tsx` file for the initial landing page.
   - Contains `dev_reference.md` with useful tips on how to build our web components.
@@ -139,3 +139,19 @@ Troubleshooting Postgres Issues:
 - [The C4C Website](https://www.c4cneu.com/)
 
 - [The LBFE Website](https://lbfeboston.org/)
+
+## Adding More Events
+If you want to add more events to the "Upcoming Events", you can directly add events into the 
+`pages/programs/programs.json` in the JSON format:
+```json
+{
+"tile": "Insert title here",
+"description": "Insert description here",
+"date": "Insert date here",
+"time": "Insert time here",
+"registerLink": "Insert link here"
+}
+```
+
+If you want to add more events to the "Past Events" section, you can directly add events into the 
+`pages\programs\past-programs.json` file!

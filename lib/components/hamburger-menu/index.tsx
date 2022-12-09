@@ -3,7 +3,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useEffect, useState } from 'react';
 import { NavBarProps } from '../navbar';
 import HamburgerLink from './HamburgerLink';
-import { LinkProps } from '../navbar/links';
+import { LinkProps, NavDropdownItemProps } from '../navbar/links';
 
 const HamburgerMenu: React.FC<NavBarProps> = ({ navLinks }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -49,9 +49,19 @@ const HamburgerMenu: React.FC<NavBarProps> = ({ navLinks }) => {
           alignItems="flex-end"
           top="0"
           opacity="0.9">
-          {navLinks.map((button: LinkProps) => (
-            <HamburgerLink key={button.path} path={button.path} label={button.label} />
-          ))}
+          {navLinks
+            .reduce((arr: (LinkProps | NavDropdownItemProps)[], link) => {
+              link.dropDownOptions?.forEach((opt) => {
+                arr.push(opt);
+              });
+              if (!link.dropDownOptions) {
+                arr.push(link);
+              }
+              return arr;
+            }, [])
+            .map((button: LinkProps) => (
+              <HamburgerLink key={button.path} {...button} />
+            ))}
         </Flex>
       )}
     </Box>
